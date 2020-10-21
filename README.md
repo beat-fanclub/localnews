@@ -1,24 +1,34 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Localnews
 
-Things you may want to cover:
+## Development setup
 
-* Ruby version
+1. [Install Nix](https://nixos.org/manual/nix/stable/#chap-installation)
 
-* System dependencies
+        sh <(curl -L https://nixos.org/nix/install) --daemon
 
-* Configuration
+2. Setup Nix flakes. ([Blog post](https://www.tweag.io/blog/2020-05-25-flakes/))
 
-* Database creation
+    1. Edit your nix configuration. Add the following options to `~/.config/nix/nix.conf`
 
-* Database initialization
+        experimental-features = nix-command flakes
 
-* How to run the test suite
+    2. Get a shell with flakes
 
-* Services (job queues, cache servers, search engines, etc.)
+        nix-shell -I nixpkgs=channel:nixos-20.09 --packages nixFlakes
 
-* Deployment instructions
+3. Load the development environment
 
-* ...
+        nix develop
+
+The database will automagically start when opening the development environment.
+
+In the future, you can get an environment with these commands:
+
+        nix-shell -I nixpkgs=channel:nixos-20.09 --packages nixFlakes
+        nix develop
+
+Start the server with:
+
+        rails s
+
