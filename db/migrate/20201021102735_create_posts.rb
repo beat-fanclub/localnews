@@ -9,7 +9,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
     end
     create_join_table :tags, :posts do |t|
       t.index :tag_id
-      t.index :user_id
+      t.index :post_id
     end
   end
 end
