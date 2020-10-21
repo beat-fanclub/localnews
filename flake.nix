@@ -58,6 +58,7 @@
         src = ./.;
         yarnLock = ./yarn.lock;
         yarnNix = ./yarn.nix;
+        packageJSON = ./package.json;
       };
     };
   }
