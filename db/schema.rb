@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_103746) do
+ActiveRecord::Schema.define(version: 2020_10_30_164021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "post_id", null: false
@@ -35,6 +36,9 @@ ActiveRecord::Schema.define(version: 2020_10_21_103746) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}, null: false
+    t.string "location_desc"
+    t.index ["location"], name: "index_posts_on_location", using: :gist
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
