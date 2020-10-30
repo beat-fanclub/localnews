@@ -201,6 +201,16 @@
     };
     version = "11.1.3";
   };
+  cancancan = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0pl6kn8qp8w94zh49gavpx03vhq8mhha7sbdcp6nizik9s3cwsqs";
+      type = "gem";
+    };
+    version = "3.1.0";
+  };
   capybara = {
     dependencies = ["addressable" "mini_mime" "nokogiri" "rack" "rack-test" "regexp_parser" "xpath"];
     groups = ["test"];
