@@ -98,6 +98,17 @@
     };
     version = "6.0.3.4";
   };
+  activerecord-postgis-adapter = {
+    dependencies = ["activerecord" "rgeo-activerecord"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "00bgaylj5x7v1p58y72zs3ipf440cnnrab3mfg5iczsv23xwrri0";
+      type = "gem";
+    };
+    version = "6.0.1";
+  };
   activestorage = {
     dependencies = ["actionpack" "activejob" "activerecord" "marcel"];
     groups = ["default"];
@@ -619,6 +630,27 @@
       type = "gem";
     };
     version = "3.0.1";
+  };
+  rgeo = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1q33wb7gh55382ikk9fhd3wwqskvp5l9007llv08zvx479bfgmb8";
+      type = "gem";
+    };
+    version = "2.1.1";
+  };
+  rgeo-activerecord = {
+    dependencies = ["activerecord" "rgeo"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0z436nabyh1r0v6mcmhq5hrmmsmsilwazkzb0753r80qjm0apsfy";
+      type = "gem";
+    };
+    version = "6.2.1";
   };
   rspec-core = {
     dependencies = ["rspec-support"];

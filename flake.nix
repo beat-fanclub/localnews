@@ -14,6 +14,8 @@
       inherit ruby;
       gemdir = ./.;
     };
+
+    postgresql = (pkgs.postgresql_11.withPackages (ps: [ ps.postgis]));
     start-db = pkgs.writeScriptBin "start-db" ''
       #!${pkgs.stdenv.shell}
       export PGHOST=/tmp/postgres/localnews
@@ -24,12 +26,12 @@
       mkdir -p $PGHOST
 
       if [ ! -d $PGDATA ]; then
-        ${pkgs.postgresql}/bin/initdb --auth=trust --no-locale --encoding=UTF8
+        ${postgresql}/bin/initdb --auth=trust --no-locale --encoding=UTF8
       fi
 
-      if ! ${pkgs.postgresql}/bin/pg_ctl status
+      if ! ${postgresql}/bin/pg_ctl status
       then
-        ${pkgs.postgresql}/bin/pg_ctl start -l $PGLOG -o "--unix_socket_directories='$PGHOST'"
+        ${postgresql}/bin/pg_ctl start -l $PGLOG -o "--unix_socket_directories='$PGHOST'"
       fi
     '';
   in
@@ -45,7 +47,7 @@
           bundix
           packages.frontend
           start-db
-          pkgs.postgresql
+          postgresql
         ];
 
         shellHook = ''
