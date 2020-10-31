@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+  <% if @parent %>
+    <h3>Parent comment</h3>
+    <strong><%= @parent.user.name %>:</strong>
+    <p>
+      <%= @parent.body %>
+    </p>
+    <%= form.text_field :parent_id, value: @parent.id, hidden: true %>
+  <% end %>
+
   <div class="field">
     <%= form.label :body, "Your comment:" %>
     <%= form.text_area :body %>

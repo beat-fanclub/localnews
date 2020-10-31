@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
+    @parent = Comment.find(params[:parent])
   end
 
   # GET /comments/1/edit
@@ -66,6 +67,6 @@ class CommentsController < ApplicationController
       params.require(:comment).permit(:body)
     end
     def create_params
-      params.require(:comment).permit(:body, :parent)
+      params.require(:comment).permit(:body, :parent_id)
     end
 end

@@ -12,25 +12,13 @@
 
 <p>
   <strong>User:</strong>
-  <%= @post.user_id %>
+  <%= @post.user.name %>
 </p>
 
 <%= render "comments/form", comment: @comment %>
 
 <strong>Comments:</strong>
-<% @post.comments.each do |comment| %>
-  <div class="comment">
-    <strong><%= comment.user_id %>:</strong>
-    <p>
-      <%= comment.body %>
-    </p>
-    <p>
-      <% if comment.id %>
-        <%= link_to 'Edit comment', edit_post_comment_path(comment.post, comment) %>
-      <% end %>
-    </p>
-  </div>
-<% end %>
+<%= render partial: "comment", collection: @post.comments.toplevel %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

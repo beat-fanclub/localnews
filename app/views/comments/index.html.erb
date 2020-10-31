@@ -19,7 +19,7 @@
       <tr>
         <td><%= comment.post_id %></td>
         <td><%= comment.body %></td>
-        <td><%= comment.user_id %></td>
+        <td><%= comment.user.name %></td>
         <td><%= comment.edited %></td>
         <td><%= comment.parent_id %></td>
         <td><%= link_to 'Show', post_comment_path(comment.post, comment) %></td>
