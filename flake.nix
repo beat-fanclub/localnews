@@ -33,7 +33,11 @@
       then
         ${postgresql}/bin/pg_ctl start -l $PGLOG -o "--unix_socket_directories='$PGHOST'"
       fi
+
+      redis-server &
     '';
+
+    redis = pkgs.redis;
   in
   rec {
     packages = {
@@ -45,9 +49,10 @@
           pkgs.yarn2nix
           pkgs.nodejs
           bundix
-          packages.frontend
+          # packages.frontend
           start-db
           postgresql
+          redis
         ];
 
         shellHook = ''

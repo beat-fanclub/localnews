@@ -810,6 +810,38 @@
       };
     }
     {
+      name = "_stimulus_core___core_1.1.1.tgz";
+      path = fetchurl {
+        name = "_stimulus_core___core_1.1.1.tgz";
+        url  = "https://registry.yarnpkg.com/@stimulus/core/-/core-1.1.1.tgz";
+        sha1 = "42b0cfe5b73ca492f41de64b77a03980bae92c82";
+      };
+    }
+    {
+      name = "_stimulus_multimap___multimap_1.1.1.tgz";
+      path = fetchurl {
+        name = "_stimulus_multimap___multimap_1.1.1.tgz";
+        url  = "https://registry.yarnpkg.com/@stimulus/multimap/-/multimap-1.1.1.tgz";
+        sha1 = "b95e3fd607345ab36e5d5b55486ee1a12d56b331";
+      };
+    }
+    {
+      name = "_stimulus_mutation_observers___mutation_observers_1.1.1.tgz";
+      path = fetchurl {
+        name = "_stimulus_mutation_observers___mutation_observers_1.1.1.tgz";
+        url  = "https://registry.yarnpkg.com/@stimulus/mutation-observers/-/mutation-observers-1.1.1.tgz";
+        sha1 = "0f6c6f081308427fed2a26360dda0c173b79cfc0";
+      };
+    }
+    {
+      name = "_stimulus_webpack_helpers___webpack_helpers_1.1.1.tgz";
+      path = fetchurl {
+        name = "_stimulus_webpack_helpers___webpack_helpers_1.1.1.tgz";
+        url  = "https://registry.yarnpkg.com/@stimulus/webpack-helpers/-/webpack-helpers-1.1.1.tgz";
+        sha1 = "eff60cd4e58b921d1a2764dc5215f5141510f2c2";
+      };
+    }
+    {
       name = "_types_glob___glob_7.1.3.tgz";
       path = fetchurl {
         name = "_types_glob___glob_7.1.3.tgz";
@@ -7199,6 +7231,14 @@
         name = "stdout_stream___stdout_stream_1.4.1.tgz";
         url  = "https://registry.yarnpkg.com/stdout-stream/-/stdout-stream-1.4.1.tgz";
         sha1 = "5ac174cdd5cd726104aa0c0b2bd83815d8d535de";
+      };
+    }
+    {
+      name = "stimulus___stimulus_1.1.1.tgz";
+      path = fetchurl {
+        name = "stimulus___stimulus_1.1.1.tgz";
+        url  = "https://registry.yarnpkg.com/stimulus/-/stimulus-1.1.1.tgz";
+        sha1 = "53c2fded6849e7b85eed3ed8dd76e33abd74bec5";
       };
     }
     {

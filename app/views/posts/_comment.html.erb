@@ -1,15 +1,11 @@
-<details class="comment">
+<details class="comment" <%= "open" if comment.toplevel? %> >
   <summary><%= comment.user.name %>:</summary>
   <p>
     <%= comment.body %>
   </p>
   <p>
-    <% if can? :edit, comment %>
-      <%= link_to 'Edit comment', edit_post_comment_path(comment.post, comment) %> |
-    <% end %>
-    <% if can? :create, Comment %>
-      <%= link_to "React", new_post_comment_path(comment.post, parent: comment) %>
-    <% end %>
+    <%= link_to 'Edit comment', edit_post_comment_path(comment.post, comment) %> |
+    <%= link_to "React", new_post_comment_path(comment.post, parent: comment) %>
   </p>
-  <%= render partial: "comment", collection: comment.children %>
+  <%= render partial: "posts/comment", collection: comment.children %>
 </details>

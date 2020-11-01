@@ -1,24 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<article
+  data-controller="cable-ready"
+  data-cable-ready-channel="PostChannel"
+  data-cable-ready-id="<%= @post.id %>">
+  <h1>
+    <%= @post.title %>
+  </h1>
+  <h2>By <%= @post.user.name %></h2>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+  <pre>
+    <%= @post.content %>
+  </pre>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user.name %>
-</p>
+  <%= render "comments/form", comment: @comment %>
 
-<%= render "comments/form", comment: @comment %>
+  <section>
+    <h2 id="comments">Comments</h2>
+    <%= render partial: "comment", collection: @comments.toplevel %>
+  </section>
 
-<strong>Comments:</strong>
-<%= render partial: "comment", collection: @post.comments.toplevel %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
+</article>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
