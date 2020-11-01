@@ -6,12 +6,14 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
+    "leaflet": "^1.7.1",
     "stimulus": "^1.1.1",
     "stimulus_reflex": "3.3.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@types/leaflet": "^1.5.19",
     "webpack-dev-server": "^3.11.0"
   }
 }

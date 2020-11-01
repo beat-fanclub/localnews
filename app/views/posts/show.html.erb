@@ -1,3 +1,14 @@
+
+<div
+  id="map"
+  class="map"
+  data-controller="map"
+  data-map-lat="<%= @post.location.latitude %>"
+  data-map-lon="<%= @post.location.longitude %>">
+  <div data-target="map.container" data-reflex-permanent>
+  </div>
+</div>
+
 <p id="notice"><%= notice %></p>
 
 <article
