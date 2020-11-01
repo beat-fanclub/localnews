@@ -5,7 +5,7 @@
 
 1. [Install Nix](https://nixos.org/manual/nix/stable/#chap-installation)
 
-        sh <(curl -L https://nixos.org/nix/install) --daemon
+        curl -L https://nixos.org/nix/install | sh
 
 2. Setup Nix flakes. ([Blog post](https://www.tweag.io/blog/2020-05-25-flakes/))
 
@@ -27,6 +27,10 @@ In the future, you can get an environment with these commands:
 
         nix-shell -I nixpkgs=channel:nixos-20.09 --packages nixFlakes
         nix develop
+
+Initialize the database with:
+
+        rails db:setup
 
 Start the server with:
 
