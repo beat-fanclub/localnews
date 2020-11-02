@@ -5,15 +5,108 @@ import MarkerIcon from   'leaflet/dist/images/marker-icon.png'
 import MarkerIcon2X from 'leaflet/dist/images/marker-icon-2x.png'
 import MarkerShadow from 'leaflet/dist/images/marker-shadow.png'
 
-let mapInstance = false
-
 export default class extends ApplicationController {
-  static targets = ["container"]
+  static targets = ["container", "locationInput"]
 
   connect() {
     super.connect()
-    this.initLeaflet()
-    mapInstance = this
+    this.containerTarget.map || this.initLeaflet()
+    this.map = this.containerTarget.map
+    this.updateMap()
+  }
+
+  updateMap() {
+    let data = this.data
+
+    // Set map position
+    if (data.has("center")) {
+      this.map.setView(JSON.parse(data.get("center")), 13)
+    } else {
+      this.map.locate({ setView: true})
+    }
+
+    // Set markers
+    if (this.data.has("markers"))
+      this.setMarkers(
+        JSON.parse(this.data.get("markers"))
+      )
+
+    // Handle adding new points
+    this.createPoint(this.data.has("new-point"))
+  }
+
+  setMarkers(markerData) {
+
+    if (!Array.isArray(markerData))
+      markerData = [ markerData ]
+
+    // Reset layer with new markers
+    const markerLayer = this.getMarkerLayer()
+    markerLayer.clearLayers()
+    markerData.forEach((marker) => {
+      this.addMarker(marker)
+    })
+  }
+
+  getMarkerLayer() {
+    return this.containerTarget.markerLayer ||= L.layerGroup().addTo(this.map)
+  }
+
+  addMarker(markerData) {
+    let latlon = markerData.location
+    const marker = L.marker(latlon, {
+      title: markerData.title,
+      draggable: markerData.editable,
+      autoPan: markerData.editable,
+    })
+
+    if (markerData.reflex) {
+      marker.on('move', (ev) => {
+        this.stimulate(
+          markerData.reflex, undefined, undefined,
+          ev.latlng, markerData.params
+        )
+      })
+    }
+
+    if (this.hasLocationInputTarget) {
+      marker.on('move', (ev) => {
+        this.setInput(ev.latlng)
+      })
+    }
+
+    if (markerData.content) {
+      marker.bindPopup(markerData.content)
+    }
+
+    const markerLayer = this.getMarkerLayer()
+    markerLayer.addLayer(marker)
+  }
+
+  setInput(latlng) {
+    const { lng, lat } = latlng
+    this.locationInputTarget.value = `POINT(${lng} ${lat})`
+  }
+
+  createPoint(enabled, reflex) {
+    const container = this.containerTarget
+    if (!this.containerTarget.onClickHandler) {
+      this.containerTarget.onClickHandler = () => {;}
+      this.map.on('click', (ev) => container.onClickHandler(ev))
+    }
+
+    if (enabled) {
+      container.onClickHandler = (ev) => {
+        container.onClickHandler = () => {;}
+        this.addMarker({
+          location: ev.latlng,
+          editable: true,
+          reflex: reflex,
+        })
+      }
+    } else {
+      container.onClickHandler = () => {;}
+    }
   }
 
   initLeaflet() {
@@ -33,19 +126,7 @@ export default class extends ApplicationController {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
     }).addTo(map);
 
-    // Set map position
-    let data = this.data
-    if (data.has("lat") && data.has("lon")) {
-      const latlon = ["lat", "lon"].map((key) => data.get(key))
-      map.setView(latlon, 13)
-      L.marker(latlon).addTo(map)
-    } else {
-      map.locate({ setView: true})
-    }
-
-    this.map = map
+    this.containerTarget.map = map
   }
 }
-
-export { mapInstance }
 
