@@ -2,3 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import 'colors';
+
+h1, {
+  color: $fg;
+  padding: 0.5em 0em;
+}
+
+h2 {
+  color: $fg;
+  font-size: 15px;
+}

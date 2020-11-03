@@ -1,0 +1,28 @@
+@import 'colors';
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  order: 2;
+  flex-basis: 100%;
+
+
+  label {
+    color: $fg;
+    font-weight: bold;
+    padding: 0.5em 0em;
+  }
+
+  input, textarea {
+    border: 0.1em solid #1d2d35;
+    border-radius: 4px;
+    color: $fg;
+    font-size: 1em;
+    padding: 0.5em 1em 0.5em;
+    resize: vertical;
+    outline: none;
+  }
+
+  width: 100%;
+}
