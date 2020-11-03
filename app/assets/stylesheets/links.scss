@@ -1,0 +1,12 @@
+@import 'colors';
+
+a {
+  color: $button-fg;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: $button-bg;
+  transition-duration: 0.4s;
+}
