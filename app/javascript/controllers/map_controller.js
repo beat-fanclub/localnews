@@ -18,18 +18,36 @@ export default class extends ApplicationController {
   updateMap() {
     let data = this.data
 
+    // Set markers
+    let markers = false
+    if (this.data.has("markers")) {
+      markers = JSON.parse(this.data.get("markers"))
+      this.setMarkers(markers)
+    }
+
     // Set map position
     if (data.has("center")) {
-      this.map.setView(JSON.parse(data.get("center")), 13)
+      const center = JSON.parse(data.get("center"))
+      if (center === true) {
+        this.map.fitBounds(L.latLngBounds(markers.map((marker) => marker.location)))
+      } else {
+        this.map.setView(center, 13)
+      }
     } else {
       this.map.locate({ setView: true})
     }
 
-    // Set markers
-    if (this.data.has("markers"))
-      this.setMarkers(
-        JSON.parse(this.data.get("markers"))
-      )
+    // Handle panning/zooming the map
+    if (this.data.has("bounds-reflex")) {
+      this.map.on("moveend", () => {
+        const bounds = this.map.getBounds()
+
+        this.stimulate(this.data.get("bounds-reflex"),
+          bounds.getNorthEast(), bounds.getSouthWest()
+        )
+      })
+    }
+
 
     // Handle adding new points
     this.createPoint(this.data.has("new-point"))
@@ -70,6 +88,7 @@ export default class extends ApplicationController {
     }
 
     if (this.hasLocationInputTarget) {
+      this.setInput(latlon)
       marker.on('move', (ev) => {
         this.setInput(ev.latlng)
       })

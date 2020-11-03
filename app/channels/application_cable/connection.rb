@@ -5,5 +5,9 @@ module ApplicationCable
     def connect
       self.session_id = cookies.encrypted[:session_id]
     end
+
+    def current_user
+      @current_user ||= User.find(cookies.encrypted[:user_id])
+    end
   end
 end

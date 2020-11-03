@@ -5,7 +5,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = @posts.limit(20)
+    @markers = @posts.map do |post|
+      {
+        location: post.location,
+        title: post.title,
+      }
+    end
   end
 
   # GET /posts/1
