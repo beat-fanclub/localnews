@@ -6,7 +6,7 @@ import MarkerIcon2X from 'leaflet/dist/images/marker-icon-2x.png'
 import MarkerShadow from 'leaflet/dist/images/marker-shadow.png'
 
 export default class extends ApplicationController {
-  static targets = ["container", "locationInput"]
+  static targets = ["container", "locationInput", "marker"]
 
   connect() {
     super.connect()
@@ -15,99 +15,103 @@ export default class extends ApplicationController {
     this.updateMap()
   }
 
+  dispatch(name) {
+    this.element.dispatchEvent(new Event(name))
+  }
+
   updateMap() {
     let data = this.data
 
     // Set markers
     let markers = false
-    if (this.data.has("markers")) {
-      markers = JSON.parse(this.data.get("markers"))
+    if (this.hasMarkerTarget) {
+      markers = this.markerTargets
       this.setMarkers(markers)
     }
 
     // Set map position
     if (data.has("center")) {
       const center = JSON.parse(data.get("center"))
-      if (center === true) {
-        this.map.fitBounds(L.latLngBounds(markers.map((marker) => marker.location)))
+
+      if (center === "markers" && markers) {
+        this.map.fitBounds(
+          L.latLngBounds(markers.map((marker) => {
+            return { lat: marker.dataset.lat, lon: marker.dataset,lon }
+          }))
+        )
+
+      } else if (center === "locate" || center === "markers") {
+        this.map.locate({ setView: true})
+
+      } else if (center === "bounds") {
+        const bounds = JSON.parse(data.get("bounds"))
+        this.map.fitBounds(L.latLngBounds(bounds))
+
       } else {
         this.map.setView(center, 13)
       }
-    } else {
-      this.map.locate({ setView: true})
     }
 
     // Handle panning/zooming the map
-    if (this.data.has("bounds-reflex")) {
-      this.map.on("moveend", () => {
-        const bounds = this.map.getBounds()
-
-        this.stimulate(this.data.get("bounds-reflex"),
-          bounds.getNorthEast(), bounds.getSouthWest()
-        )
-      })
-    }
-
+    this.map.once("moveend", () => {
+      const bounds = this.map.getBounds()
+      data.set("bounds", JSON.stringify([ bounds.getNorthEast(), bounds.getSouthWest() ]))
+      this.dispatch("moveend")
+    })
 
     // Handle adding new points
     this.createPoint(this.data.has("new-point"))
   }
 
-  setMarkers(markerData) {
-
-    if (!Array.isArray(markerData))
-      markerData = [ markerData ]
+  setMarkers(markers) {
 
     // Reset layer with new markers
     const markerLayer = this.getMarkerLayer()
     markerLayer.clearLayers()
-    markerData.forEach((marker) => {
+    markers.forEach((marker) => {
       this.addMarker(marker)
     })
   }
 
   getMarkerLayer() {
-    return this.containerTarget.markerLayer ||= L.layerGroup().addTo(this.map)
+    if (!this.containerTarget.markerLayer) 
+      this.containerTarget.markerLayer = L.layerGroup().addTo(this.map)
+
+    return this.containerTarget.markerLayer
   }
 
-  addMarker(markerData) {
-    let latlon = markerData.location
+  addMarker(markerEl) {
+    let data = markerEl.dataset
+    let latlon = { lat: data.lat, lon: data.lon }
     const marker = L.marker(latlon, {
-      title: markerData.title,
-      draggable: markerData.editable,
-      autoPan: markerData.editable,
+      title: data.title,
+      draggable: data.editable,
+      autoPan: data.editable,
     })
 
-    if (markerData.reflex) {
-      marker.on('move', (ev) => {
-        this.stimulate(
-          markerData.reflex, undefined, undefined,
-          ev.latlng, markerData.params
-        )
-      })
-    }
+    marker.on('moveend', (ev) => {
+      this.data.lat = ev.latlng.lat
+      this.data.lon = ev.latlng.lng
+      markerEl.dispatchEvent(new Event("moveend"))
+      this.setInput(ev.latlng)
+    })
+    this.setInput(marker.getLatLng())
 
-    if (this.hasLocationInputTarget) {
-      this.setInput(latlon)
-      marker.on('move', (ev) => {
-        this.setInput(ev.latlng)
-      })
-    }
-
-    if (markerData.content) {
-      marker.bindPopup(markerData.content)
-    }
+    if (data.popup)
+      marker.bindPopup(markerEl)
 
     const markerLayer = this.getMarkerLayer()
     markerLayer.addLayer(marker)
   }
 
   setInput(latlng) {
-    const { lng, lat } = latlng
-    this.locationInputTarget.value = `POINT(${lng} ${lat})`
+    if (this.hasLocationInputTarget) {
+      const { lng, lat } = latlng
+      this.locationInputTarget.value = `POINT(${lng} ${lat})`
+    }
   }
 
-  createPoint(enabled, reflex) {
+  createPoint(enabled) {
     const container = this.containerTarget
     if (!this.containerTarget.onClickHandler) {
       this.containerTarget.onClickHandler = () => {;}
@@ -117,11 +121,13 @@ export default class extends ApplicationController {
     if (enabled) {
       container.onClickHandler = (ev) => {
         container.onClickHandler = () => {;}
-        this.addMarker({
-          location: ev.latlng,
-          editable: true,
-          reflex: reflex,
-        })
+
+        let markerEl = this.markerTemplate;
+        // Set the new location
+        markerEl.dataset.lat = ev.latlng.lat
+        markerEl.dataset.lon = ev.latlng.lng
+        this.addMarker(markerEl)
+        this.dispatch("newmarker")
       }
     } else {
       container.onClickHandler = () => {;}

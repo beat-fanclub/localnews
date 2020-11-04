@@ -1,0 +1,8 @@
+<%= render MapComponent.new(map: @map_options) do %>
+  <% if @new_point %>
+    <div data-target="map.markerTemplate"></div>
+  <% else %>
+    <%= render MarkerComponent.new(@point, @editable) %>
+  <% end %>
+  <%= content %>
+<% end %>
