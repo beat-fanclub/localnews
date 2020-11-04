@@ -1,7 +1,10 @@
+@import 'colors';
+
+
 .top_navbar_list {
     margin: 0;
     padding: 0;
-    font-size: 150%;
+    font-size: 1em;
     font-weight: bold;
 }
 /* IMPORTANT: delete hardcoded colors!!!!!!!!
@@ -11,7 +14,7 @@ a {
     vertical-align: baseline;
     margin: 0;
     padding: 0;
-    color: #102F9E ; /*change this to bg after succesful merge*/
+    color: $fg ; 
     cursor: pointer;
     
 }
@@ -19,7 +22,7 @@ a:hover {
     background-color: transparent;
     color: #102F9E;
     text-decoration: underline;
-    text-decoration-color: #ffe000;
+    text-decoration-color: $bg;
 }
 
 ul {
