@@ -2,26 +2,8 @@
 <html>
   <head>
     <title>Localnews</title>
-    <ul class="top_navbar_list">
-      <li class= "homepage" >
-      <a> </a>
-      Localnews
-      </li>
-      <li class= "top_navbar_item" >
-      <a class="top_navbar_link" >   <!-- Add link to all "a" elements!!!!! -->
-        Most-popular</a>
-      </li>
-      <li class= "top_navbar_item">
-      <div class= "field">
-      <input type="text" placeholder="Search on location">
-      </div>
-      <li class= "top_navbar_item" >
-      <a class="top_navbar_link" >
-        Profile
-        <!--<img src="avatar.png" alt="Avatar" class="avatar">  </a> -->
-      </li>
 
-    </ul>
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -30,6 +12,15 @@
   </head>
 
   <body>
+   <div class="navbar">
+      <ul>
+        <li><a href="#home">Localnews</a></li>
+        <li><a href="#Trending">Trending</a></li>
+        <li style="float:right"><a href="#log_in">Log in</a></li>
+      </ul>
+    </div>
+    <div class="page_content">
     <%= yield %>
+    </div>
   </body>
 </html>
