@@ -1,10 +1,19 @@
+@import 'colors';
+
+.page_content{
+  margin-top: 50px;
+  /*
+  add all the margins you want.
+  */
+}
+
 
 a {
     font-size: 100%;
     vertical-align: baseline;
     margin: 0;
     padding: 0;
-    color: #102F9E ; /*change this to bg after succesful merge*/
+    color: $fg ;
     cursor: pointer;
 
 }
@@ -12,7 +21,7 @@ a:hover {
     background-color: transparent;
     color: #102F9E;
     text-decoration: underline;
-    text-decoration-color: #ffe000;
+    text-decoration-color: $bg;
 }
 
 ul {

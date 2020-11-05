@@ -3,13 +3,7 @@
   <head>
     <title>Localnews</title>
 
-    <div class="navbar">
-      <ul>
-        <li><a href="#home">Localnews</a></li>
-        <li><a href="#Trending">Trending</a></li>
-        <li style="float:right"><a href="#log_in">Log in</a></li>
-      </ul>
-    </div>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,6 +12,19 @@
   </head>
 
   <body>
+   <div class="navbar">
+      <ul>
+        <li><a href="#home">Localnews</a></li>
+        <li><a href="#Trending">Trending</a></li>
+        <li style="float:right"><a href="#log_in">Log in</a></li>
+      </ul>
+    </div>
+    <div class="page_content">
     <%= yield %>
+    </div>
+    <footer>
+    <p>Localnews inc 	&copy 2020 No rights reserved </p>
+    </footer>
+
   </body>
 </html>
