@@ -31,7 +31,7 @@ export default class extends ApplicationController {
 
     // Set map position
     if (data.has("center")) {
-      const center = JSON.parse(data.get("center"))
+      const center = data.get("center")
 
       if (center === "markers" && markers) {
         this.map.fitBounds(
@@ -52,15 +52,21 @@ export default class extends ApplicationController {
       }
     }
 
-    // Handle panning/zooming the map
-    this.map.once("moveend", () => {
-      const bounds = this.map.getBounds()
-      data.set("bounds", JSON.stringify([ bounds.getNorthEast(), bounds.getSouthWest() ]))
-      this.dispatch("moveend")
-    })
-
     // Handle adding new points
     this.createPoint(this.data.has("new-point"))
+
+    // Handle panning/zooming the map
+    // Use this once to ignore the first event, as it is fired when loading the map.
+    this.map.on("moveend", () => {
+      const bounds = this.map.getBounds()
+      data.set("bounds", JSON.stringify([ bounds.getNorthEast(), bounds.getSouthWest() ]))
+
+      // If the center is located using the GeoLocation API of the browser, the
+      // map bounds can change just before Action Cable is set up. This method
+      // will wait until that happens.
+      this.isActionCableConnectionOpen()
+      this.dispatch("moveend")
+    })
   }
 
   setMarkers(markers) {

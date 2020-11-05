@@ -2,17 +2,16 @@
 
 class MapReflex < ApplicationReflex
 
-  SQL = <<-SQL
-    ST_CoveredBy(location, ST_MakeEnvelope(?, ?, ?, ?, 4326))
-  SQL
-
-  def new_bounds(north_east, south_west)
-    xs = [ north_east[:lng], south_west[:lng] ].sort
-    ys = [ north_east[:lat], south_west[:lat] ].sort
+  def new_bounds
+    north_east, south_west = JSON.parse(element.dataset.map_bounds).map do |point|
+      { lat: point["lat"], lon: point["lng"] }
+    end
 
     @posts = Post
       .accessible_by(current_ability)
-      .where(SQL, xs.first, ys.first, xs.last, ys.last)
+      .within(north_east, south_west)
+
+    @bounds = [ north_east, south_west ]
   end
 
 end

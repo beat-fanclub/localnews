@@ -3,16 +3,15 @@
 <h1>Posts</h1>
 <%= link_to 'New Post', new_post_path %>
 
-<%= marked_map @posts, @markers, "Map#new_bounds" do | post | %>
-  <h3><%= link_to post.title, post_path(post) %></h3>
-  <span>By <%= post.user.name %></span>
+<%= render(MapComponent.new(map: { center: @bounds ? :bounds : :locate, bounds: @bounds }, reflex: "moveend->Map#new_bounds")) do %>
+  <ul>
+    <% for post in @posts %>
+      <li class="post-preview">
+        <%= render(MarkerComponent.new(post.location, post.title)) do %>
+          <h3><%= link_to post.title, post_path(post) %></h3>
+          <span>By <%= post.user.name %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
-
-<ul>
-  <% for post in @posts %>
-    <li class="post-preview">
-      <h3><%= link_to post.title, post_path(post) %></h3>
-      <span>By <%= post.user.name %></span>
-    </li>
-  <% end %>
-</ul>
