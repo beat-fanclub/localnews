@@ -5,7 +5,7 @@ class MarkerComponent < ViewComponent::Base
       title: title,
       lat: point.lat,
       lon: point.lon,
-      popup: block_given?,
+      popup: block_given? || nil,
       editable: editable,
     }
   end

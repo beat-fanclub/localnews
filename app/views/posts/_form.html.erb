@@ -11,13 +11,11 @@
     </div>
   <% end %>
 
-  <%= point_map post.location, true do | map_container | %>
-    <%= map_container %>
+  <%= render MapFormComponent.new(post.location, true) do %>
     <div class="field" data-controller="hide" data-target="hide.whenJS">
       <%= form.label :location %>
       <%= form.text_field :location, data: { target: "map.locationInput" } %>
     </div>
-
   <% end %>
 
   <div class="field">

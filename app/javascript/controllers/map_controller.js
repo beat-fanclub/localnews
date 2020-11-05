@@ -90,10 +90,11 @@ export default class extends ApplicationController {
     })
 
     marker.on('moveend', (ev) => {
-      this.data.lat = ev.latlng.lat
-      this.data.lon = ev.latlng.lng
+      const latlng = ev.target.getLatLng()
+      markerEl.dataset.lat = latlng.lat
+      markerEl.dataset.lon = latlng.lng
       markerEl.dispatchEvent(new Event("moveend"))
-      this.setInput(ev.latlng)
+      this.setInput(latlng)
     })
     this.setInput(marker.getLatLng())
 
