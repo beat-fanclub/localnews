@@ -12,13 +12,34 @@
   </head>
 
   <body>
-   <div class="navbar">
-      <ul>
-        <li><a href="#home">Localnews</a></li>
-        <li><a href="#Trending">Trending</a></li>
-        <li style="float:right"><a href="#log_in">Log in</a></li>
-      </ul>
-    </div>
+    <nav>
+      <div class="logo">
+        <h1>Localnews</h1>
+      </div>
+
+      <div class="nav-links">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">Trending</a>
+          </li>
+          <li>
+            <a href="#">Log in</a>
+          </li>
+        </ul>
+
+      </div>
+
+        <div class="mobile-nav">
+          <div class="first-line"></div>
+          <div class="second-line"></div>
+          <div class="third-line"></div>
+        </div>
+
+    </nav>  
+
     <div class="page_content">
     <%= yield %>
     </div>
