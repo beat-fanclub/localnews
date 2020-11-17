@@ -14,4 +14,7 @@
  *= require_self
  *= require 'leaflet/dist/leaflet.css'
  */
- 
+
+.page_content {
+  margin-top: 12vh;
+}

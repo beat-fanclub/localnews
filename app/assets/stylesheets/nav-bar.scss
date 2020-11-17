@@ -9,6 +9,7 @@ nav{
   position: fixed;
   width: 100%;
   top: 0;
+  left: 0;
 }
 
 .logo h1{
@@ -35,6 +36,13 @@ nav{
   font-weight: bold;
 
 }
+
+.nav-links a:hover {
+    text-decoration: underline;
+    text-decoration-color: $button-bg;
+    transition-duration: 0.4s;
+}
+
 
 .mobile-nav{
   display: none;

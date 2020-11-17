@@ -1,13 +1,5 @@
 @import 'colors';
 
-.page_content{
-  margin-top: 50px;
-  /*
-  add all the margins you want.
-  */
-}
-
-
 a {
     font-size: 100%;
     vertical-align: baseline;
@@ -17,11 +9,12 @@ a {
     cursor: pointer;
 
 }
+
 a:hover {
     background-color: transparent;
-    color: #102F9E;
+    color: $button-fg;
     text-decoration: underline;
-    text-decoration-color: $bg;
+    text-decoration-color: $button-bg;
 }
 
 ul {
@@ -37,3 +30,9 @@ li {
     float: left;
     margin-right: 50px;
   }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 1em;
+}
