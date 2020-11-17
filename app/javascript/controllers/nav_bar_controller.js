@@ -1,3 +1,7 @@
+import { Controller } from "stimulus"
+
+export default class extends ApplicationController {
+
 const navSlide = () => {
   const mobile-nav = document.querySelector('.mobile-nav');
   const nav = document.querySelector('.nav-links');
@@ -22,3 +26,5 @@ const navSlide = () => {
 }
 
 navSlide();
+
+}
