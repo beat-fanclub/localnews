@@ -61,5 +61,5 @@ gem 'omniauth', '~> 1.9'
 gem 'cancancan', '~> 3.1.0'
 gem 'stimulus_reflex', '~> 3.3.0'
 gem 'view_component', '~> 2.21.0', require: 'view_component/engine'
-
+gem 'view_component_reflex', '~> 2.6.2'
 

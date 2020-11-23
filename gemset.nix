@@ -1083,6 +1083,17 @@
     };
     version = "2.21.0";
   };
+  view_component_reflex = {
+    dependencies = ["rails" "stimulus_reflex" "view_component"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1vx2lscn6580n4cgqi99yhrzd1jclsynaapsy9as6nkq99319brc";
+      type = "gem";
+    };
+    version = "2.6.2";
+  };
   warden = {
     dependencies = ["rack"];
     groups = ["default"];
