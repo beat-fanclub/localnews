@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class MapReflex < ApplicationReflex
+class PostsReflex < ApplicationReflex
 
   def new_bounds
     north_east, south_west = JSON.parse(element.dataset.map_bounds).map do |point|

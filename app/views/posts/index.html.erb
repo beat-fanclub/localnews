@@ -3,7 +3,7 @@
 <h1>Posts</h1>
 <%= link_to 'New Post', new_post_path %>
 
-<%= render(MapComponent.new(map: { center: @bounds ? :bounds : :locate, bounds: @bounds }, reflex: "moveend->Map#new_bounds")) do %>
+<%= render(MapComponent.new(map: { center: @bounds ? :bounds : :locate, bounds: @bounds }, reflex: "moveend->Posts#new_bounds")) do %>
   <ul>
     <% for post in @posts %>
       <li class="post-preview">
