@@ -1,5 +1,6 @@
 import ApplicationController from './application_controller'
 import * as L from 'leaflet';
+import Search from 'leaflet-search';
 
 import MarkerIcon from   'leaflet/dist/images/marker-icon.png'
 import MarkerIcon2X from 'leaflet/dist/images/marker-icon-2x.png'
@@ -48,7 +49,7 @@ export default class extends ApplicationController {
         this.map.fitBounds(L.latLngBounds(bounds))
 
       } else {
-        this.map.setView(center, 13)
+        this.map.setView(JSON.parse(center), 13)
       }
     }
 
@@ -157,6 +158,17 @@ export default class extends ApplicationController {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
     }).addTo(map);
+
+    new L.Control.Search({
+      url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
+      jsonpParam: 'json_callback',
+      propertyName: 'display_name',
+      propertyLoc: ['lat','lon'],
+      marker: L.circleMarker([0,0],{radius:30}),
+      autoCollapse: true,
+      autoType: false,
+      minLength: 2
+    }).addTo(map)
 
     this.containerTarget.map = map
   }

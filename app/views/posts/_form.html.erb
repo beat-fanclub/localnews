@@ -13,7 +13,7 @@
 
   <%= render MapFormComponent.new(post.location, true) do %>
     <div class="field" data-controller="hide" data-target="hide.whenJS">
-      <%= form.label :location %>
+      <%= form.label :location, "WKT representation of location:" %>
       <%= form.text_field :location, data: { target: "map.locationInput" } %>
     </div>
   <% end %>
