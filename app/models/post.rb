@@ -5,7 +5,7 @@ class Post < ApplicationRecord
 
   scope :within, -> (north_east, south_west) {
       where(<<-SQL, south_west[:lon], south_west[:lat], north_east[:lon], north_east[:lat])
-        ST_CoveredBy(location, ST_MakeEnvelope(?, ?, ?, ?, 4326))
+        ST_MakeEnvelope(?, ?, ?, ?, 4326) ~ location::geometry
       SQL
   }
 
