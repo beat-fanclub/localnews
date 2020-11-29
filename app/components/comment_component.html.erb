@@ -1,10 +1,10 @@
-<%= component_controller do %>
+<%= component_controller(id: "comment_#{@comment.id}") do %>
   <strong><%= @comment.user.name %>:</strong>
   <p><%= @comment.body %></p>
   <ul>
     <% if can? :edit, @comment  %>
       <li>
-        <%= link_to "Edit comment", edit_post_comment_path(@comment.post, @comment) %>
+        <%= link_to "Edit comment", edit_comment_path(@comment) %>
       </li>
     <% end %>
     <% if @reactable %>
