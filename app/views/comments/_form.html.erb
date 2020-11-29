@@ -12,11 +12,7 @@
   <% end %>
 
   <% if @parent %>
-    <h3>Parent comment</h3>
-    <strong><%= @parent.user.name %>:</strong>
-    <p>
-      <%= @parent.body %>
-    </p>
+    <%= render CommentComponent.new(comment: @parent, reactable: false, open: true) %>
     <%= form.text_field :parent_id, value: @parent.id, hidden: true %>
   <% end %>
 

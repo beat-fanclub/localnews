@@ -1,11 +1,22 @@
-<%= component_controller(:details, open: @comment.toplevel?) do %>
-  <summary><%= @comment.user.name %>:</summary>
+<%= component_controller do %>
+  <strong><%= @comment.user.name %>:</strong>
   <p><%= @comment.body %></p>
-  <p>
+  <ul>
     <% if can? :edit, @comment  %>
-      <%= link_to "Edit comment", edit_post_comment_path(@comment.post, @comment) %> |
+      <li>
+        <%= link_to "Edit comment", edit_post_comment_path(@comment.post, @comment) %>
+      </li>
     <% end %>
-    <%= link_to "React", new_post_comment_path(@comment.post, parent: @comment) %>
-  </p>
-  <%= render(CommentComponent.with_collection(@comment.children)) %>
+    <% if @reactable %>
+      <li>
+        <%= link_to "React", new_post_comment_path(@comment.post, parent: @comment) %>
+      </li>
+    <% end %>
+  </ul>
+  <% if @comment.children.present? %>
+    <details>
+      <summary>Replies</summary>
+      <%= render(CommentComponent.with_collection(@comment.children)) %>
+    </details>
+  <% end %>
 <% end %>
