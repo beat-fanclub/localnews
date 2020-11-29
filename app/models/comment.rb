@@ -10,31 +10,11 @@ class Comment < ApplicationRecord
 
   validate :same_post_as_parent
 
-  after_create :broadcast
-
   def toplevel?
     parent.nil?
   end
 
   private
-
-  def broadcast
-    html = ApplicationController.render(
-      partial: "posts/comment",
-      locals: { comment: self }
-    )
-    cable.insert_adjacent_html(
-      selector: "#comments",
-      position: "afterend",
-      html: html
-    )
-    cable_ready.broadcast
-  end
-
-
-  def cable
-    cable_ready["post_#{post.id}"]
-  end
 
   def same_post_as_parent
     if parent.present? && parent.post != post
