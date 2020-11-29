@@ -19,7 +19,7 @@
 
   <section>
     <h2 id="comments">Comments</h2>
-    <%= render partial: "comment", collection: @comments.toplevel %>
+    <%= render CommentComponent.with_collection(@comments.toplevel) %>
   </section>
 
   <%= link_to 'Edit', edit_post_path(@post) %> |

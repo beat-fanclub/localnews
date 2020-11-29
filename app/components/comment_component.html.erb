@@ -1,0 +1,11 @@
+<%= component_controller(:details, open: @comment.toplevel?) do %>
+  <summary><%= @comment.user.name %>:</summary>
+  <p><%= @comment.body %></p>
+  <p>
+    <% if can? :edit, @comment  %>
+      <%= link_to "Edit comment", edit_post_comment_path(@comment.post, @comment) %> |
+    <% end %>
+    <%= link_to "React", new_post_comment_path(@comment.post, parent: @comment) %>
+  </p>
+  <%= render(CommentComponent.with_collection(@comment.children)) %>
+<% end %>
