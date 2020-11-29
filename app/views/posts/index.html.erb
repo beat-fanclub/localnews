@@ -8,8 +8,9 @@
     <% for post in @posts %>
       <li class="post-preview">
         <%= render(MarkerComponent.new(post.location, post.title)) do %>
-          <h3><%= link_to post.title, post_path(post) %></h3>
-          <span>By <%= post.user.name %></span>
+          <p><%= link_to post.title, post_path(post) %></p>
+          <p>By <%= post.user.name %></p>
+          <p><%= post.comments.count %> Comments</p>
         <% end %>
       </li>
     <% end %>
