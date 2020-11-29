@@ -1,5 +1,6 @@
 class Comment < ApplicationRecord
   include CableReady::Broadcaster
+  include Voteable
 
   belongs_to :post
   belongs_to :user
