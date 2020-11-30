@@ -5,7 +5,15 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    if params[:map_bounds].present?
+      north_east, south_west = JSON.parse(params[:map_bounds]).map do |point|
+        { lat: point["lat"], lon: point["lng"] }
+      end
+      @posts = @posts.within(north_east, south_west) if north_east && south_west
+      @bounds = [ north_east, south_west ]
+    end
     @posts = @posts.limit(20)
+    @filter_params = params.permit(:q, :map_bounds).to_h
   end
 
   # GET /posts/1

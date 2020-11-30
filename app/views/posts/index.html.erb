@@ -3,7 +3,27 @@
 <h1>Posts</h1>
 <%= link_to 'New Post', new_post_path %>
 
-<%= render(MapComponent.new(map: { center: @bounds ? :bounds : :locate, bounds: @bounds }, reflex: "moveend->Posts#new_bounds")) do %>
+<%= tag.div(data: @filter_params.merge(controller: "posts")) do %>
+  <%= form_with(
+    url: posts_path,
+    method: :get,
+    local: true,
+    class: "posts-filter",
+    data: { target: "posts.filterForm" }
+  ) do |f| %>
+
+    <div class="field">
+      <%= label_tag :q, 'Search:' %>
+      <%= search_field_tag :q, params[:q], data: { reflex: "input->Posts#filter" } %>
+    </div>
+    <%= hidden_field_tag :map_bounds, params[:map_bounds], data: { reflex: "change->Posts#filter" } %>
+  <% end %>
+
+  <%= render(MapComponent.new(
+    map: { center: @bounds ? :bounds : :locate, bounds: @bounds },
+    target: "posts.map",
+    action: "moveend->posts#newBounds"
+  )) do %>
   <ul>
     <% for post in @posts %>
       <li class="post-preview">
@@ -15,4 +35,5 @@
       </li>
     <% end %>
   </ul>
+  <% end %>
 <% end %>

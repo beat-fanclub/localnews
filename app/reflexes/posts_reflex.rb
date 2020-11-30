@@ -2,16 +2,8 @@
 
 class PostsReflex < ApplicationReflex
 
-  def new_bounds
-    north_east, south_west = JSON.parse(element.dataset.map_bounds).map do |point|
-      { lat: point["lat"], lon: point["lng"] }
-    end
-
-    @posts = Post
-      .accessible_by(current_ability)
-      .within(north_east, south_west)
-
-    @bounds = [ north_east, south_west ]
+  def filter
+    params[element[:name].to_sym] = element.value
   end
 
 end
