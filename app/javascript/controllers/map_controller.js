@@ -7,7 +7,7 @@ import MarkerIcon2X from 'leaflet/dist/images/marker-icon-2x.png'
 import MarkerShadow from 'leaflet/dist/images/marker-shadow.png'
 
 export default class extends ApplicationController {
-  static targets = ["container", "locationInput", "marker"]
+  static targets = ["container", "locationInput", "marker", "markerTemplate"]
 
   connect() {
     super.connect()
@@ -130,7 +130,7 @@ export default class extends ApplicationController {
       container.onClickHandler = (ev) => {
         container.onClickHandler = () => {;}
 
-        let markerEl = this.markerTemplate;
+        let markerEl = this.markerTemplateTarget;
         // Set the new location
         markerEl.dataset.lat = ev.latlng.lat
         markerEl.dataset.lon = ev.latlng.lng

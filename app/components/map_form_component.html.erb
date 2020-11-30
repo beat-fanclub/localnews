@@ -1,6 +1,6 @@
 <%= render MapComponent.new(map: @map_options) do %>
   <% if @new_point %>
-    <div data-target="map.markerTemplate"></div>
+    <%= render MarkerComponent.new(nil, nil, @editable, target: "map.markerTemplate") %>
   <% else %>
     <%= render MarkerComponent.new(@point, nil, @editable) %>
   <% end %>
