@@ -9,4 +9,17 @@ class User < ApplicationRecord
   has_many :votes
   has_many :voted_posts, through: :votes, source: :voteable, source_type: :Post
   has_many :voted_comments, through: :votes, source: :voteable, source_type: :Comment
+
+  def vote(voteable, direction)
+    votes.create_or_find_by(voteable: voteable).update(direction: direction)
+  end
+
+  def unvote(voteable)
+    votes.delete_by(voteable: voteable)
+  end
+
+  def voted?(voteable)
+    votes.find_by(voteable: voteable)
+  end
+
 end

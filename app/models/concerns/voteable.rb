@@ -7,10 +7,7 @@ module Voteable
   end
 
   def score
-    votes.count
+    votes.sum(:direction)
   end
 
-  def vote(user)
-    votees << user
-  end
 end
