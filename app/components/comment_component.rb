@@ -1,5 +1,6 @@
 class CommentComponent < ViewComponentReflex::Component
   delegate :can?, :cannot?, to: :helpers
+  delegate :current_user, to: :connection
 
   def initialize(comment:, reactable: true, open: false)
     @comment = comment
