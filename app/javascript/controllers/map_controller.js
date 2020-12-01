@@ -106,7 +106,7 @@ export default class extends ApplicationController {
     this.setInput(marker.getLatLng())
 
     if (data.popup)
-      marker.bindPopup(markerEl)
+      marker.bindPopup(markerEl.outerHTML)
 
     const markerLayer = this.getMarkerLayer()
     markerLayer.addLayer(marker)
