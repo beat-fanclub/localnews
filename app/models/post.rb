@@ -11,6 +11,11 @@ class Post < ApplicationRecord
       SQL
   }
 
+  scope :search, -> (query,  language = :simple) { where(
+      "to_tsvector(?, title || ' ' || content) @@ to_tsquery(?)",
+      language, query
+    ) }
+
   def before_update
     edited = true
   end

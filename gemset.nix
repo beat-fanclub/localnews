@@ -355,6 +355,17 @@
     };
     version = "0.4.2";
   };
+  has_scope = {
+    dependencies = ["actionpack" "activesupport"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "14df3am60hmyadjz2wah1qny2l5as51gvlxd0nycygmiqbfa0kyg";
+      type = "gem";
+    };
+    version = "0.7.2";
+  };
   hashie = {
     groups = ["default"];
     platforms = [];

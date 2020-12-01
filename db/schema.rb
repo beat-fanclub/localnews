@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_29_163400) do
+ActiveRecord::Schema.define(version: 2020_12_01_175324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 2020_11_29_163400) do
     t.datetime "updated_at", precision: 6, null: false
     t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}, null: false
     t.string "location_desc"
+    t.index "to_tsvector('dutch'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_dutch", using: :gin
+    t.index "to_tsvector('english'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_english", using: :gin
+    t.index "to_tsvector('french'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_french", using: :gin
+    t.index "to_tsvector('simple'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_simple", using: :gin
     t.index ["location"], name: "index_posts_on_location", using: :gist
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

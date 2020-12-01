@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   load_and_authorize_resource :post
 
+  has_scope :search, as: :q
+
   # GET /posts
   # GET /posts.json
   def index
@@ -12,6 +14,7 @@ class PostsController < ApplicationController
       @posts = @posts.within(north_east, south_west) if north_east && south_west
       @bounds = [ north_east, south_west ]
     end
+    @posts = apply_scopes(@posts)
     @posts = @posts.limit(20)
     @filter_params = params.permit(:q, :map_bounds).to_h
   end
