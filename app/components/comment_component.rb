@@ -1,11 +1,12 @@
 class CommentComponent < ViewComponentReflex::Component
   delegate :can?, :cannot?, to: :helpers
-  delegate :current_user, to: :connection
+  attr_reader :current_user
 
-  def initialize(comment:, reactable: true, open: false)
+  def initialize(comment:, user:, reactable: true, open: false)
     @comment = comment
     @reactable = reactable
     @open = open
+    @current_user = user
   end
 
   def collection_key

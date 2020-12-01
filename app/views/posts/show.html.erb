@@ -2,6 +2,8 @@
 
 <p id="notice"><%= notice %></p>
 
+<%= render VoteComponent.new(voteable: @post, user: @current_user) %>
+
 <article>
   <h1>
     <%= @post.title %>

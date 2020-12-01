@@ -1,12 +1,10 @@
 class VoteComponent < ViewComponentReflex::Component
   delegate :can?, :cannot?, to: :helpers
+  attr_reader :current_user
 
-  def current_user
-    @user ||= User.find(helpers.cookies.encrypted[:user_id])
-  end
-
-  def initialize(voteable:)
+  def initialize(voteable:, user:)
     @voteable = voteable
+    @current_user = user
   end
 
   def vote(direction)

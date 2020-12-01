@@ -27,6 +27,7 @@
   <ul>
     <% for post in @posts %>
       <li class="post-preview">
+        <%= render VoteComponent.new(voteable: post, user: current_user) %>
         <%= render(MarkerComponent.new(post.location, post.title)) do %>
           <p><%= link_to post.title, post_path(post) %></p>
           <p>By <%= post.user.name %></p>

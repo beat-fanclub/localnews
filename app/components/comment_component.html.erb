@@ -1,5 +1,5 @@
 <%= component_controller(id: "comment_#{@comment.id}") do %>
-  <%= render VoteComponent.new(voteable: @comment) %>
+  <%= render VoteComponent.new(voteable: @comment, user: current_user) %>
   <strong><%= @comment.user.name %>:</strong>
   <p><%= @comment.body %></p>
   <ul>
