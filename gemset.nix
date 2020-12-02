@@ -387,6 +387,17 @@
     };
     version = "1.8.5";
   };
+  image_processing = {
+    dependencies = ["mini_magick" "ruby-vips"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1778lv4lpwk9ffm0zy7w59gzchq19f22a5gfrdk6qa7l9vx89h11";
+      type = "gem";
+    };
+    version = "1.12.1";
+  };
   jaro_winkler = {
     groups = ["default" "development" "test"];
     platforms = [];
@@ -481,6 +492,16 @@
       type = "gem";
     };
     version = "0.3.5";
+  };
+  mini_magick = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1aj604x11d9pksbljh0l38f70b558rhdgji1s9i763hiagvvx2hs";
+      type = "gem";
+    };
+    version = "4.11.0";
   };
   mini_mime = {
     groups = ["default"];
@@ -891,6 +912,17 @@
       type = "gem";
     };
     version = "1.10.1";
+  };
+  ruby-vips = {
+    dependencies = ["ffi"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0lk124dixshf8mmrjpsy9avnaygni3cwki25g8nm5py4d2f5fwwa";
+      type = "gem";
+    };
+    version = "2.0.17";
   };
   rubyzip = {
     groups = ["default" "test"];

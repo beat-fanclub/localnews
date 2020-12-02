@@ -12,11 +12,11 @@ users = User.create!([
 ])
 
 Post.create!([
-  { title: "My post", content: "My best content!", location: "POINT(50 50)",
+  { title: "My post", body: "My best content!", location: "POINT(50 50)",
     user_id: users.first.id },
-  { title: "My question", content: "My best content!", location: "POINT(0 50)",
+  { title: "My question", body: "My best content!", location: "POINT(0 50)",
     user_id: users.second.id },
-  { title: "My blog", content: "My best content!", location: "POINT(50 0)",
+  { title: "My blog", body: "My best content!", location: "POINT(50 0)",
     user_id: users.first.id },
 ])
 

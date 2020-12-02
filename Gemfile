@@ -63,4 +63,5 @@ gem 'stimulus_reflex', '~> 3.3.0'
 gem 'view_component', '~> 2.21.0', require: 'view_component/engine'
 gem 'view_component_reflex', '~> 2.6.2'
 gem 'has_scope', '~> 0.7.2'
+gem 'image_processing', '~> 1.2'
 

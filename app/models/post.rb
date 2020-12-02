@@ -4,6 +4,9 @@ class Post < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :tags
   has_many :comments
+  has_rich_text :body
+
+  before_save :update_content
 
   scope :within, -> (north_east, south_west) {
       where(<<-SQL, south_west[:lon], south_west[:lat], north_east[:lon], north_east[:lat])
@@ -16,7 +19,10 @@ class Post < ApplicationRecord
       language, query
     ) }
 
-  def before_update
-    edited = true
+  private
+
+  def update_content
+    self.content = body.to_plain_text
   end
+
 end
