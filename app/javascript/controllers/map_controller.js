@@ -13,6 +13,7 @@ export default class extends ApplicationController {
     super.connect()
     this.containerTarget.map || this.initLeaflet()
     this.map = this.containerTarget.map
+    if (!this.containerTarget.markers) this.containerTarget.markers = {}
     this.updateMap()
   }
 
@@ -72,11 +73,13 @@ export default class extends ApplicationController {
 
   setMarkers(markers) {
 
+    this.containerTarget.markers = {}
+
     // Reset layer with new markers
     const markerLayer = this.getMarkerLayer()
     markerLayer.clearLayers()
     markers.forEach((marker) => {
-      this.addMarker(marker)
+      this.addMarkerEl(marker)
     })
   }
 
@@ -87,7 +90,23 @@ export default class extends ApplicationController {
     return this.containerTarget.markerLayer
   }
 
-  addMarker(markerEl) {
+  addMarker(markerEv) {
+    const markerEl = markerEv.target
+    const id = markerEl.id
+    const markers = this.containerTarget.markers
+    markers[id] || this.addMarkerEl(markerEl)
+  }
+
+  removeMarker(markerEv) {
+    const id = markerEv.detail.id
+    console.log(`Removing marker#${id}`);
+    const markers = this.containerTarget.markers
+    const marker = markers[id]
+    marker.removeFrom(this.getMarkerLayer())
+    markers[id] = null
+  }
+
+  addMarkerEl(markerEl) {
     let data = markerEl.dataset
     let latlon = { lat: data.lat, lon: data.lon }
     const marker = L.marker(latlon, {
@@ -105,11 +124,15 @@ export default class extends ApplicationController {
     })
     this.setInput(marker.getLatLng())
 
+    markerEl.addEventListener("markerdel", ev => this.removeMarker(ev))
+
     if (data.popup)
       marker.bindPopup(markerEl.outerHTML)
 
     const markerLayer = this.getMarkerLayer()
     markerLayer.addLayer(marker)
+
+    this.containerTarget.markers[markerEl.id] = marker
   }
 
   setInput(latlng) {
@@ -134,7 +157,7 @@ export default class extends ApplicationController {
         // Set the new location
         markerEl.dataset.lat = ev.latlng.lat
         markerEl.dataset.lon = ev.latlng.lng
-        this.addMarker(markerEl)
+        this.addMarkerEl(markerEl)
         this.dispatch("newmarker")
       }
     } else {

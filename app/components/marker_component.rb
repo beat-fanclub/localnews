@@ -1,5 +1,5 @@
 class MarkerComponent < ViewComponent::Base
-  def initialize(point, title = nil, editable = nil, target: "map.marker")
+  def initialize(point, title = nil, editable = nil, id: "", target: "map.marker")
     @data = {
       target: target,
       title: title,
@@ -7,6 +7,8 @@ class MarkerComponent < ViewComponent::Base
       lon: point&.lon,
       popup: content_areas? || nil,
       editable: editable,
+      controller: :marker
     }
+    @id = id
   end
 end

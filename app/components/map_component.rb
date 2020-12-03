@@ -5,7 +5,8 @@ class MapComponent < ViewComponent::Base
     end
 
     @data = {
-      controller: :map
+      controller: :map,
+      action: "markeradd->map#addMarker #{data.delete(:action)}"
     }.merge data
   end
 
