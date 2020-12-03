@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_153837) do
+ActiveRecord::Schema.define(version: 2020_12_03_174838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_153837) do
     t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}, null: false
     t.string "location_desc"
     t.integer "votes_sum", default: 0
+    t.index "(((votes_sum)::double precision / date_part('epoch'::text, created_at)))", name: "posts_score_idx"
     t.index "to_tsvector('dutch'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_dutch", using: :gin
     t.index "to_tsvector('english'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_english", using: :gin
     t.index "to_tsvector('french'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_french", using: :gin
