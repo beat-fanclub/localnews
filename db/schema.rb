@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_234558) do
+ActiveRecord::Schema.define(version: 2020_12_03_153837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -56,9 +56,11 @@ ActiveRecord::Schema.define(version: 2020_12_01_234558) do
     t.uuid "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "votes_sum", default: 0
     t.index ["parent_id"], name: "index_comments_on_parent_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["votes_sum"], name: "index_comments_on_votes_sum"
   end
 
   create_table "posts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -69,12 +71,14 @@ ActiveRecord::Schema.define(version: 2020_12_01_234558) do
     t.datetime "updated_at", precision: 6, null: false
     t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}, null: false
     t.string "location_desc"
+    t.integer "votes_sum", default: 0
     t.index "to_tsvector('dutch'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_dutch", using: :gin
     t.index "to_tsvector('english'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_english", using: :gin
     t.index "to_tsvector('french'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_french", using: :gin
     t.index "to_tsvector('simple'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_simple", using: :gin
     t.index ["location"], name: "index_posts_on_location", using: :gist
     t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["votes_sum"], name: "index_posts_on_votes_sum"
   end
 
   create_table "posts_tags", id: false, force: :cascade do |t|
