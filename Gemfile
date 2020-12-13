@@ -33,6 +33,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0.1'
+  gem 'solargraph', '~> 0.39.17'
 end
 
 group :development do
@@ -59,4 +60,8 @@ gem 'devise', '~> 4.7'
 gem 'omniauth', '~> 1.9'
 gem 'cancancan', '~> 3.1.0'
 gem 'stimulus_reflex', '~> 3.3.0'
+gem 'view_component', '~> 2.21.0', require: 'view_component/engine'
+gem 'view_component_reflex', '~> 2.6.2'
+gem 'has_scope', '~> 0.7.2'
+gem 'image_processing', '~> 1.2'
 

@@ -1,28 +1,27 @@
-<%= point_map @post.location %>
+<%= render MapFormComponent.new(@post.location) %>
 
 <p id="notice"><%= notice %></p>
 
-<article
-  data-controller="cable-ready"
-  data-cable-ready-channel="PostChannel"
-  data-cable-ready-id="<%= @post.id %>">
+<%= render VoteComponent.new(voteable: @post, user: @current_user) %>
+
+<article>
   <h1>
     <%= @post.title %>
   </h1>
   <h2>By <%= @post.user.name %></h2>
 
-  <pre>
-    <%= @post.content %>
-  </pre>
 
-  <%= render "comments/form", comment: @comment %>
+  <%= @post.body %>
 
-  <section>
-    <h2 id="comments">Comments</h2>
-    <%= render partial: "comment", collection: @comments.toplevel %>
-  </section>
-
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-  <%= link_to 'Back', posts_path %>
 </article>
+
+<%= render "comments/form", comment: @comment %>
+
+<section>
+  <h2 id="comments">Comments</h2>
+  <%= render CommentComponent.with_collection(@comments.toplevel, open: true) %>
+</section>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
 
