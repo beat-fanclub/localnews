@@ -3,16 +3,38 @@
 <h1>Posts</h1>
 <%= link_to 'New Post', new_post_path %>
 
-<%= marked_map @posts, @markers, "Map#new_bounds" do | post | %>
-  <h3><%= link_to post.title, post_path(post) %></h3>
-  <span>By <%= post.user.name %></span>
-<% end %>
+<%= tag.div(data: @filter_params.merge(controller: "posts")) do %>
+  <%= form_with(
+    url: posts_path,
+    method: :get,
+    local: true,
+    class: "posts-filter",
+    data: { target: "posts.filterForm" }
+  ) do |f| %>
 
-<ul>
-  <% for post in @posts %>
-    <li class="post-preview">
-      <h3><%= link_to post.title, post_path(post) %></h3>
-      <span>By <%= post.user.name %></span>
-    </li>
+    <div class="field">
+      <%= label_tag :q, 'Search:' %>
+      <%= search_field_tag :q, params[:q], data: { reflex: "input->Posts#filter" } %>
+    </div>
+    <%= hidden_field_tag :map_bounds, params[:map_bounds], data: { reflex: "change->Posts#filter" } %>
   <% end %>
-</ul>
+
+  <%= render(MapComponent.new(
+    map: { center: @bounds ? :bounds : :locate, bounds: @bounds },
+    target: "posts.map",
+    action: "moveend->posts#newBounds"
+  )) do %>
+  <ul>
+    <% for post in @posts %>
+      <li class="post-preview">
+        <%= render VoteComponent.new(voteable: post, user: current_user) %>
+        <%= render(MarkerComponent.new(post.location, post.title, id: post.id)) do %>
+          <p><%= link_to post.title, post_path(post) %></p>
+          <p>By <%= post.user.name %></p>
+          <p><%= post.comments.count %> Comments</p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <% end %>
+<% end %>

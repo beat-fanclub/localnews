@@ -7,7 +7,7 @@ module ApplicationCable
     end
 
     def current_user
-      @current_user ||= User.find(cookies.encrypted[:user_id])
+      @current_user ||= User.find_by(id: cookies.encrypted[:user_id])
     end
   end
 end

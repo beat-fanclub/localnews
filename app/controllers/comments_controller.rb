@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
-  load_and_authorize_resource :post
-  load_and_authorize_resource :comment, through: :post
+  load_and_authorize_resource :post, only: [:new, :create]
+  load_and_authorize_resource :comment, through: :post, only: [:new, :create]
+  load_and_authorize_resource :comment, except: [:new, :create]
 
   # GET /comments
   # GET /comments.json

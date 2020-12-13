@@ -2,16 +2,21 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   load_and_authorize_resource :post
 
+  has_scope :search, as: :q
+
   # GET /posts
   # GET /posts.json
   def index
-    @posts = @posts.limit(20)
-    @markers = @posts.map do |post|
-      {
-        location: post.location,
-        title: post.title,
-      }
+    if params[:map_bounds].present?
+      north_east, south_west = JSON.parse(params[:map_bounds]).map do |point|
+        { lat: point["lat"], lon: point["lng"] }
+      end
+      @posts = @posts.within(north_east, south_west) if north_east && south_west
+      @bounds = [ north_east, south_west ]
     end
+    @posts = apply_scopes(@posts)
+    @posts = @posts.limit(20)
+    @filter_params = params.permit(:q, :map_bounds).to_h
   end
 
   # GET /posts/1
@@ -70,6 +75,6 @@ class PostsController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :content, :location, :location_desc)
+      params.require(:post).permit(:title, :body, :location, :location_desc)
     end
 end
