@@ -28,7 +28,11 @@
             <a href="../trending">Trending</a>
           </li>
           <li>
-            <a href="../users/sign_in">Log in</a>
+            <%- if current_user.present?  %>
+              <%= link_to "Profile", edit_user_registration_path %> <br/>
+            <%- else %>
+              <%= link_to "Log in", new_user_session_path %><br/>
+            <% end %>
           </li>
         </ul>
 
