@@ -1,8 +1,17 @@
+<div class="row">
+<div class="column">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<div class="column">
+<a href="javascript:;" class="avatar">
+    <img class="center" alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/theme/team-4.jpg" width="125" height="150">
+</a>
+<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+<b>Score:</b>
+</div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
+  
+  
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -46,3 +55,9 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+</div>
+<div class="column">
+<h2>Posts and activity</h2>
+</div>
+</div>

@@ -10,7 +10,16 @@ nav{
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 999;
+}
+
+.nav-links input[type=search] {
+
+  letter-spacing: 1px;
+  outline: none;
+  border: 0.1em solid #1d2d35;
+  border-radius: 4px;
+
 }
 
 .logo h1{
@@ -23,7 +32,7 @@ nav{
 .nav-links{
   display: flex;
   justify-content: flex-end;
-  width: 30%;
+  width: 60%;
 }
 
 .nav-links li{
@@ -114,27 +123,3 @@ nav{
 .toggle .third-line{
   transform: rotate(45deg) translate(-5px,6px);
 }
-/*
-ul {
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
-}
-
-.navbar a {
-  float: left;
-  display: table;
-  color: #ffffff;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar a:hover {
-  background: #273c75;
-  color: $button-bg;
-  text-decoration-line: underline;
-  text-decoration-color: $button-bg;
-  transition-duration: 0.6s;
-}*/
