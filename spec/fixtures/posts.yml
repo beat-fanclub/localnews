@@ -1,0 +1,10 @@
+alice:
+  title: My journey
+  user: alice
+  location: POINT(<%= rand(45.0..50.0) %> <%= rand(20.0..22.0) %>)
+
+bob:
+  title: How I read
+  user: bob
+  location: POINT(<%= rand(45.0..50.0) %> <%= rand(20.0..22.0) %>)
+

@@ -1,0 +1,13 @@
+# one:
+#   record: name_of_fixture (ClassOfFixture)
+#   name: content
+#   body: <p>In a <i>million</i> stars!</p>
+bob:
+  record: bob (Post)
+  name: body
+  body: <p>Using glasses</p>
+alice:
+  record: alice (Post)
+  name: body
+  body: <p>I took a train</p>
+

@@ -8,6 +8,7 @@ class Ability
     can :read, Comment
     can :read, Tag
     can :read, Vote
+    can :read, User
     return unless user.present?
     can :manage, Post, user_id: user.id
     can :create, Comment, user_id: user.id, edited: false

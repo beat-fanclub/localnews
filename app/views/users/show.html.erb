@@ -1,0 +1,23 @@
+
+<h1>Profile page of <%= @user.name %></h1>
+
+<section>
+  <h2>Posts</h2>
+  <ul>
+    <% for post in @posts %>
+      <li><%= link_to post.title, post %></li>
+    <% end %>
+  </ul>
+</section>
+
+<section>
+  <h2>Comments</h2>
+  <ul>
+    <% for comment in @comments %>
+      <li><strong>On <%= link_to comment.post.title, comment.post %></strong>
+        <%= render CommentComponent.new(comment: comment, user: current_user, open: true) %>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
