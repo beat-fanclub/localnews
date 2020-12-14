@@ -18,3 +18,15 @@ h2 {
   letter-spacing: 2px;
   font-weight: bold;
 }
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+.post-preview {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
