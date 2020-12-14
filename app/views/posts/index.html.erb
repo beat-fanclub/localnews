@@ -24,7 +24,7 @@
     target: "posts.map",
     action: "moveend->posts#newBounds"
   )) do %>
-  <ul>
+  <ul class="posts">
     <% for post in @posts %>
       <li class="post-preview">
         <%= render VoteComponent.new(voteable: post, user: current_user) %>

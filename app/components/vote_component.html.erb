@@ -1,15 +1,17 @@
 <%= component_controller(class: "voter") do %>
   <% if can? :vote, @voteable %>
 
-    <%= reflex_tag voted?&.up? ? :unvote : :upvote, :button, "➕", {
+    <%= reflex_tag voted?&.up? ? :unvote : :upvote, :button, "👍", {
       class: voted?&.up? ? "active" : ""
     } %>
-    <%= @voteable.score %>
-    <%= reflex_tag voted?&.down? ? :unvote : :downvote, :button, "➖", {
+    <span><%= @voteable.score %></span>
+
+    <%= reflex_tag voted?&.down? ? :unvote : :downvote, :button, "👎", {
       class: voted?&.up? ? "active" : ""
     } %>
 
+
   <% else %>
-    <%= @voteable.score %>
+    <span><%= @voteable.score %></span>
   <% end %>
 <% end %>

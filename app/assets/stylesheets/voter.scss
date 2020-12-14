@@ -1,0 +1,42 @@
+@import 'colors';
+
+
+$width: 30px;
+$border: 1px;
+
+.voter {
+  width: $width;
+  display: flex;
+  position: space-around;
+  border: 0.1em solid #1d2d35;
+  border-radius: 2px;
+  flex-direction: column;
+  margin-right: 1em;
+
+  span {
+    width: $width;
+    background-color: white;
+    color: $button-fg;
+    text-align: center;
+}
+
+  button {
+    -webkit-appearance: none;
+    border: none;
+    background-color: white;
+    color: $button-fg;
+    cursor: pointer;
+    display: inline;
+    font-size: 100%;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.4s ease;
+    width: $width;
+    outline: none;
+  }
+
+  button:hover {
+    background-color: $button-fg;
+    color: $button-bg;
+  }
+}
