@@ -8,7 +8,7 @@
   <h1>
     <%= @post.title %>
   </h1>
-  <h2>By <%= @post.user.name %></h2>
+  <h2>By <%= link_to @post.user.name, url_for(@post.user) %></h2>
 
 
   <%= @post.body %>
