@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_234558) do
+ActiveRecord::Schema.define(version: 2020_12_14_010031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -51,30 +51,35 @@ ActiveRecord::Schema.define(version: 2020_12_01_234558) do
   create_table "comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "post_id", null: false
     t.text "body"
-    t.bigint "user_id", null: false
+    t.uuid "user_id", null: false
     t.boolean "edited"
     t.uuid "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "votes_sum", default: 0
     t.index ["parent_id"], name: "index_comments_on_parent_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["votes_sum"], name: "index_comments_on_votes_sum"
   end
 
   create_table "posts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.bigint "user_id", null: false
+    t.uuid "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}, null: false
     t.string "location_desc"
+    t.integer "votes_sum", default: 0
+    t.index "(((votes_sum)::double precision / date_part('epoch'::text, created_at)))", name: "posts_score_idx"
     t.index "to_tsvector('dutch'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_dutch", using: :gin
     t.index "to_tsvector('english'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_english", using: :gin
     t.index "to_tsvector('french'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_french", using: :gin
     t.index "to_tsvector('simple'::regconfig, (((title)::text || ' '::text) || content))", name: "posts_search_idx_simple", using: :gin
     t.index ["location"], name: "index_posts_on_location", using: :gist
     t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["votes_sum"], name: "index_posts_on_votes_sum"
   end
 
   create_table "posts_tags", id: false, force: :cascade do |t|
@@ -93,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_234558) do
     t.index ["slug"], name: "index_tags_on_slug", unique: true
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -115,7 +120,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_234558) do
   create_table "votes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "voteable_type", null: false
     t.uuid "voteable_id", null: false
-    t.bigint "user_id", null: false
+    t.uuid "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "direction", default: 1, null: false

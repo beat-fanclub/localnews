@@ -1,10 +1,14 @@
 class Post < ApplicationRecord
   include Voteable
 
+  SCORE_QUERY = "(votes_sum / extract(epoch FROM created_at))".freeze
+
   belongs_to :user
   has_and_belongs_to_many :tags
   has_many :comments
   has_rich_text :body
+
+  validates :location, :title, :user_id, presence: true
 
   before_save :update_content
 
@@ -18,6 +22,10 @@ class Post < ApplicationRecord
       "to_tsvector(?, title || ' ' || content) @@ to_tsquery(?)",
       language, query
     ) }
+
+  scope :with_score, -> { select("#{Post::SCORE_QUERY} AS score") }
+  default_scope { with_score.select("*") }
+  implicit_order_column = :score
 
   private
 

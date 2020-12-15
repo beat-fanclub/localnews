@@ -27,11 +27,13 @@
   <ul class="posts">
     <% for post in @posts %>
       <li class="post-preview">
-        <%= render VoteComponent.new(voteable: post, user: current_user) %>
         <%= render(MarkerComponent.new(post.location, post.title, id: post.id)) do %>
           <p><%= link_to post.title, post_path(post) %></p>
           <p>By <%= post.user.name %></p>
-          <p><%= post.comments.count %> Comments</p>
+          <div class="buttonbar">
+            <%= render VoteComponent.new(voteable: post, user: current_user) %>
+            <%= post.comments.count %> Comments - <%= time_ago_in_words(post.created_at) %> ago
+          </div>
         <% end %>
       </li>
     <% end %>
