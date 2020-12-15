@@ -20,13 +20,16 @@ nav{
   letter-spacing: 4px;
   font-size: 16px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
+  margin-left: 2em;
+  flex-grow: 1;
 }
 
 .nav-links{
   display: flex;
-  justify-content: flex-end;
-  width: 60%;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .nav-links input[type=search] {
@@ -37,15 +40,14 @@ nav{
   border-radius: 4px;
 
 }
-
 .nav-links ul{
-  top: 29.28px;
-  position: fixed;
-  right: 0px;
+  display: flex;
   justify-content: flex-end;
 }
+
 .nav-links li{
   list-style: none;
+  justify-content: flex-end;
 }
 
 .nav-links a{
@@ -75,7 +77,7 @@ label {
 
 @media screen and (max-width:1024px){
   .nav-links{
-    width: 55%;
+    width: 100%;
   }
 }
 
@@ -84,14 +86,15 @@ label {
     overflow-x: hidden;
   }
   .nav-links{
-    position: fixed;
+    position: absolute;
     right: 0px;
     height: 25vh;
     top: 8vh;
     background-color: #2d3436;
-    display: inline-flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    display: flex;
     width: 36%;
     transform: translateX(100%);
     transition: transform 0.6s ease-in;
@@ -101,10 +104,10 @@ label {
   .nav-links ul{
     right: 0px;
     height: 92vh;
-    display: inline-flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
+    display: flex;
   }
   .nav-links li{
     padding: inherit;
@@ -114,18 +117,20 @@ label {
     flex-direction: column;
     padding-bottom: 1em;
     margin-right: 25px;
+  }
+
+  .nav-links input[type=search] {
+    position: fixed;
+    left: -1000vw;
    }
 
   .menu-icon {
-
-        width: 20px;
-        height: inherit;
-        display: flex;
-        position: fixed;
-        right: 117px;
-        top: 29.28px;
-        color: white;
-    }
+    width: 20px;
+    height: inherit;
+    display: flex;
+    position: relative;
+    color: white;
+  }
 
   #menuToggle:checked ~ .nav-links {
     transform: translateX(0%);
@@ -138,19 +143,4 @@ label {
   .menu-icon i {
         font-size: 1.7em;
     }
-
-
-}
-
-
-.toggle .first-line{
-  transform: rotate(-45deg) translate(-5px,6px);
-}
-
-.toggle .second-line{
-  opacity: 0;
-}
-
-.toggle .third-line{
-  transform: rotate(45deg) translate(-5px,6px);
 }
