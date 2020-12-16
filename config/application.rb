@@ -16,5 +16,8 @@ module Localnews
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.search_languages = [ :simple, :english, :dutch, :french ]
+
+    config.action_mailer.default_url_options = { host: 'nieuws.naamloze.website' }
+
   end
 end
