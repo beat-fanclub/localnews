@@ -22,14 +22,16 @@ h2 {
 .posts {
   display: grid | inline-grid;
   margin-top: 1em;
-}
+  
 
 .post-preview {
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 0.1em groove #1d2d35;
-  border-radius: 0.25em;
   margin-bottom: 2em;
-  justify-content: space-around;
+  padding-left: 1em;
+  justify-content: flex-start;
+  width: 100%;    
+  height:150px; 
+}
 }
