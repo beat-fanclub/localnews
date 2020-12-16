@@ -34,7 +34,7 @@
           </li>
           <li>
             <%- if current_user.present?  %>
-              <%= link_to "Profile", edit_user_registration_path %> <br/>
+              <%= link_to "Profile", url_for(current_user) %> <br/>
             <%- else %>
               <%= link_to "Log in", new_user_session_path %><br/>
             <% end %>
