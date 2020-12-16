@@ -5,7 +5,7 @@ nav{
   justify-content: space-around;
   flex-direction: row-reverse;
   align-items: center;
-  min-height: 8vh;
+  min-height: 4em;
   background: #2d3436;
   position: fixed;
   width: 100%;
@@ -17,8 +17,8 @@ nav{
 .logo h1{
   color: white;
   text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 16px;
+  letter-spacing: 0.25em;
+  font-size: 1em;
   display: flex;
   justify-content: space-around;
   margin-left: 2em;
@@ -34,10 +34,10 @@ nav{
 
 .nav-links input[type=search] {
 
-  letter-spacing: 1px;
+  letter-spacing: 0.06em;
   outline: none;
   border: 0.1em solid #1d2d35;
-  border-radius: 4px;
+  border-radius: 0.25em;
 
 }
 .nav-links ul{
@@ -53,7 +53,7 @@ nav{
 .nav-links a{
   color: white;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 0.13em;
   font-weight: bold;
 
 }
@@ -87,45 +87,44 @@ label {
   }
   .nav-links{
     position: absolute;
-    right: 0px;
-    height: 25vh;
-    top: 8vh;
+    right: 0em;
+    height: 9em;
+    top: 5em;
     background-color: #2d3436;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     display: flex;
-    width: 36%;
+    width: 38%;
     transform: translateX(100%);
     transition: transform 0.6s ease-in;
     border: 0.1em hidden #1d2d35;
-    border-radius: 4px;
+    border-radius: 0.25em;
   }
   .nav-links ul{
-    right: 0px;
-    height: 92vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     display: flex;
   }
+
   .nav-links li{
     padding: inherit;
     opacity: 0;
-    display: inline-flex;
-    justify-content: space-around;
+    display: flex;
+    justify-content: space-between;
     flex-direction: column;
     padding-bottom: 1em;
-    margin-right: 25px;
+    right: 2em;
   }
 
   .nav-links input[type=search] {
     position: fixed;
-    left: -1000vw;
+    left: -1000em;
    }
 
   .menu-icon {
-    width: 20px;
+    width: 5em;
     height: inherit;
     display: flex;
     position: relative;
@@ -137,7 +136,7 @@ label {
 
     li {
       opacity: 1;
-      transform: translateX(0px);
+      transform: translateX(0em);
     }
   }
   .menu-icon i {
