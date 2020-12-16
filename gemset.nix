@@ -152,6 +152,70 @@
     };
     version = "2.4.1";
   };
+  aws-eventstream = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0r0pn66yqrdkrfdin7qdim0yj2x75miyg4wp6mijckhzhrjb7cv5";
+      type = "gem";
+    };
+    version = "1.1.0";
+  };
+  aws-partitions = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0f69xa65vzwkxak9a5wlfgvzkfsl8lc2srblrr994knidxl41knv";
+      type = "gem";
+    };
+    version = "1.407.0";
+  };
+  aws-sdk-core = {
+    dependencies = ["aws-eventstream" "aws-partitions" "aws-sigv4" "jmespath"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1lrxwi9im4bpdcga6w7bmam7hywy5c2yss09377lyqm89whb4kl4";
+      type = "gem";
+    };
+    version = "3.110.0";
+  };
+  aws-sdk-kms = {
+    dependencies = ["aws-sdk-core" "aws-sigv4"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0ly1m631qm2ciif7sysbzrgczjvz95ga3g6w6vrzvfdv31jjnl9a";
+      type = "gem";
+    };
+    version = "1.39.0";
+  };
+  aws-sdk-s3 = {
+    dependencies = ["aws-sdk-core" "aws-sdk-kms" "aws-sigv4"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0hz0irznwsv9nk8z8knrdrd49bchaxaz1dsg6gag2n9gj22jwmcq";
+      type = "gem";
+    };
+    version = "1.86.2";
+  };
+  aws-sigv4 = {
+    dependencies = ["aws-eventstream"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1ll9382c1x2hp750cilh01h1cycgyhdr4cmmgx23k94hyyb8chv5";
+      type = "gem";
+    };
+    version = "1.2.2";
+  };
   backport = {
     groups = ["default" "development" "test"];
     platforms = [];
@@ -418,6 +482,16 @@
       type = "gem";
     };
     version = "2.10.1";
+  };
+  jmespath = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1d4wac0dcd1jf6kc57891glih9w57552zgqswgy74d1xhgnk0ngf";
+      type = "gem";
+    };
+    version = "1.4.0";
   };
   listen = {
     dependencies = ["rb-fsevent" "rb-inotify"];
