@@ -58,6 +58,9 @@
                   redis
                 ];
 
+                FACEBOOK_APP_ID = "473851313601205";
+                FACEBOOK_APP_SECRET = "f9ddaa7eef8598ab88ca9806a672c00b";
+
                 shellHook = ''
                   . ${start-db}/bin/start-db
                 '';
