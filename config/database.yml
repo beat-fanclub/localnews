@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: localnews_production
-  username: localnews
-  password: <%= ENV['LOCALNEWS_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
