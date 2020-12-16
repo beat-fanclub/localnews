@@ -2,5 +2,4 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= render CommentComponent.new(comment: @comment) %>
-
+<%= render CommentComponent.new(comment: @comment, user: @current_user) %>
