@@ -1,23 +1,29 @@
 <%= component_controller(id: "comment_#{@comment.id}") do %>
-  <%= render VoteComponent.new(voteable: @comment, user: current_user) %>
-  <strong><%= @comment.user.name %>:</strong>
-  <p><%= @comment.body %></p>
-  <ul>
-    <% if can? :edit, @comment  %>
-      <li>
-        <%= link_to "Edit comment", edit_comment_path(@comment) %>
-      </li>
-    <% end %>
-    <% if @reactable %>
-      <li>
-        <%= link_to "React", new_post_comment_path(@comment.post, parent: @comment) %>
-      </li>
-    <% end %>
-  </ul>
-  <% if @comment.children.present? %>
-    <details>
-      <summary>Replies</summary>
-      <%= render(CommentComponent.with_collection(@comment.children)) %>
-    </details>
-  <% end %>
+  <article class="">
+    <%= render VoteComponent.new(voteable: @comment, user: current_user) %>
+    <div class="comment_content">
+      <strong><%= @comment.user.name %>:</strong>
+      <p><%= @comment.body %></p>
+      <ul>
+        <% if can? :edit, @comment  %>
+          <li>
+            <%= link_to "Edit comment", edit_comment_path(@comment) %>
+          </li>
+        <% end %>
+        <% if @reactable %>
+          <li>
+            <%= link_to "React", new_post_comment_path(@comment.post, parent: @comment) %>
+          </li>
+        <% end %>
+      </ul>
+      <% if @comment.children.present? %>
+        <details>
+          <summary>Replies</summary>
+          <%= render(CommentComponent.with_collection(@comment.children)) %>
+        </details>
+      <% end %>
+    </div>
+
+  </article>
+
 <% end %>

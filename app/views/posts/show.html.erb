@@ -2,20 +2,26 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= render VoteComponent.new(voteable: @post, user: @current_user) %>
+
 
 <article>
-  <h1>
-    <%= @post.title %>
-  </h1>
-  <h2>By <%= link_to @post.user.name, url_for(@post.user) %></h2>
-  <p> <%= rails_social_share_button_tag(@post.title) %> </p>
+  <div class="post_vote">
+      <%= render VoteComponent.new(voteable: @post, user: @current_user) %>
+  </div>
+    <div class="post_content">
+      <h1>
+        <%= @post.title %>
+      </h1>
+      <h2>By <%= link_to @post.user.name, url_for(@post.user) %></h2>
 
-  <%= @post.body %>
+      <%= @post.body %>
 
+    </div>
 </article>
 
 <%= render "comments/form", comment: @comment %>
+  
+<p> <%= rails_social_share_button_tag(@post.title) %> </p>
 
 <section>
   <h2 id="comments">Comments</h2>

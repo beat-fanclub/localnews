@@ -20,18 +20,17 @@ h2 {
 }
 
 .posts {
-  display: grid | inline-grid;
   margin-top: 1em;
-  
+  align-items: center;
+}
+
 
 .post-preview {
-  display: flex;
+  align-items: center;
+  display: inline-block;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 2em;
   padding-left: 1em;
   justify-content: flex-start;
-  width: 100%;    
-  height:150px; 
-}
+  width: 100%;
 }

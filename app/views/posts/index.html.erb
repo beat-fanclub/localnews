@@ -26,16 +26,19 @@
   )) do %>
   <ul class="posts">
     <% for post in @posts %>
-      <li class="post-preview">
-        <%= render(MarkerComponent.new(post.location, post.title, id: post.id)) do %>
-          <p><%= link_to post.title, post_path(post) %></p>
-          <p>By <%= post.user.name %></p>
-          <div class="buttonbar">
-            <%= render VoteComponent.new(voteable: post, user: current_user) %>
-            <%= post.comments.count %> Comments - <%= time_ago_in_words(post.created_at) %> ago
-          </div>
-        <% end %>
-      </li>
+      <article class="">
+        <%= render VoteComponent.new(voteable: post, user: current_user) %>
+        <div class="post-preview">
+          <%= render(MarkerComponent.new(post.location, post.title, id: post.id)) do %>
+            <p><%= link_to post.title, post_path(post) %></p>
+            <p>By <%= post.user.name %></p>
+            <div class="buttonbar">
+              <%= post.comments.count %> Comments - <%= time_ago_in_words(post.created_at) %> ago
+            </div>
+          <% end %>
+        </div>
+      </article>
+
     <% end %>
   </ul>
   <% end %>

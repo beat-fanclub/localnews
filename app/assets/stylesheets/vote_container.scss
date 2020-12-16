@@ -1,0 +1,17 @@
+article {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1em;
+
+  h1 {
+    margin-bottom: 0em;
+    padding-bottom: 0em;
+  }
+
+  li {
+    margin-bottom: 0em;
+
+  }
+}
