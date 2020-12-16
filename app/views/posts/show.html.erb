@@ -9,7 +9,7 @@
     <%= @post.title %>
   </h1>
   <h2>By <%= link_to @post.user.name, url_for(@post.user) %></h2>
-
+  <p> <%= rails_social_share_button_tag(@post.title) %> </p>
 
   <%= @post.body %>
 
@@ -19,9 +19,8 @@
 
 <section>
   <h2 id="comments">Comments</h2>
-  <%= render CommentComponent.with_collection(@comments.toplevel, open: true) %>
+  <%= render CommentComponent.with_collection(@comments.toplevel, user: @current_user, open: true) %>
 </section>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
-
