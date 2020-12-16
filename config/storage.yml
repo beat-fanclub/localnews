@@ -11,6 +11,8 @@ scaleway:
   region: nl-ams
   bucket: localnews
   endpoint: https://s3.nl-ams.scw.cloud
+  access_key_id: <%= Rails.application.credentials.dig(:scaleway, :access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(:scaleway, :secret_access_key) %>
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
