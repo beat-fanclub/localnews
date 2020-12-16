@@ -30,7 +30,7 @@ Devise.setup do |config|
   # config.mailer = 'Devise::Mailer'
 
   # Configure the parent class responsible to send e-mails.
-  # config.parent_mailer = 'ActionMailer::Base'
+  config.parent_mailer = 'ActionMailer::Base'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -299,9 +299,9 @@ Devise.setup do |config|
   # ==> Turbolinks configuration
   # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:
   #
-  # ActiveSupport.on_load(:devise_failure_app) do
-  #   include Turbolinks::Controller
-  # end
+  ActiveSupport.on_load(:devise_failure_app) do
+    include Turbolinks::Controller
+  end
 
   # ==> Configuration for :registerable
 
