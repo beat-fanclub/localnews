@@ -38,6 +38,8 @@ class Post < ApplicationRecord
       self.title = page.best_title if title.blank?
       self.body = page.best_description
       self.source = page.url
+
+      scrape_wikipedia! if page.host.ends_with? "wikipedia.org"
     rescue MetaInspector::TimeoutError, MetaInspector::RequestError, MetaInspector::ParserError, MetaInspector::NonHtmlError => e
       errors.add :source, :scrape_error, "Can't scrape source: #{e.message}"
     end
@@ -47,6 +49,27 @@ class Post < ApplicationRecord
 
   def update_content
     self.content = body.to_plain_text
+  end
+
+  def scrape_wikipedia!
+    url = URI::parse(self.source)
+    return unless url.path.start_with? "/wiki/"
+    page_title = url.path.delete_prefix "/wiki/"
+    url.query = {
+      action: :query,
+      prop: :coordinates,
+      format: :json,
+      titles: URI::decode(page_title)
+    }.to_param
+    url.path = "/w/api.php"
+    url.scheme = "https"
+    res = Net::HTTP.get url
+    json = JSON::parse res
+    pages = json.dig("query", "pages")
+    return if pages.blank?
+    coords = pages.first&.dig(1, "coordinates", 0)
+    return unless coords
+    self.location = "POINT(#{coords["lon"]} #{coords["lat"]})"
   end
 
 end
