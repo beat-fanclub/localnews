@@ -25,7 +25,7 @@
 
       <div class="nav-links">
         <ul>
-          <li>
+          <div class= "search">
             <%= form_with(
               url: posts_path,
               method: :get,
@@ -34,7 +34,7 @@
             <%= search_field_tag :q, params[:q], data: { reflex: "input->Posts#filter" } %>
             <%= f.submit 'Search', :disable_with => 'Searching...' %>
             <% end %>
-          </li>
+          </div>
           <li>
             <a <%= link_to 'Home', posts_path %> </a>
           </li>

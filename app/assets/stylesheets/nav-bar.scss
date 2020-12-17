@@ -32,17 +32,15 @@ nav{
   width: 100%;
 }
 
-.nav-links input[type=search] {
+.search {
 
-  letter-spacing: 0.06em;
-  outline: none;
-  border: 0.1em solid #1d2d35;
-  border-radius: 0.25em;
+  margin-right: 2em;
 
 }
 .nav-links ul{
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .nav-links li{
@@ -118,7 +116,7 @@ label {
     right: 2em;
   }
 
-  .nav-links input[type=search] {
+  .search {
     position: fixed;
     left: -1000em;
    }
