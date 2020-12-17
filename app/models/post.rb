@@ -13,6 +13,9 @@ class Post < ApplicationRecord
   validates :source, format: { with: URL_REGEX }
 
   before_save :update_content
+  before_validation do
+    scrape_source!(self.source) if body.blank? && source.present?
+  end
 
   scope :within, -> (north_east, south_west) {
       where(<<-SQL, south_west[:lon], south_west[:lat], north_east[:lon], north_east[:lat])
@@ -28,6 +31,17 @@ class Post < ApplicationRecord
   scope :with_score, -> { select("#{Post::SCORE_QUERY} AS score") }
   default_scope { with_score.select("*") }
   implicit_order_column = :score
+
+  def scrape_source!(url)
+    begin
+      page = MetaInspector.new(url)
+      self.title = page.best_title if title.blank?
+      self.body = page.best_description
+      self.source = page.url
+    rescue MetaInspector::TimeoutError, MetaInspector::RequestError, MetaInspector::ParserError, MetaInspector::NonHtmlError => e
+      errors.add :source, :scrape_error, "Can't scrape source: #{e.message}"
+    end
+  end
 
   private
 
