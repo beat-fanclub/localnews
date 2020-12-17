@@ -38,9 +38,11 @@
           <li>
             <a <%= link_to 'Home', posts_path %> </a>
           </li>
+          <%#
           <li>
             <a href="../trending">Trending</a>
           </li>
+          %>
           <li>
             <%- if current_user.present?  %>
               <%= link_to "Profile", url_for(current_user) %> <br/>
