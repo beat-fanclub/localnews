@@ -6,6 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag asset_path("favicon.ico") %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -24,7 +26,14 @@
       <div class="nav-links">
         <ul>
           <li>
+            <%= form_with(
+              url: posts_path,
+              method: :get,
+              local: true,
+            ) do |f| %>
             <%= search_field_tag :q, params[:q], data: { reflex: "input->Posts#filter" } %>
+            <%= f.submit 'Search', :disable_with => 'Searching...' %>
+            <% end %>
           </li>
           <li>
             <a <%= link_to 'Home', posts_path %> </a>
@@ -49,12 +58,11 @@
       </div>
     </nav>
 
-    <div class="page_content">
+    <main class="page_content">
     <%= yield %>
-    </div>
+    </main>
     <footer>
-
-    <p>Localnews inc 	&copy 2020 No rights reserved </p>
+    <p>Localnews inc &copy; 2020 No rights reserved </p>
     </footer>
 
   </body>

@@ -19,7 +19,7 @@ class Post < ApplicationRecord
   }
 
   scope :search, -> (query,  language = :simple) { where(
-      "to_tsvector(?, title || ' ' || content) @@ to_tsquery(?)",
+      "to_tsvector(?, title || ' ' || content) @@ websearch_to_tsquery(?)",
       language, query
     ) }
 
