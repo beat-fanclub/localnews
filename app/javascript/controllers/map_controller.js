@@ -1,16 +1,16 @@
 import ApplicationController from './application_controller'
-import * as L from 'leaflet';
-import Search from 'leaflet-search';
 
-import MarkerIcon from   'leaflet/dist/images/marker-icon.png'
+import MarkerIcon from 'leaflet/dist/images/marker-icon.png'
 import MarkerIcon2X from 'leaflet/dist/images/marker-icon-2x.png'
 import MarkerShadow from 'leaflet/dist/images/marker-shadow.png'
 
 export default class extends ApplicationController {
   static targets = ["container", "locationInput", "marker", "markerTemplate"]
 
-  connect() {
+  async connect() {
     super.connect()
+    this.Lf = await import(/* webpackPrefetch: true */ "leaflet")
+    this.LfSearch = await import(/* webpackPrefetch: true */ "leaflet-search")
     this.containerTarget.map || this.initLeaflet()
     this.map = this.containerTarget.map
     if (!this.containerTarget.markers) this.containerTarget.markers = {}
@@ -37,17 +37,17 @@ export default class extends ApplicationController {
 
       if (center === "markers" && markers) {
         this.map.fitBounds(
-          L.latLngBounds(markers.map((marker) => {
-            return { lat: marker.dataset.lat, lon: marker.dataset,lon }
+          this.Lf.latLngBounds(markers.map((marker) => {
+            return {lat: marker.dataset.lat, lon: marker.dataset, lon}
           }))
         )
 
       } else if (center === "locate" || center === "markers") {
-        this.map.locate({ setView: true})
+        this.map.locate({setView: true})
 
       } else if (center === "bounds") {
         const bounds = JSON.parse(data.get("bounds"))
-        this.map.fitBounds(L.latLngBounds(bounds))
+        this.map.fitBounds(this.Lf.latLngBounds(bounds))
 
       } else {
         this.map.setView(JSON.parse(center), 13)
@@ -61,7 +61,7 @@ export default class extends ApplicationController {
     // Use this once to ignore the first event, as it is fired when loading the map.
     this.map.on("moveend", () => {
       const bounds = this.map.getBounds()
-      data.set("bounds", JSON.stringify([ bounds.getNorthEast(), bounds.getSouthWest() ]))
+      data.set("bounds", JSON.stringify([bounds.getNorthEast(), bounds.getSouthWest()]))
 
       // If the center is located using the GeoLocation API of the browser, the
       // map bounds can change just before Action Cable is set up. This method
@@ -84,8 +84,8 @@ export default class extends ApplicationController {
   }
 
   getMarkerLayer() {
-    if (!this.containerTarget.markerLayer) 
-      this.containerTarget.markerLayer = L.layerGroup().addTo(this.map)
+    if (!this.containerTarget.markerLayer)
+      this.containerTarget.markerLayer = this.Lf.layerGroup().addTo(this.map)
 
     return this.containerTarget.markerLayer
   }
@@ -108,8 +108,8 @@ export default class extends ApplicationController {
 
   addMarkerEl(markerEl) {
     let data = markerEl.dataset
-    let latlon = { lat: data.lat, lon: data.lon }
-    const marker = L.marker(latlon, {
+    let latlon = {lat: data.lat, lon: data.lon}
+    const marker = this.Lf.marker(latlon, {
       title: data.title,
       draggable: data.editable,
       autoPan: data.editable,
@@ -137,7 +137,7 @@ export default class extends ApplicationController {
 
   setInput(latlng) {
     if (this.hasLocationInputTarget) {
-      const { lng, lat } = latlng
+      const {lng, lat} = latlng
       this.locationInputTarget.value = `POINT(${lng} ${lat})`
     }
   }
@@ -168,26 +168,26 @@ export default class extends ApplicationController {
   initLeaflet() {
 
     {
-      L.Icon.Default.imagePath = "/.";
+      this.Lf.Icon.Default.imagePath = "/.";
 
-      let options = L.Icon.Default.prototype.options
+      let options = this.Lf.Icon.Default.prototype.options
       options.iconUrl = MarkerIcon
       options.iconRetinaUrl = MarkerIcon2X
       options.shadowUrl = MarkerShadow
     }
 
     // Create map
-    let map = L.map(this.containerTarget)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    let map = this.Lf.map(this.containerTarget)
+    this.Lf.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
     }).addTo(map);
 
-    new L.Control.Search({
+    new this.Lf.Control.Search({
       url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
       jsonpParam: 'json_callback',
       propertyName: 'display_name',
-      propertyLoc: ['lat','lon'],
-      marker: L.circleMarker([0,0],{radius:30}),
+      propertyLoc: ['lat', 'lon'],
+      marker: this.Lf.circleMarker([0, 0], {radius: 30}),
       autoCollapse: true,
       autoType: false,
       minLength: 2
