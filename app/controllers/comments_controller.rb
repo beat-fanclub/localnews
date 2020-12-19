@@ -4,28 +4,27 @@ class CommentsController < ApplicationController
   load_and_authorize_resource :comment, through: :post, only: [:new, :create]
   load_and_authorize_resource :comment, except: [:new, :create]
 
-  # GET /comments
-  # GET /comments.json
-  def index
-    @comments = Comment.all
-  end
-
   # GET /comments/1
   # GET /comments/1.json
+  # DOC GENERATED AUTOMATICALLY: REMOVE THIS LINE TO PREVENT REGENERATING NEXT TIME
+  api :GET, '/comments/:id', 'Show a comment'
   def show
   end
 
   # GET /comments/new
+  api :GET, '/posts/:post_id/comments/new'
   def new
     @parent = Comment.find(params[:parent])
   end
 
   # GET /comments/1/edit
+  api :GET, '/comments/:id/edit'
   def edit
   end
 
   # POST /comments
   # POST /comments.json
+  api :POST, '/posts/:post_id/comments', 'Create a comment'
   def create
     respond_to do |format|
       if @comment.save
@@ -40,6 +39,8 @@ class CommentsController < ApplicationController
 
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
+  api :PATCH, '/comments/:id', 'Update a comment'
+  api :PUT, '/comments/:id', 'Update a comment'
   def update
     respond_to do |format|
       if @comment.update(comment_params)
@@ -54,6 +55,7 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1
   # DELETE /comments/1.json
+  api :DELETE, '/comments/:id', 'Destroy a comment'
   def destroy
     @comment.destroy
     respond_to do |format|

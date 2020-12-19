@@ -142,6 +142,17 @@
     };
     version = "2.7.0";
   };
+  apipie-rails = {
+    dependencies = ["rails"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1zlhhh7gp2yzzmqgvwnq3sa9h0ys26nm8lbdmk0x67cayzj8id2h";
+      type = "gem";
+    };
+    version = "0.5.18";
+  };
   ast = {
     groups = ["default" "development" "test"];
     platforms = [];

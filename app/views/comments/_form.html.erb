@@ -12,7 +12,7 @@
   <% end %>
 
   <% if @parent %>
-    <%= render CommentComponent.new(comment: @parent, reactable: false, open: true) %>
+    <%= render CommentComponent.new(comment: @parent, user: current_user, reactable: false, open: true) %>
     <%= form.text_field :parent_id, value: @parent.id, hidden: true %>
   <% end %>
 

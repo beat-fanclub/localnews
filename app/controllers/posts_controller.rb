@@ -1,4 +1,10 @@
 class PostsController < ApplicationController
+
+  resource_description do
+    short "Location-tagged articles"
+    param :id, String
+  end
+
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   load_and_authorize_resource :post
 
@@ -6,6 +12,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
+  api :GET, '/posts', 'List posts'
   def index
     if params[:map_bounds].present?
       north_east, south_west = JSON.parse(params[:map_bounds]).map do |point|
@@ -21,21 +28,25 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   # GET /posts/1.json
+  api :GET, '/posts/:id', 'Show a post'
   def show
     @comment = Comment.new(post: @post)
     @comments = @post.comments.order(created_at: :desc)
   end
 
   # GET /posts/new
+  api :GET, '/posts/new'
   def new
   end
 
   # GET /posts/1/edit
+  api :GET, '/posts/:id/edit'
   def edit
   end
 
   # POST /posts
   # POST /posts.json
+  api :POST, '/posts', 'Create a post'
   def create
     respond_to do |format|
       if @post.save
@@ -50,6 +61,8 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
+  api :PATCH, '/posts/:id', 'Update a post'
+  api :PUT, '/posts/:id', 'Update a post'
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -64,6 +77,7 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   # DELETE /posts/1.json
+  api :DELETE, '/posts/:id', 'Destroy a post'
   def destroy
     @post.destroy
     respond_to do |format|

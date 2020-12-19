@@ -19,7 +19,7 @@
       <% if @comment.children.present? %>
         <details>
           <summary>Replies</summary>
-          <%= render(CommentComponent.with_collection(@comment.children)) %>
+          <%= render(CommentComponent.with_collection(@comment.children, user: current_user)) %>
         </details>
       <% end %>
     </div>
