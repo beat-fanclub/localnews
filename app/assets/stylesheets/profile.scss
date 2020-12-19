@@ -1,0 +1,22 @@
+.profile-page {
+  display: grid;
+  max-width: 150ch;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 75ch) {
+  .profile-page {
+    grid-template-columns: 50ch auto;
+  }
+
+  .profile {
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}
+
+@media screen and (min-width: 125ch) {
+  .profile-page {
+    grid-template-columns: 50ch auto auto;
+  }
+}

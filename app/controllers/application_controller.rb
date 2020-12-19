@@ -1,3 +1,6 @@
+
+CUSTOM_USER_FIELDS = %i[name avatar].freeze
+
 class ApplicationController < ActionController::Base
   check_authorization unless: :devise_controller?
   before_action :devise_user_params, if:  :devise_controller?
@@ -7,7 +10,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def devise_user_params
-    CUSTOM_USER_FIELDS = %i[name avatar].freeze
     devise_parameter_sanitizer.permit(:sign_up, keys: CUSTOM_USER_FIELDS)
     devise_parameter_sanitizer.permit(:account_update, keys: CUSTOM_USER_FIELDS)
   end

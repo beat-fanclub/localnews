@@ -8,10 +8,11 @@
         No avatar
       </div>
     <% end %>
-    <%- if @user == current_user  %>
-      <%= link_to "Edit my profile", edit_user_registration_path %>
-    <%- else %>
-    <% end %>
+    <p>
+      <%- if @user == current_user  %>
+        <%= link_to "Edit my profile", edit_user_registration_path %>
+      <% end %>
+    </p>
   </section>
   <section>
     <h2>Posts</h2>
