@@ -18,11 +18,11 @@ user_count.times do |i|
   User.create!({
     name: "User #{i}",
     email: "user#{i}@example.com",
-    password: "123456"
+    password: "123456",
   })
 end
 users = User.create!([
-  { name: "Alice", email: "alice@example.com", password: "123456" },
+  { name: "Alice", email: "alice@example.com", password: "123456", confirmed_at: Time.now },
   { name: "Bob", email: "bob@example.com", password: "123456" }
 ])
 

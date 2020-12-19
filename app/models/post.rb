@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   has_rich_text :body
 
   validates :location, :title, :user_id, presence: true
-  validates :source, format: { with: URL_REGEX }
+  validates :source, format: { with: URL_REGEX }, allow_blank: true
 
   before_save :update_content
   before_validation do
