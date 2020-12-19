@@ -29,7 +29,7 @@ class User < ApplicationRecord
   end
 
   def unvote(voteable)
-    votes.delete_by(voteable: voteable)
+    votes.destroy_by(voteable: voteable)
   end
 
   def voted?(voteable)

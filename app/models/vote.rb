@@ -20,4 +20,8 @@ class Vote < ApplicationRecord
       voteable.increment!(:votes_sum, new_direction - old_direction)
     end
   end
+
+  before_destroy do
+    voteable.decrement!(:votes_sum, Vote.directions[self.direction])
+  end
 end

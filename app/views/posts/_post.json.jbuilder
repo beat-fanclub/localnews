@@ -1,4 +1,4 @@
-json.extract! post, :id, :title, :content, :created_at, :score
+json.extract! post, :id, :title, :content, :created_at
 json.url post_url(post, format: :json)
 json.user post.user, partial: "users/user", as: :user
 json.comments post.comments.toplevel, partial: "comments/comment", as: :comment

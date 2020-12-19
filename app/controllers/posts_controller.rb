@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
 
   include Pagy::Backend
+  include Voteable
 
   resource_description do
     short "Location-tagged articles"
     param :id, String
   end
 
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :vote]
   load_and_authorize_resource :post
 
   has_scope :search, as: :q
@@ -88,6 +89,12 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def voteable
+    @post
+  end
+
+  add_voteable_action "posts"
 
   private
     # Only allow a list of trusted parameters through.

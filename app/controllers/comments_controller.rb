@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :vote]
   load_and_authorize_resource :post, only: [:new, :create]
   load_and_authorize_resource :comment, through: :post, only: [:new, :create]
   load_and_authorize_resource :comment, except: [:new, :create]
+
+  include Voteable
 
   # GET /comments/1
   # GET /comments/1.json
@@ -63,6 +65,13 @@ class CommentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def voteable
+    @comment
+  end
+
+  add_voteable_action "comments"
 
   private
     # Only allow a list of trusted parameters through.
