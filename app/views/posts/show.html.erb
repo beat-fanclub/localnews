@@ -4,20 +4,29 @@
 
 
 
-<article>
-  <div class="post_vote">
-      <%= render VoteComponent.new(voteable: @post, user: @current_user) %>
-  </div>
-    <div class="post_content">
-      <h1>
-        <%= @post.title %>
-      </h1>
-      <h2>By <%= link_to @post.user.name, url_for(@post.user) %></h2>
+<div class="post">
+  <%= render VoteComponent.new(voteable: @post, user: @current_user) %>
+  <header>
+    <h1>
+      <%= @post.title %>
+    </h1>
+    <p>
+      By <%= link_to @post.user.name, url_for(@post.user) %>,
+      posted <time datetime="<%= @post.created_at.to_s %>">
+        <%= time_ago_in_words(@post.created_at) %> ago
+      </time>
+    </p>
+    <% if @post.user.avatar.present? %>
+      <%= image_tag @post.user.avatar.variant(resize_to_limit: [64, 64]),
+        alt: @post.user.name, class: :avatar %>
+    <% end %>
+  </header>
 
-      <%= @post.body %>
+  <main>
+    <%= @post.body %>
+  </main>
 
-    </div>
-</article>
+</div>
 
 <%= render "comments/form", comment: @comment %>
   

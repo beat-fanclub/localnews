@@ -2,7 +2,7 @@
   <section class="profile">
     <h1><%= @user.name %></h1>
     <% if @user.avatar.present? %>
-      <%= image_tag @user.avatar.variant(resize_to_limit: [100, 100]), alt: "Avatar", class: :avatar %>
+      <%= image_tag @user.avatar.variant(resize_to_limit: [128, 128]), alt: "Avatar", class: :avatar %>
     <% else %>
       <div class="avatar">
         No avatar

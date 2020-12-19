@@ -36,37 +36,12 @@ footer {
   bottom: 0;
 }
 
-.column {
-  float: left;
-}
-
-.left {
-  width: 25%;
-}
-
-.right {
-  width: 75%;
-}
-
-@media screen and (max-width: 768px) {
-  .column {
-    width: 100%;
-  }
-}
-
-.avatar {
-  vertical-align: middle;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  padding: 5px;
-}
-
 textarea {
   resize: none;
   width: 600px;
   height: 75px;
 }
+
 @media screen and (max-width: 768px) {
   textarea {
     resize: none;
