@@ -38,15 +38,18 @@ footer {
 
 textarea {
   resize: none;
-  width: 600px;
-  height: 75px;
+  width: auto;
+  height: 10em;
 }
 
-@media screen and (max-width: 768px) {
-  textarea {
-    resize: none;
-    width: 300px;
-    height: 150px;
+@media (pointer: coarse) {
+  .page-content a {
+    padding: 0.5rem;
+    background: radial-gradient($bg, darken($color: $bg, $amount: 5));
+  }
+
+  .map a {
+    padding: unset;
+    background: unset;
   }
 }
-

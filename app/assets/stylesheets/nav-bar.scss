@@ -1,11 +1,17 @@
 @import 'colors';
 
+$nav-bar-height: 4rem;
+
+body {
+  padding-top: $nav-bar-height;
+}
+
 nav{
   display:  flex;
   justify-content: space-around;
   flex-direction: row-reverse;
   align-items: center;
-  min-height: 4em;
+  height: $nav-bar-height;
   background: #2d3436;
   position: fixed;
   width: 100%;

@@ -57,11 +57,13 @@
       </div>
 
       <div class="logo">
-        <h1>Localnews</h1>
+        <%= link_to posts_path do %>
+          <h1>Localnews</h1>
+        <% end %>
       </div>
     </nav>
 
-    <div class="page_content">
+    <div class="page-content">
       <%= yield %>
     </div>
     <footer>
