@@ -32,9 +32,9 @@
           <%= render(MarkerComponent.new(post.location, post.title, id: post.id)) do %>
             <p><%= link_to post.title, post_path(post) %></p>
             <p>By <%= post.user.name %></p>
-            <div class="buttonbar">
+            <p>
               <%= post.comments.count %> Comments - <%= time_ago_in_words(post.created_at) %> ago
-            </div>
+            </p>
           <% end %>
         </div>
       </article>
