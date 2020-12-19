@@ -389,6 +389,17 @@
     };
     version = "0.5.20190701";
   };
+  doorkeeper = {
+    dependencies = ["railties"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "105yr9gy60z0pyh85pbc6gazanm6jmb5c6agd7p1mzrc21hmrzrk";
+      type = "gem";
+    };
+    version = "5.4.0";
+  };
   e2mmap = {
     groups = ["default" "development" "test"];
     platforms = [];

@@ -14,6 +14,16 @@ class User < ApplicationRecord
   has_many :voted_posts, through: :votes, source: :voteable, source_type: :Post
   has_many :voted_comments, through: :votes, source: :voteable, source_type: :Comment
 
+  has_many :access_grants,
+           class_name: 'Doorkeeper::AccessGrant',
+           foreign_key: :resource_owner_id,
+           dependent: :delete_all # or :destroy if you need callbacks
+
+  has_many :access_tokens,
+           class_name: 'Doorkeeper::AccessToken',
+           foreign_key: :resource_owner_id,
+           dependent: :delete_all # or :destroy if you need callbacks
+
   def vote(voteable, direction)
     votes.create_or_find_by(voteable: voteable).update(direction: direction)
   end

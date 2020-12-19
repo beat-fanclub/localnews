@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  use_doorkeeper
+
   root to: redirect("/posts")
   resources :posts do
    resources :comments, only: [:new, :create]

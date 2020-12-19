@@ -69,3 +69,4 @@ gem 'has_scope', '~> 0.7.2'
 gem 'image_processing', '~> 1.2'
 gem "aws-sdk-s3", require: false
 gem 'metainspector'
+gem 'doorkeeper'

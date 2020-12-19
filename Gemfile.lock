@@ -109,6 +109,8 @@ GEM
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    doorkeeper (5.4.0)
+      railties (>= 5)
     e2mmap (0.1.0)
     erubi (1.9.0)
     faraday (1.1.0)
@@ -378,6 +380,7 @@ DEPENDENCIES
   cancancan (~> 3.1.0)
   capybara (>= 2.15)
   devise (~> 4.7)
+  doorkeeper
   has_scope (~> 0.7.2)
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
