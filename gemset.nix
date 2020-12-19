@@ -862,6 +862,16 @@
     };
     version = "0.5.0";
   };
+  pagy = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0gpll906b4h7gd3cnzrqw1l2jxaik8p6g7nvgfh9pr861c24kh4z";
+      type = "gem";
+    };
+    version = "3.10.0";
+  };
   parallel = {
     groups = ["default" "development" "test"];
     platforms = [];

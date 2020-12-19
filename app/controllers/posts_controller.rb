@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  include Pagy::Backend
+
   resource_description do
     short "Location-tagged articles"
     param :id, String
@@ -22,8 +24,9 @@ class PostsController < ApplicationController
       @bounds = [ north_east, south_west ]
     end
     @posts = apply_scopes(@posts)
-    @posts = @posts.limit(20)
+    @pagy, @posts = pagy(@posts)
     @filter_params = params.permit(:q, :map_bounds).to_h
+    @metadata = pagy_metadata(@pagy) if request.format.json?
   end
 
   # GET /posts/1

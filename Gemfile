@@ -71,3 +71,4 @@ gem "aws-sdk-s3", require: false
 gem 'metainspector'
 gem 'doorkeeper'
 gem 'apipie-rails'
+gem 'pagy', '~> 3.5'
