@@ -36,6 +36,7 @@ h2 {
 
 header > .avatar {
   height: 4em;
+  width: 4em;
 }
 
 .post {
@@ -52,12 +53,16 @@ header > .avatar {
 
   > header {
     display: grid;
-    grid-template-columns: 5em auto;
+    grid-template-columns: fit-content(5em) auto;
+    column-gap: 1em;
     > img {
       align-self: center;
       display: unset;
       grid-column: 1 / 2;
       grid-row: 1 / 3;
+    }
+    > p, h1 {
+      grid-column: 2;
     }
   }
 }

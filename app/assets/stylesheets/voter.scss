@@ -26,7 +26,6 @@ $border: 0.06em;
     background-color: white;
     color: $button-fg;
     cursor: pointer;
-    // display: inline;
     font-size: 100%;
     font-weight: bold;
     text-align: center;
@@ -35,8 +34,12 @@ $border: 0.06em;
     outline: none;
   }
 
-  button:hover {
+  button:hover, button.active:hover {
     background-color: $button-fg;
     color: $button-bg;
+  }
+
+  button.active {
+    background-color: darken($color: $bg, $amount: 50);
   }
 }

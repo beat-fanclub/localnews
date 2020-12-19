@@ -9,6 +9,7 @@ class VoteComponent < ViewComponentReflex::Component
 
   def vote(direction)
     current_user.vote(@voteable, direction)
+    @voteable.reload
   end
 
   def upvote
@@ -21,6 +22,7 @@ class VoteComponent < ViewComponentReflex::Component
 
   def unvote
     current_user.unvote(@voteable)
+    @voteable.reload
   end
 
   def voted?

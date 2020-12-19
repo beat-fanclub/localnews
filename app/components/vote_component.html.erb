@@ -4,14 +4,14 @@
     <%= reflex_tag voted?&.up? ? :unvote : :upvote, :button, "👍", {
       class: voted?&.up? ? "active" : ""
     } %>
-    <span><%= @voteable.score %></span>
+    <span><%= @voteable.votes_sum %></span>
 
     <%= reflex_tag voted?&.down? ? :unvote : :downvote, :button, "👎", {
-      class: voted?&.up? ? "active" : ""
+      class: voted?&.down? ? "active" : ""
     } %>
 
 
   <% else %>
-    <span><%= @voteable.score %></span>
+    <span><%= @voteable.votes_sum %></span>
   <% end %>
 <% end %>
