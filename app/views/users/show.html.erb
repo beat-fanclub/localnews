@@ -1,38 +1,34 @@
-
-
-<div class="row">
-  <div class="column left">
+<div class="profile-page">
+  <section class="profile">
     <h1><%= @user.name %></h1>
-    <img src="https://images0.persgroep.net/rcs/c_dVBVVz_funC_O7h2nyD7y65gU/diocontent/137997685/_fitwidth/694/?appId=21791a8992982cd8da851550a453bd7f&quality=0.8"
-     alt="Avatar" class="avatar">
-    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-     tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-     <p style="font-weight: bold;">Score: </p>
-     <%- if @user == current_user  %>
-      <p style="font-weight: bold;">Email: <%= @user.email %> </p>
+    <% if @user.avatar.present? %>
+      <%= image_tag @user.avatar.variant(resize_to_limit: [100, 100]), alt: "Avatar", class: :avatar %>
+    <% else %>
+      <div class="avatar">
+        No avatar
+      </div>
+    <% end %>
+    <%- if @user == current_user  %>
       <%= link_to "Edit my profile", edit_user_registration_path %>
-     <%- else %>
-     <% end %>
-  </div>
-  <div class="column right">
+    <%- else %>
+    <% end %>
+  </section>
   <section>
-  <h2>Posts</h2>
-  <ul>
-    <% for post in @posts %>
-      <li><%= link_to post.title, post %></li>
-    <% end %>
-  </ul>
-</section>
-
-<section>
-  <h2>Comments</h2>
-  <ul>
-    <% for comment in @comments %>
-      <li><strong>On <%= link_to comment.post.title, comment.post %></strong>
-        <%= render CommentComponent.new(comment: comment, user: current_user, open: true) %>
-      </li>
-    <% end %>
-  </ul>
-</section>
-  </div>
+    <h2>Posts</h2>
+    <ul>
+      <% for post in @posts %>
+        <li><%= link_to post.title, post %></li>
+      <% end %>
+    </ul>
+  </section>
+  <section>
+    <h2>Comments</h2>
+    <ul>
+      <% for comment in @comments %>
+        <li><strong>On <%= link_to comment.post.title, comment.post %></strong>
+          <%= render CommentComponent.new(comment: comment, user: current_user, open: true) %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
 </div>

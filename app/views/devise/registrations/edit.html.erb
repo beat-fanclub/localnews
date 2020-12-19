@@ -1,21 +1,17 @@
 
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-<div>
-<img src="https://images0.persgroep.net/rcs/c_dVBVVz_funC_O7h2nyD7y65gU/diocontent/137997685/_fitwidth/694/?appId=21791a8992982cd8da851550a453bd7f&quality=0.8" 
-     alt="Avatar" class="avatar">
-     <%= link_to "Change profile picture" %>
-     
-</div>
-<textarea placeholder="Describe yourself here..."></textarea>
-
 </div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  
-  
+
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
   </div>
 
   <div class="field">
