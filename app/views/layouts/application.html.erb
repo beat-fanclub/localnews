@@ -34,23 +34,23 @@
             ) do |f| %>
             <%= search_field_tag :q, params[:q], data: { reflex: "input->Posts#filter" } %>
             <%= f.submit 'Search', :disable_with => 'Searching...' %>
-            <% end %>
+          <% end %>
           </div>
           <li>
             <a <%= link_to 'Home', posts_path %> </a>
           </li>
-          <%#
-          <li>
-            <a href="../trending">Trending</a>
-          </li>
-          %>
-          <li>
-            <%- if current_user.present?  %>
-              <%= link_to "Profile", url_for(current_user) %> <br/>
-            <%- else %>
-              <%= link_to "Log in", new_user_session_path %><br/>
-            <% end %>
-          </li>
+      <%- if current_user.present?  %>
+        <li>
+          <%= link_to "Profile", url_for(current_user) %> <br/>
+        </li>
+        <li>
+          <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+        </li>
+      <%- else %>
+        <li>
+          <%= link_to "Log in", new_user_session_path %><br/>
+        </li>
+      <% end %>
 
         </ul>
 
@@ -67,7 +67,7 @@
       <%= yield %>
     </div>
     <footer>
-    <p>Localnews inc &copy; 2020 No rights reserved </p>
+      <p>Localnews inc &copy; 2020 No rights reserved </p>
     </footer>
 
   </body>
