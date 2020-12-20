@@ -2,7 +2,13 @@
 <html>
   <head>
 
-    <title>Localnews</title>
+    <%= display_meta_tags(
+      site: 'Localnews',
+      fb: {
+        app_id: ENV['FACEBOOK_APP_ID'],
+      },
+    )%>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

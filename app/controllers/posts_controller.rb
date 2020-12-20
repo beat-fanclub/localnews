@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     @posts = apply_scopes(@posts)
     @pagy, @posts = pagy(@posts)
     @filter_params = params.permit(:q, :map_bounds, :page).to_h
-    @metadata = pagy_metadata(@pagy) if request.format.json?
+    @metadata = pagy_metadata(@pagy, true)
   end
 
   # GET /posts/1

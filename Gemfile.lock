@@ -162,6 +162,8 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     maruku (0.7.3)
+    meta-tags (2.14.0)
+      actionpack (>= 3.2.0, < 6.2)
     metainspector (5.11.0)
       addressable (~> 2.7.0)
       faraday (~> 1.1.0)
@@ -392,6 +394,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  meta-tags
   metainspector
   omniauth (~> 1.9)
   omniauth-facebook

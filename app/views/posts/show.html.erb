@@ -6,7 +6,7 @@
   <%= render VoteComponent.new(voteable: @post, user: @current_user) %>
   <header>
     <h1>
-      <%= @post.title %>
+      <%= title @post.title %>
     </h1>
     <p>
       By <%= link_to @post.user.name, url_for(@post.user) %>,
@@ -37,3 +37,22 @@
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+
+<% set_meta_tags(
+  description: truncate(@post.content, length: 300),
+  og: {
+    title: :title,
+    type: "article",
+    description: :description,
+    article: {
+      published_time: @post.created_at,
+      modified_time: @post.body.updated_at,
+      author: [{
+        username: @post.user.name,
+      }],
+    }
+  },
+  fb: {
+    app_id: ENV['FACEBOOK_APP_ID'],
+  },
+)%>

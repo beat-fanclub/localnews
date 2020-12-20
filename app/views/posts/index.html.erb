@@ -42,5 +42,19 @@
     <% end %>
   </ul>
   <% end %>
+  <%== pagy_info(@pagy, 'post'.pluralize(@pagy.count)) %>
   <%== pagy_nav(@pagy) %>
 <% end %>
+
+<% set_meta_tags(
+  title: "Search results",
+  description: "Search resultd for '#{params[:q]}'",
+  og: {
+    title: :title,
+    type: "website",
+    description: :description,
+  },
+  next: @metadata[:next_url],
+  prev: @metadata[:prev_url],
+)%>
+

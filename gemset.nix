@@ -666,6 +666,17 @@
     };
     version = "0.7.3";
   };
+  meta-tags = {
+    dependencies = ["actionpack"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0bwr2fin0g06wd2cd7mvnslacj11m4mb2zs8i0flhg7n62xgi4s6";
+      type = "gem";
+    };
+    version = "2.14.0";
+  };
   metainspector = {
     dependencies = ["addressable" "faraday" "faraday-cookie_jar" "faraday-encoding" "faraday-http-cache" "faraday_middleware" "fastimage" "nesty" "nokogiri"];
     groups = ["default"];
