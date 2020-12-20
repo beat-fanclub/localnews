@@ -16,7 +16,7 @@
     <%= yield :head %>
   </head>
 
-  <body>
+  <body data-controller="redirect" data-action="redirect@document->redirect#redirect">
     <nav class="menu">
 
       <input type="checkbox" id="menuToggle" class="visually-hidden">

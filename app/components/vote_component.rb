@@ -1,5 +1,4 @@
-class VoteComponent < ViewComponentReflex::Component
-  delegate :can?, :cannot?, to: :helpers
+class VoteComponent < ViewComponent::Base
   attr_reader :current_user
 
   def initialize(voteable:, user:)
@@ -7,29 +6,7 @@ class VoteComponent < ViewComponentReflex::Component
     @current_user = user
   end
 
-  def vote(direction)
-    current_user.vote(@voteable, direction)
-    @voteable.reload
-  end
-
-  def upvote
-    vote(:up)
-  end
-
-  def downvote
-    vote(:down)
-  end
-
-  def unvote
-    current_user.unvote(@voteable)
-    @voteable.reload
-  end
-
   def voted?
-    current_user.voted?(@voteable)
-  end
-
-  def collection_key
-    @voteable.id
+    current_user&.voted?(@voteable)
   end
 end
