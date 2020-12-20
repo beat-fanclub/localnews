@@ -202,6 +202,10 @@ GEM
     omniauth-oauth2 (1.7.0)
       oauth2 (~> 1.4)
       omniauth (~> 1.9)
+    optimism (0.4.0)
+      cable_ready (>= 4.4.6)
+      rack (~> 2.0)
+      rails (>= 6, >= 5.2)
     orm_adapter (0.5.0)
     pagy (3.10.0)
     parallel (1.20.1)
@@ -398,6 +402,7 @@ DEPENDENCIES
   metainspector
   omniauth (~> 1.9)
   omniauth-facebook
+  optimism
   pagy (~> 3.5)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)

@@ -1,36 +1,31 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+<%= form_with(model: post) do |form| %>
+  <%= form.container_for :location, class: "field" do %>
+    <%= render MapFormComponent.new(post.location, true) do %>
+      <div class="field" data-controller="hide" data-target="hide.whenJS">
+        <%= form.label :location, "WKT representation of location:" %>
+        <%= form.text_field :location, data: { target: "map.locationInput" } %>
+      </div>
+    <% end %>
+    <%= form.error_for :location %>
   <% end %>
 
-  <%= render MapFormComponent.new(post.location, true) do %>
-    <div class="field" data-controller="hide" data-target="hide.whenJS">
-      <%= form.label :location, "WKT representation of location:" %>
-      <%= form.text_field :location, data: { target: "map.locationInput" } %>
-    </div>
-  <% end %>
-
-  <div class="field">
+  <%= form.container_for :title, class: "field" do %>
     <%= form.label :title %>
     <%= form.text_field :title %>
-  </div>
+    <%= form.error_for :title %>
+  <% end %>
 
-  <div class="field">
+  <%= form.container_for :source, class: "field" do %>
     <%= form.label :source %>
     <%= form.text_field :source %>
-  </div>
+    <%= form.error_for :source %>
+  <% end %>
 
-  <div class="field">
+  <%= form.container_for :body, class: "field" do %>
+    <%= form.label :body, 'Post content' %>
     <%= form.rich_text_area :body %>
-  </div>
+    <%= form.error_for :body %>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

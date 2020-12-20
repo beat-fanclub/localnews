@@ -1,12 +1,9 @@
 @import 'colors';
 
-.field {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  order: 2;
-  flex-basis: 100%;
-
+.field, .actions {
+  display: grid;
+  justify-content: begin;
+  grid-template-columns: 2em auto;
 
   label {
     color: $fg;
@@ -15,32 +12,62 @@
   }
 
   input, textarea {
-    border: 0.1em solid #1d2d35;
-    border-radius: 4px;
+    border: 0.1em solid $fg;
+    border-radius: 0.2em;
     color: $fg;
     font-size: 1em;
     padding: 0.5em 1em 0.5em;
     resize: vertical;
     outline: none;
+    justify-self: stretch;
   }
 
+  :not(input[type=checkbox]) {
+    grid-column: 1 / 3;
+  }
+
+  input[type=checkbox] {
+    grid-column: 1 / 2;
+    + label {
+      grid-column: 2 / 3;
+    }
+  }
+
+  // transition-property: background-color, height;
+  transition-property: all;
+  transition-duration: 300ms;
+  
+  > span {
+    transition-property: height;
+    transition-property: all;
+    transition-duration: 300ms;
+    height: 0;
+  };
+}
+
+.field, .actions {
   width: 100%;
+  max-width: 80ch;
+  margin: 1em;
+  padding: 0.5em;
 }
 
-.column {
-  float: left;
-  width: 50%;
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+.field.error {
+  input, textarea, .leaflet-container {
+    border-color: $error;
+  }
 
-@media screen and (max-width: 768px) {
-  .column {
-    width: 100%;
+  background-color: $error-light;
+  color: $error-dark;
+  border-radius: 0.2em;
+  > span {
+    height: auto;
   }
 }
+

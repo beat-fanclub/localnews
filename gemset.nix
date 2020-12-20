@@ -863,6 +863,17 @@
     };
     version = "1.7.0";
   };
+  optimism = {
+    dependencies = ["cable_ready" "rack" "rails"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0awky1r7fdhca5inf7pbad4a420nkqqkql886sxkjmbvrff48yzl";
+      type = "gem";
+    };
+    version = "0.4.0";
+  };
   orm_adapter = {
     groups = ["default"];
     platforms = [];
