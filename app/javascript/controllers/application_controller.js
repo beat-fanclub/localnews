@@ -49,7 +49,4 @@ export default class extends Controller {
   afterReflex (element, reflex, noop, reflexId) {
     // document.body.classList.remove('wait')
   }
-
-  
-
 }

@@ -1,17 +1,26 @@
 <%=  form_with(url: url_for([ "vote", voteable ]), class: :voter) do |f| %>
 
-  <%= tag :button, "👍", {
-    class: voted?&.up? ? "active" : "",
-    name: :direction,
-    value: (voted?&.up? ? :none : :up)
-  } %>
 
- <span><%= @voteable.votes_sum %></span>
+<%= f.submit("👍", {
+  class: voted?&.up? ? "active" : "",
+  name: :direction,
+  value: (voted?&.up? ? :none : :up),
+  data: {
+    reflex: "Vote#vote"
+  }
+})
+%>
 
-<%= tag :button, "👎", {
+<span><%= @voteable.votes_sum %></span>
+
+<%= f.submit("👎", {
   class: voted?&.down? ? "active" : "",
   name: :direction,
-  value: (voted?&.down? ? :none : :down)
-} %>
+  value: (voted?&.down? ? :none : :down),
+  data: {
+    reflex: "Vote#vote"
+  }
+})
+%>
 
   <% end %>

@@ -16,16 +16,18 @@ class VoteReflex < ApplicationReflex
       )
       return
     end
-    direction = params[:direction]
-    if direction.in? ["up" "down"]
+    direction = element[:value]
+    if direction.in? ["up", "down"]
       current_user.vote(voteable, direction)
     else
       current_user.unvote(voteable)
     end
     voteable.reload
-    morph "#{dom_id(voteable)}-vote", VoteComponent.new(
-      voteable: voteable,
-      user: current_user,
+    morph '#' + dom_id(voteable, :vote), ApplicationController.render(
+      VoteComponent.new(
+        voteable: voteable,
+        user: current_user,
+      )
     )
   end
 end
