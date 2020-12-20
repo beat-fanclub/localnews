@@ -13,7 +13,12 @@ class MapComponent < ViewComponent::Base
   def call
     helpers.tag.div(id: :map, class: %w(map), data: @data) do
       container = <<-HTML
-        <div data-target="map.container" data-reflex-permanent id="map-container"></div>
+        <div
+          data-target="map.container"
+          data-reflex-permanent
+          data-turbolinks-permanent
+          id="map-container">
+        </div>
       HTML
       container.html_safe.concat content
     end
