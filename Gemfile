@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
+gem 'rails', '~> 6.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'activerecord-postgis-adapter'
@@ -62,9 +62,9 @@ gem 'omniauth-facebook'
 gem 'rails-social-share-button'
 
 gem 'cancancan', '~> 3.1.0'
-gem 'stimulus_reflex', '~> 3.3.0'
+gem 'stimulus_reflex', '~> 3.4.0'
 gem 'view_component', '~> 2.21.0', require: 'view_component/engine'
-gem 'view_component_reflex', '~> 2.6.2'
+gem 'view_component_reflex', '~> 3.0.2'
 gem 'has_scope', '~> 0.7.2'
 gem 'image_processing', '~> 1.2'
 gem "aws-sdk-s3", require: false
