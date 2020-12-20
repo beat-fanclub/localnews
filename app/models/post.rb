@@ -41,7 +41,7 @@ class Post < ApplicationRecord
 
       scrape_wikipedia! if page.host.ends_with? "wikipedia.org"
     rescue MetaInspector::TimeoutError, MetaInspector::RequestError, MetaInspector::ParserError, MetaInspector::NonHtmlError => e
-      errors.add :source, :scrape_error, message: "Can't scrape source: #{e.message}"
+      errors.add :source, :scrape_error, message: "isn't scrapeable: #{e.message}"
     end
   end
 

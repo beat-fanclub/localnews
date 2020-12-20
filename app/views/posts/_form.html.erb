@@ -1,4 +1,5 @@
 <%= form_with(model: post) do |form| %>
+  <% errors = post.errors %>
   <%= form.container_for :location, class: "field" do %>
     <%= render MapFormComponent.new(post.location, true) do %>
       <div class="field" data-controller="hide" data-target="hide.whenJS">
@@ -12,19 +13,19 @@
   <%= form.container_for :title, class: "field" do %>
     <%= form.label :title %>
     <%= form.text_field :title %>
-    <%= form.error_for :title %>
+    <%= form.error_for(:title)  %>
   <% end %>
 
   <%= form.container_for :source, class: "field" do %>
     <%= form.label :source %>
     <%= form.text_field :source %>
-    <%= form.error_for :source %>
+    <%= form.error_for(:source)  %>
   <% end %>
 
   <%= form.container_for :body, class: "field" do %>
     <%= form.label :body, 'Post content' %>
     <%= form.rich_text_area :body %>
-    <%= form.error_for :body %>
+    <%= form.error_for(:body)  %>
   <% end %>
 
   <div class="actions">

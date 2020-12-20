@@ -57,7 +57,7 @@ class PostsController < ApplicationController
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
-        format.html { broadcast_errors @post, post_params }
+        format.html { broadcast_errors(@post, post_params); render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -73,7 +73,8 @@ class PostsController < ApplicationController
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
-        format.html { broadcast_errors @post, post_params }
+        format.html { render :edit }
+        format.js { broadcast_errors(@post, post_params) }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
