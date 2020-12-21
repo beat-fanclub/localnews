@@ -43,9 +43,11 @@ textarea {
 }
 
 @media (pointer: coarse) {
-  .page-content a {
-    padding: 0.5rem;
-    background: radial-gradient($bg, darken($color: $bg, $amount: 5));
+  .page-content {
+    input.link, a {
+      padding: 0.5rem;
+      background: radial-gradient($bg, darken($color: $bg, $amount: 5));
+    }
   }
 
   .map a {

@@ -1,3 +1,6 @@
+<% content_for :head do %>
+  <%= javascript_pack_tag 'rails_social_share_button', 'data-turbolinks-track': 'reload' %>
+<% end %>
 <%= render MapFormComponent.new(@post.location) %>
 
 <p id="notice"><%= notice %></p>
