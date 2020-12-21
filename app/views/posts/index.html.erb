@@ -18,11 +18,11 @@
   ) do |f| %>
 
   <div class="field">
-    <%= label_tag :q, 'Search:' %>
+    <%= label_tag :q, 'Search:', class: "visually-hidden" %>
     <%= search_field_tag :q, params[:q], data: { action: "posts#updateUrl" } %>
   </div>
   <%= hidden_field_tag :map_bounds, params[:map_bounds], data: { action: "change->posts#updateUrl" } %>
-  <div class="actions">
+  <div class="field">
     <%= submit_tag "Search", disable_with: "Searching…" %>
   </div>
 <% end %>

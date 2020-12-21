@@ -74,11 +74,6 @@ body {
 }
 
 
-label {
-  display: none;
-  cursor: pointer;
-}
-
 .visually-hidden {
     position: absolute;
     left: -100vw;
@@ -151,4 +146,8 @@ label {
   .menu-icon i {
         font-size: 1.7em;
     }
+}
+
+#menuToggle {
+  display: none;
 }
