@@ -1253,6 +1253,16 @@
     };
     version = "0.0.2";
   };
+  ruby_http_client = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "033fkds59k0721y9r75fmcfvvygasv6c6k3qdbk21gclj8765ci2";
+      type = "gem";
+    };
+    version = "3.5.1";
+  };
   rubyzip = {
     groups = ["default" "test"];
     platforms = [];
@@ -1306,6 +1316,28 @@
       type = "gem";
     };
     version = "3.142.7";
+  };
+  sendgrid-actionmailer = {
+    dependencies = ["mail" "sendgrid-ruby"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1h4p2qrinr6rc5vf0322sx28sycwl29b9ryvvg1g5s8xa8787nyj";
+      type = "gem";
+    };
+    version = "3.1.1";
+  };
+  sendgrid-ruby = {
+    dependencies = ["ruby_http_client"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0kny8v369yvm20ny05znpjkkrngx98q88ngkjxl405phnjni0461";
+      type = "gem";
+    };
+    version = "6.3.8";
   };
   solargraph = {
     dependencies = ["backport" "benchmark" "e2mmap" "jaro_winkler" "maruku" "nokogiri" "parser" "reverse_markdown" "rubocop" "thor" "tilt" "yard"];
