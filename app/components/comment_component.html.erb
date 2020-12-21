@@ -1,20 +1,21 @@
 <%= component_controller(id: "comment_#{@comment.id}", class: :comment) do %>
     <%= render VoteComponent.new(voteable: @comment, user: current_user) %>
-    <div class="comment_content">
+    <div class="comment-content">
       <strong><%= @comment.user.name %>:</strong>
       <p><%= @comment.body %></p>
-      <ul>
-        <% if can? :edit, @comment  %>
-          <li>
-            <%= link_to "Edit comment", edit_comment_path(@comment) %>
-          </li>
-        <% end %>
-        <% if @reactable %>
-          <li>
-            <%= link_to "React", new_post_comment_path(@comment.post, parent: @comment) %>
-          </li>
-        <% end %>
-      </ul>
+      <div class="actions">
+          <% if @reactable %>
+              <%= link_to "React", new_post_comment_path(@comment.post, parent: @comment) %>
+          <% end %>
+          <% if can? :edit, @comment  %>
+              <%= link_to "Edit comment", edit_comment_path(@comment) %>
+          <% end %>
+          <% if can? :destroy, @comment  %>
+              <%= button_to "Remove comment", comment_path(@comment), method: :delete, data: {
+                  confirm: "Are you sure you want to delete this comment? All reactions will be gone too!" 
+              }, class: "link" %>
+          <% end %>
+      </div>
       <% if @comment.children.present? %>
         <details>
           <summary>Replies</summary>

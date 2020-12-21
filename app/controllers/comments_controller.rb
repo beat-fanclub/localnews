@@ -61,6 +61,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.json
   api :DELETE, '/comments/:id', 'Destroy a comment'
   def destroy
+    @post = @comment.post
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to post_path(@post), notice: 'Comment was successfully destroyed.' }

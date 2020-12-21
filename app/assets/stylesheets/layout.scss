@@ -1,16 +1,16 @@
 @import 'colors';
 
-a {
+a, input[type=submit].link {
     font-size: 100%;
     vertical-align: baseline;
     margin: 0;
     padding: 0;
     color: $fg ;
     cursor: pointer;
-
+    text-decoration: underline;
 }
 
-a:hover {
+a:hover, input[type=submit].link:hover {
     background-color: transparent;
     color: $button-fg;
     text-decoration: underline;
@@ -52,4 +52,8 @@ textarea {
     padding: unset;
     background: unset;
   }
+}
+
+summary {
+  margin-bottom: 0.5em;
 }

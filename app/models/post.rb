@@ -6,7 +6,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_and_belongs_to_many :tags
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_rich_text :body
 
   validates :location, :title, :user_id, presence: true
