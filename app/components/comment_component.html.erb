@@ -1,5 +1,4 @@
-<%= component_controller(id: "comment_#{@comment.id}") do %>
-  <article class="">
+<%= component_controller(id: "comment_#{@comment.id}", class: :comment) do %>
     <%= render VoteComponent.new(voteable: @comment, user: current_user) %>
     <div class="comment_content">
       <strong><%= @comment.user.name %>:</strong>
@@ -23,7 +22,5 @@
         </details>
       <% end %>
     </div>
-
-  </article>
 
 <% end %>

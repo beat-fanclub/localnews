@@ -7,6 +7,8 @@ class Comment < ApplicationRecord
   has_many :children, class_name: "Comment", foreign_key: "parent_id"
   belongs_to :parent, class_name: "Comment", optional: true
 
+  validates :body, presence: true
+
   scope :toplevel, -> { where(parent: nil) }
 
   validate :same_post_as_parent

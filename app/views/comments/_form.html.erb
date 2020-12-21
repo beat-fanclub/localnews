@@ -1,14 +1,20 @@
-<%= form_with(model: comment.persisted? ? comment : [comment.post, comment], local: true) do |form| %>
-  <% if @parent %>
+
+<h2>Reply to</h2>
+
+<% if @parent %>
     <%= render CommentComponent.new(comment: @parent, user: current_user, reactable: false, open: true) %>
+<% end %>
+
+<%= form_with(model: comment.persisted? ? comment : [comment.post, comment]) do |form| %>
+  <% if @parent %>
     <%= form.text_field :parent_id, value: @parent.id, hidden: true %>
   <% end %>
 
-  <div class="field">
+  <%= form.container_for :body, class: "field" do %>
     <%= form.label :body, "Your comment:" %>
     <%= form.text_area :body %>
     <%= form.error_for(:body)  %>
-  </div>
+    <% end %>
 
   <div class="actions">
     <%= form.submit %>
