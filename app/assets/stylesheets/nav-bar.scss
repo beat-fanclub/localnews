@@ -6,11 +6,15 @@ body {
   padding-top: $nav-bar-height;
 }
 
-.menu {
+.nav-content {
   display:  flex;
   justify-content: space-around;
   flex-direction: row-reverse;
   align-items: center;
+  padding: 0;
+  width: 100%;
+}
+.menu {
   height: $nav-bar-height;
   background: #2d3436;
   position: fixed;
@@ -18,6 +22,7 @@ body {
   top: 0;
   left: 0;
   z-index: 9999;
+  display: grid;
 }
 
 .logo h1{
@@ -101,7 +106,7 @@ label {
     display: flex;
     width: 38%;
     transform: translateX(100%);
-    transition: transform 0.6s ease-in;
+    transition: transform 0.3s ease-in;
     border: 0.1em hidden #1d2d35;
     border-radius: 0.25em;
   }

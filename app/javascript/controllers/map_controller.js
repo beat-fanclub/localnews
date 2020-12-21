@@ -36,6 +36,7 @@ export default class extends ApplicationController {
     // Set map position
     console.log("Set map position");
     this.dispatch("before-map-bounds-init")
+    const updateNow = true;
     if (data.has("center")) {
       const center = data.get("center")
 
@@ -53,6 +54,7 @@ export default class extends ApplicationController {
         const bounds = JSON.parse(data.get("bounds"))
         console.log(`Setting bounds ${data.get("bounds")}`);
         this.map.fitBounds(this.Lf.latLngBounds(bounds))
+        const updateNow = false;
 
       } else {
         this.map.setView(JSON.parse(center), 13)
@@ -75,12 +77,16 @@ export default class extends ApplicationController {
       this.dispatch("moveend")
     })
 
-    this.map.once("moveend", () => {
-      this.map.once("movestart", () => {
-        this.dispatch("after-map-bounds-init")
-        console.log("Done set map position");
+    if (updateNow) {
+      this.dispatch("after-map-bounds-init")
+    } else {
+      this.map.once("moveend", () => {
+        this.map.once("movestart", () => {
+          this.dispatch("after-map-bounds-init")
+          console.log("Done set map position");
+        })
       })
-    })
+    }
   }
 
   setMarkers(markers) {
@@ -105,7 +111,7 @@ export default class extends ApplicationController {
   addMarker(markerEv) {
     const markerEl = markerEv.target
     const id = markerEl.id
-    const markers = this.containerTarget.markers
+    const markers = this.containerTarget.markers || {}
     markers[id] || this.addMarkerEl(markerEl)
   }
 

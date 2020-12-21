@@ -17,6 +17,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   api :GET, '/posts', 'List posts'
   def index
+    @center = "locate"
+
     # Save posts before querying by location
     global_posts = @posts
     if params[:map_bounds].present?

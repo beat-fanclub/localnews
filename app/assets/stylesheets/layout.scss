@@ -34,6 +34,27 @@ li {
 footer {
   position: relative;
   bottom: 0;
+  background: none;
+}
+
+body, p, ul {
+  font-family: -apple-system, BlinkMacSystemFont, Aileron, Lato, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 150%;
+}
+
+html, body {
+  background-color: darken($bg, 10);
+  margin: 0;
+}
+
+.page-content, footer, .nav-content {
+  max-width: 100ch;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+.page-content {
+  background-color: $bg;
 }
 
 textarea {
@@ -47,6 +68,7 @@ textarea {
     input.link, a {
       padding: 0.5rem;
       background: radial-gradient($bg, darken($color: $bg, $amount: 5));
+      display: inline-block;
     }
   }
 

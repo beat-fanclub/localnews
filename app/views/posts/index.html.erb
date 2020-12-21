@@ -1,9 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Posts</h1>
-<%= link_to 'New Post', new_post_path %>
 
 <%= tag.div(data: @filter_params.merge(controller: "posts")) do %>
+
+  <%= render(MapComponent.new(
+    map: { center: @center, bounds: @bounds },
+    target: "posts.map",
+    action: "moveend->posts#newBounds after-map-bounds-init->posts#enableNavigation before-map-bounds-init->posts#disableNavigation"
+  )) do %>
+
+  <h1>Posts</h1>
+
   <%= form_with(
     url: posts_path,
     method: :get,
@@ -12,41 +17,38 @@
     data: { target: "posts.filterForm" }
   ) do |f| %>
 
-    <div class="field">
-      <%= label_tag :q, 'Search:' %>
-      <%= search_field_tag :q, params[:q], data: { action: "posts#updateUrl" } %>
-    </div>
-    <%= hidden_field_tag :map_bounds, params[:map_bounds], data: { action: "change->posts#updateUrl" } %>
-    <div class="actions">
-      <%= submit_tag "Search", disable_with: "Searching…" %>
-    </div>
-  <% end %>
+  <div class="field">
+    <%= label_tag :q, 'Search:' %>
+    <%= search_field_tag :q, params[:q], data: { action: "posts#updateUrl" } %>
+  </div>
+  <%= hidden_field_tag :map_bounds, params[:map_bounds], data: { action: "change->posts#updateUrl" } %>
+  <div class="actions">
+    <%= submit_tag "Search", disable_with: "Searching…" %>
+  </div>
+<% end %>
+<%= link_to 'New Post', new_post_path %>
+<p id="notice"><%= notice %></p>
 
-  <%= render(MapComponent.new(
-    map: { center: @center, bounds: @bounds },
-    target: "posts.map",
-    action: "moveend->posts#newBounds after-map-bounds-init->posts#enableNavigation before-map-bounds-init->posts#disableNavigation"
-  )) do %>
-  <ul class="posts">
-    <% for post in @posts %>
-      <div class="post-result">
-        <%= render VoteComponent.new(voteable: post, user: current_user) %>
-        <div class="post-preview">
-          <%= render(MarkerComponent.new(post.location, post.title, id: post.id)) do %>
-            <p><%= link_to post.title, post_path(post) %></p>
-            <p>By <%= post.user.name %></p>
-            <p>
-              <%= post.comments.count %> Comments - <%= time_ago_in_words(post.created_at) %> ago
-            </p>
-            <% if post.location_desc %>
-              <p><%= post.location_desc %></p>
-            <% end %>
+<ul class="posts">
+  <% for post in @posts %>
+    <div class="post-result">
+      <%= render VoteComponent.new(voteable: post, user: current_user) %>
+      <div class="post-preview">
+        <%= render(MarkerComponent.new(post.location, post.title, id: post.id)) do %>
+          <p><%= link_to post.title, post_path(post) %></p>
+          <p>By <%= post.user.name %></p>
+          <p>
+            <%= post.comments.count %> Comments - <%= time_ago_in_words(post.created_at) %> ago
+          </p>
+          <% if post.location_desc %>
+            <p><%= post.location_desc %></p>
           <% end %>
-        </div>
+        <% end %>
       </div>
+    </div>
 
-    <% end %>
-  </ul>
+  <% end %>
+</ul>
   <% end %>
   <%== pagy_info(@pagy, 'post'.pluralize(@pagy.count)) %>
   <%== pagy_nav(@pagy) %>
