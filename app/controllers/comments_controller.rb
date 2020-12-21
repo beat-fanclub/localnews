@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
   # GET /comments/1.json
   # DOC GENERATED AUTOMATICALLY: REMOVE THIS LINE TO PREVENT REGENERATING NEXT TIME
   api :GET, '/comments/:id', 'Show a comment'
-  returns array_of: :comments
+  returns array_of: :comment
   def show
   end
 
