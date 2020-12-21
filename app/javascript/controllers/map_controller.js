@@ -42,7 +42,7 @@ export default class extends ApplicationController {
       if (center === "markers" && markers) {
         this.map.fitBounds(
           this.Lf.latLngBounds(markers.map((marker) => {
-            return {lat: marker.dataset.lat, lon: marker.dataset, lon}
+            return {lat: marker.dataset.lat, lon: marker.dataset.lon}
           }))
         )
 

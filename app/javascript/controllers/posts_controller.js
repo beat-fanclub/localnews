@@ -12,14 +12,17 @@ export default class extends ApplicationController {
   updateUrl(event) {
     // Base params
     const params = new URLSearchParams(window.location.search)
+    const oldParams = new URLSearchParams(window.location.search)
 
     // Load all the filters from the form
     Array.prototype.slice.call(this.filterFormTarget.elements)
       .forEach(element => {
         const paramName = element.name
         const paramValue = element.value
-        if (paramValue && paramValue.length !== 0)
+        if (paramValue && paramValue.length !== 0) {
+          console.log(`Setting ${paramName} to ${paramValue}`);
           params.set(paramName, paramValue)
+        }
         else
           params.delete(paramName)
       })
@@ -27,7 +30,7 @@ export default class extends ApplicationController {
     const queryString = params.toString()
     const query = queryString.length ? '?' : ''
     const url = `${window.location.pathname}${query}${queryString}`
-    if (self.navigation) {
+    if (self.navigation || params.get("map_bounds") === oldParams.get("map_bounds")) {
       console.log(`Visiting ${url}`);
       // Derived from: https://stackoverflow.com/questions/53173328/manage-browser-history-manually-for-one-part-of-my-turbolinks-enabled-rails-5-ap
       Turbolinks

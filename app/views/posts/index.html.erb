@@ -7,26 +7,29 @@
   <%= form_with(
     url: posts_path,
     method: :get,
-    local: true,
+    # local: true,
     class: "posts-filter",
     data: { target: "posts.filterForm" }
   ) do |f| %>
 
     <div class="field">
       <%= label_tag :q, 'Search:' %>
-      <%= search_field_tag :q, params[:q], data: { action: "input->posts#updateUrl" } %>
+      <%= search_field_tag :q, params[:q], data: { action: "posts#updateUrl" } %>
     </div>
     <%= hidden_field_tag :map_bounds, params[:map_bounds], data: { action: "change->posts#updateUrl" } %>
+    <div class="actions">
+      <%= submit_tag "Search", disable_with: "Searching…" %>
+    </div>
   <% end %>
 
   <%= render(MapComponent.new(
-    map: { center: @bounds ? :bounds : :locate, bounds: @bounds },
+    map: { center: @center, bounds: @bounds },
     target: "posts.map",
     action: "moveend->posts#newBounds after-map-bounds-init->posts#enableNavigation before-map-bounds-init->posts#disableNavigation"
   )) do %>
   <ul class="posts">
     <% for post in @posts %>
-      <article class="">
+      <div class="post-result">
         <%= render VoteComponent.new(voteable: post, user: current_user) %>
         <div class="post-preview">
           <%= render(MarkerComponent.new(post.location, post.title, id: post.id)) do %>
@@ -40,7 +43,7 @@
             <% end %>
           <% end %>
         </div>
-      </article>
+      </div>
 
     <% end %>
   </ul>

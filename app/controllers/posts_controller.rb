@@ -17,14 +17,18 @@ class PostsController < ApplicationController
   # GET /posts.json
   api :GET, '/posts', 'List posts'
   def index
+    # Save posts before querying by location
+    global_posts = @posts
     if params[:map_bounds].present?
       north_east, south_west = JSON.parse(params[:map_bounds]).map do |point|
         { lat: point["lat"], lon: point["lng"] }
       end
       @posts = @posts.within(north_east, south_west) if north_east && south_west
       @bounds = [ north_east, south_west ]
+      @center = "bounds"
     end
     @posts = apply_scopes(@posts)
+
     @pagy, @posts = pagy(@posts)
     @filter_params = params.permit(:q, :map_bounds, :page).to_h
     @metadata = pagy_metadata(@pagy, true)
