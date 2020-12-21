@@ -36,7 +36,7 @@ export default class extends ApplicationController {
     // Set map position
     console.log("Set map position");
     this.dispatch("before-map-bounds-init")
-    const updateNow = true;
+    let updateNow = true
     if (data.has("center")) {
       const center = data.get("center")
 
@@ -54,7 +54,7 @@ export default class extends ApplicationController {
         const bounds = JSON.parse(data.get("bounds"))
         console.log(`Setting bounds ${data.get("bounds")}`);
         this.map.fitBounds(this.Lf.latLngBounds(bounds))
-        updateNow = false;
+        updateNow = false
 
       } else {
         this.map.setView(JSON.parse(center), 13)
