@@ -35,6 +35,9 @@
             <p>
               <%= post.comments.count %> Comments - <%= time_ago_in_words(post.created_at) %> ago
             </p>
+            <% if post.location_desc %>
+              <p><%= post.location_desc %></p>
+            <% end %>
           <% end %>
         </div>
       </article>

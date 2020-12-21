@@ -15,6 +15,7 @@ class Post < ApplicationRecord
   before_save :update_content
   before_validation do
     scrape_source!(self.source) if body.blank? && source.present?
+    update_location!
   end
 
   scope :within, -> (north_east, south_west) {
@@ -49,6 +50,21 @@ class Post < ApplicationRecord
 
   def update_content
     self.content = body.to_plain_text
+  end
+
+  def update_location!
+    if location
+      url = URI::parse "https://nominatim.openstreetmap.org/reverse"
+      url.query = {
+        lat: location.lat,
+        lon: location.lon,
+        format: :json,
+      }.to_param
+      res = Net::HTTP.get url
+      json = JSON::parse res
+      self.location_desc = json["display_name"]
+    elsif location_desc
+    end
   end
 
   def scrape_wikipedia!
