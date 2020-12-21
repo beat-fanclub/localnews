@@ -11,9 +11,10 @@ export default class extends ApplicationController {
     super.connect()
     this.Lf = await import(/* webpackPrefetch: true */ "leaflet")
     this.LfSearch = await import(/* webpackPrefetch: true */ "leaflet-search")
-    this.containerTarget.map || this.initLeaflet()
-    this.map = this.containerTarget.map
-    if (!this.containerTarget.markers) this.containerTarget.markers = {}
+    const containerTarget = this.containerTarget
+    containerTarget.map || this.initLeaflet()
+    this.map = containerTarget.map
+    if (!containerTarget.markers) this.containerTarget.markers = {}
     this.updateMap()
   }
 
@@ -22,6 +23,7 @@ export default class extends ApplicationController {
   }
 
   updateMap() {
+    console.log("Updating map")
     let data = this.data
 
     // Set markers
@@ -32,6 +34,7 @@ export default class extends ApplicationController {
     }
 
     // Set map position
+    this.dispatch("before-map-bounds-init")
     if (data.has("center")) {
       const center = data.get("center")
 
@@ -43,16 +46,18 @@ export default class extends ApplicationController {
         )
 
       } else if (center === "locate" || center === "markers") {
-        this.map.locate({setView: true})
+        this.map.locate({setView: true, maxZoom: 13})
 
       } else if (center === "bounds") {
         const bounds = JSON.parse(data.get("bounds"))
+        console.log(`Setting bounds ${data.get("bounds")}`);
         this.map.fitBounds(this.Lf.latLngBounds(bounds))
 
       } else {
         this.map.setView(JSON.parse(center), 13)
       }
     }
+    this.dispatch("after-map-bounds-init")
 
     // Handle adding new points
     this.createPoint(this.data.has("new-point"))
@@ -101,38 +106,44 @@ export default class extends ApplicationController {
     const id = markerEv.detail.id
     console.log(`Removing marker#${id}`);
     const markers = this.containerTarget.markers
+    if (!markers) return
     const marker = markers[id]
+    if (!marker) return
     marker.removeFrom(this.getMarkerLayer())
     markers[id] = null
   }
 
   addMarkerEl(markerEl) {
     let data = markerEl.dataset
-    let latlon = {lat: data.lat, lon: data.lon}
-    const marker = this.Lf.marker(latlon, {
-      title: data.title,
-      draggable: data.editable,
-      autoPan: data.editable,
-    })
+    let latlon = {lat: data.lat, lon: data.lon};
 
-    marker.on('moveend', (ev) => {
-      const latlng = ev.target.getLatLng()
-      markerEl.dataset.lat = latlng.lat
-      markerEl.dataset.lon = latlng.lng
-      markerEl.dispatchEvent(new Event("moveend"))
-      this.setInput(latlng)
-    })
-    this.setInput(marker.getLatLng())
+    (async () => {
+      this.Lf = await import(/* webpackPrefetch: true */ "leaflet")
+      const marker = this.Lf.marker(latlon, {
+        title: data.title,
+        draggable: data.editable,
+        autoPan: data.editable,
+      })
 
-    markerEl.addEventListener("markerdel", ev => this.removeMarker(ev))
+      marker.on('moveend', (ev) => {
+        const latlng = ev.target.getLatLng()
+        markerEl.dataset.lat = latlng.lat
+        markerEl.dataset.lon = latlng.lng
+        markerEl.dispatchEvent(new Event("moveend"))
+        this.setInput(latlng)
+      })
+      this.setInput(marker.getLatLng())
 
-    if (data.popup)
-      marker.bindPopup(markerEl.outerHTML)
+      markerEl.addEventListener("markerdel", ev => this.removeMarker(ev))
 
-    const markerLayer = this.getMarkerLayer()
-    markerLayer.addLayer(marker)
+      if (data.popup)
+        marker.bindPopup(markerEl.outerHTML)
 
-    this.containerTarget.markers[markerEl.id] = marker
+      const markerLayer = this.getMarkerLayer()
+      markerLayer.addLayer(marker)
+
+      this.containerTarget.markers[markerEl.id] = marker
+    })()
   }
 
   setInput(latlng) {
@@ -194,6 +205,15 @@ export default class extends ApplicationController {
     }).addTo(map)
 
     this.containerTarget.map = map
+  }
+
+  cancelMapUpdateLoop(event) {
+    const newUrl = new URL(event.data.url)
+    const newSearch = new URLSearchParams(newUrl.search)
+    const sameBounds = (this.locationInputTarget.value === newSearch.get("map_bounds"))
+    const samePath = (document.location.pathname === url.pathname)
+    if (!sameBounds && samePath)
+      event.preventDefault()
   }
 }
 

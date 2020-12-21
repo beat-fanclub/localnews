@@ -14,15 +14,15 @@
 
     <div class="field">
       <%= label_tag :q, 'Search:' %>
-      <%= search_field_tag :q, params[:q], data: { reflex: "input->Posts#filter" } %>
+      <%= search_field_tag :q, params[:q], data: { action: "input->posts#updateUrl" } %>
     </div>
-    <%= hidden_field_tag :map_bounds, params[:map_bounds], data: { reflex: "change->Posts#filter" } %>
+    <%= hidden_field_tag :map_bounds, params[:map_bounds], data: { action: "change->posts#updateUrl" } %>
   <% end %>
 
   <%= render(MapComponent.new(
     map: { center: @bounds ? :bounds : :locate, bounds: @bounds },
     target: "posts.map",
-    action: "moveend->posts#newBounds"
+    action: "moveend->posts#newBounds after-map-bounds-init->posts#enableNavigation before-map-bounds-init->posts#disableNavigation"
   )) do %>
   <ul class="posts">
     <% for post in @posts %>

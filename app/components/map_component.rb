@@ -6,7 +6,7 @@ class MapComponent < ViewComponent::Base
 
     @data = {
       controller: :map,
-      action: "markeradd->map#addMarker #{data.delete(:action)}"
+      action: "markeradd->map#addMarker turbolinks:render->map#updateMap #{data.delete(:action)}"
     }.merge data
   end
 
