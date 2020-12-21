@@ -30,9 +30,9 @@ export default class extends ApplicationController {
     if (self.navigation) {
       console.log(`Visiting ${url}`);
       // Derived from: https://stackoverflow.com/questions/53173328/manage-browser-history-manually-for-one-part-of-my-turbolinks-enabled-rails-5-ap
-      //  Turbolinks
-      //    .controller
-      //    .pushHistoryWithLocationAndRestorationIdentifier(url, Turbolinks.uuid())
+      Turbolinks
+        .controller
+        .pushHistoryWithLocationAndRestorationIdentifier(url, Turbolinks.uuid())
 
       this.stimulate("Posts#filter", event.currentTarget)
     }

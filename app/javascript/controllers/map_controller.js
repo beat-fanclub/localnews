@@ -34,6 +34,7 @@ export default class extends ApplicationController {
     }
 
     // Set map position
+    console.log("Set map position");
     this.dispatch("before-map-bounds-init")
     if (data.has("center")) {
       const center = data.get("center")
@@ -57,7 +58,6 @@ export default class extends ApplicationController {
         this.map.setView(JSON.parse(center), 13)
       }
     }
-    this.dispatch("after-map-bounds-init")
 
     // Handle adding new points
     this.createPoint(this.data.has("new-point"))
@@ -73,6 +73,13 @@ export default class extends ApplicationController {
       // will wait until that happens.
       this.isActionCableConnectionOpen()
       this.dispatch("moveend")
+    })
+
+    this.map.once("moveend", () => {
+      this.map.once("movestart", () => {
+        this.dispatch("after-map-bounds-init")
+        console.log("Done set map position");
+      })
     })
   }
 
@@ -104,7 +111,7 @@ export default class extends ApplicationController {
 
   removeMarker(markerEv) {
     const id = markerEv.detail.id
-    console.log(`Removing marker#${id}`);
+    // console.log(`Removing marker#${id}`);
     const markers = this.containerTarget.markers
     if (!markers) return
     const marker = markers[id]
