@@ -31,6 +31,7 @@ $border: 0.06em;
     transition: 0.4s ease;
     width: $width;
     outline: none;
+    padding: 0.2em 0.5em;
   }
 
   button:hover, button.active:hover {

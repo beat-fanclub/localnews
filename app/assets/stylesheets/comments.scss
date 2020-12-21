@@ -4,15 +4,20 @@
   display: flex;
   flex-direction: row;
   align-items: start;
+  margin-bottom: .5em;
 
-  .actions {
-    margin: 0;
-    padding: 0;
-  }
 }
 
 .comment-content {
   border-left: 0.2em solid lighten($fg, 30);
   padding-left: 0.4em;
   margin-left: 0.4em;
+
+  width: 80ch;
+  max-width: 100%;
+
+  > .actions {
+    margin: 0;
+    padding: 0;
+  }
 }

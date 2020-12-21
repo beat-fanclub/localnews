@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
   api :GET, '/posts/:post_id/comments/new'
   def new
     @parent = Comment.find(params[:parent])
+    @comment = @parent.children.new if @parent
   end
 
   # GET /comments/1/edit

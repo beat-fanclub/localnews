@@ -1,27 +1,52 @@
 <%= component_controller(id: "comment_#{@comment.id}", class: :comment) do %>
+
     <%= render VoteComponent.new(voteable: @comment, user: current_user) %>
     <div class="comment-content">
-      <strong><%= @comment.user.name %>:</strong>
-      <p><%= @comment.body %></p>
-      <div class="actions">
-          <% if @reactable %>
-              <%= link_to "React", new_post_comment_path(@comment.post, parent: @comment) %>
-          <% end %>
-          <% if can? :edit, @comment  %>
-              <%= link_to "Edit comment", edit_comment_path(@comment) %>
-          <% end %>
-          <% if can? :destroy, @comment  %>
-              <%= button_to "Remove comment", comment_path(@comment), method: :delete, data: {
-                  confirm: "Are you sure you want to delete this comment? All reactions will be gone too!" 
-              }, class: "link" %>
-          <% end %>
-      </div>
-      <% if @comment.children.present? %>
-        <details>
-          <summary>Replies</summary>
-          <%= render(CommentComponent.with_collection(@comment.children, user: current_user)) %>
-        </details>
-      <% end %>
+        <strong><%= @comment.user.name %>:</strong>
+        <p><%= @comment.body %></p>
+        <div class="actions">
+            <% if @reactable %>
+                <% if can? :create, Comment %>
+                    <%= link_to "React", new_post_comment_path(@comment.post, parent: @comment), data: reflex_data_attributes(:react) %>
+                <% else %>
+                    <%= link_to "React", new_user_session_path %>
+                <% end %>
+            <% end %>
+            <% if can? :edit, @comment  %>
+                <%= link_to "Edit comment", edit_comment_path(@comment) %>
+            <% end %>
+            <% if can? :destroy, @comment  %>
+                <%= form_with model: @comment, method: :delete, data: reflex_data_attributes("submit->remove_comment") do |f| %>
+                    <%= f.submit "Remove comment",
+                        data: {
+                            confirm: "Are you sure you want to delete this comment? All reactions will be gone too!" 
+                        }, class: "link" %>
+                <% end %>
+            <% end %>
+        </div>
+
+        <% if @reaction %>
+            <%= form_with(model: [@reaction.post, @reaction], data: reflex_data_attributes("submit->create_reaction"), scope: :reply) do |form| %>
+
+                <%= form.container_for :body, class: "field" do %>
+                    <%= form.label :body, "Your comment:" %>
+                    <%= form.text_area :body %>
+                    <%= form.error_for(:body)  %>
+                <% end %>
+
+                <div class="actions">
+                    <%= form.submit "Create reply" %>
+                    <%= reflex_tag :cancel_react, :button, "Cancel" %>
+                </div>
+            <% end %>
+        <% end %>
+
+        <% if @comment.children.present? %>
+            <details <%= "open" if @open %>>
+                <summary>Replies</summary>
+                <%= render(CommentComponent.with_collection(@comment.children, user: current_user)) %>
+            </details>
+        <% end %>
     </div>
 
 <% end %>

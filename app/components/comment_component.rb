@@ -9,7 +9,33 @@ class CommentComponent < ViewComponentReflex::Component
     @current_user = user
   end
 
+  def render?
+    @comment.persisted?
+  end
+
   def collection_key
     @comment.id
+  end
+
+  def react()
+    @reaction = @comment.children.new(post: @comment.post)
+  end
+
+  def cancel_react
+    @reaction = nil
+  end
+
+  def create_reaction
+    @reaction.body = params.dig(:reply, :body)
+    @reaction.parent = @comment
+    @reaction.user = current_user
+    if @reaction.save
+      cancel_react
+      @open = true
+    end
+  end
+
+  def remove_comment
+    @comment.destroy
   end
 end
