@@ -6,28 +6,36 @@ class CommentsController < ApplicationController
 
   include Voteable
 
+  def_param_group :comment do
+    param :id, String
+    param :body, String
+    param :user_id, String
+    param :children, array_of: :comment
+  end
+
   # GET /comments/1
   # GET /comments/1.json
   # DOC GENERATED AUTOMATICALLY: REMOVE THIS LINE TO PREVENT REGENERATING NEXT TIME
   api :GET, '/comments/:id', 'Show a comment'
+  returns array_of: :comments
   def show
   end
 
   # GET /comments/new
-  api :GET, '/posts/:post_id/comments/new'
   def new
     @parent = Comment.find(params[:parent])
     @comment = @parent.children.new if @parent
   end
 
   # GET /comments/1/edit
-  api :GET, '/comments/:id/edit'
   def edit
   end
 
   # POST /comments
   # POST /comments.json
   api :POST, '/posts/:post_id/comments', 'Create a comment'
+  param_group :comment
+  returns :comment
   def create
     respond_to do |format|
       if @comment.save
@@ -45,6 +53,8 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1.json
   api :PATCH, '/comments/:id', 'Update a comment'
   api :PUT, '/comments/:id', 'Update a comment'
+  param_group :comment
+  returns :comment
   def update
     respond_to do |format|
       if @comment.update(comment_params)

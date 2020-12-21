@@ -3,9 +3,20 @@ class PostsController < ApplicationController
   include Pagy::Backend
   include Voteable
 
+  def_param_group :post do
+    #param :post, Hash, action_aware: true do
+      param :id, String
+      param :title, String
+      param :body, String
+      param :user_id, String
+      param :location, String
+      param :location_desc, String
+      param :comments, array_of: :comment
+    #end
+  end
+
   resource_description do
     short "Location-tagged articles"
-    param :id, String
   end
 
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :vote]
@@ -16,6 +27,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   api :GET, '/posts', 'List posts'
+  param :map_bounds, String
+  param :q, String, "Search query"
   def index
     @center = "locate"
 
@@ -39,24 +52,24 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   api :GET, '/posts/:id', 'Show a post'
+  returns :post
   def show
     @comment = Comment.new(post: @post)
     @comments = @post.comments.order(created_at: :desc)
   end
 
   # GET /posts/new
-  api :GET, '/posts/new'
   def new
   end
 
   # GET /posts/1/edit
-  api :GET, '/posts/:id/edit'
   def edit
   end
 
   # POST /posts
   # POST /posts.json
   api :POST, '/posts', 'Create a post'
+  param_group :post
   def create
     respond_to do |format|
       if @post.save
