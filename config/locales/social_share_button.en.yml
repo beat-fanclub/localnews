@@ -1,0 +1,9 @@
+en:
+  social_share_button:
+    email: email
+    facebook: Facebook
+    reddit: Reddit
+    twitter: Twitter
+    google_bookmark: Google Bookmark
+    pinterest: Pinterest
+    share_to: Share to %{name}
