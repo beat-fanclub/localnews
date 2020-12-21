@@ -54,7 +54,7 @@ export default class extends ApplicationController {
         const bounds = JSON.parse(data.get("bounds"))
         console.log(`Setting bounds ${data.get("bounds")}`);
         this.map.fitBounds(this.Lf.latLngBounds(bounds))
-        const updateNow = false;
+        updateNow = false;
 
       } else {
         this.map.setView(JSON.parse(center), 13)
