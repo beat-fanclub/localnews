@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     param :id, String
     param :body, String
     param :user_id, String
-    param :children, array_of: :comment
+    property :children, array_of: :comment, only_in: :response
   end
 
   # GET /comments/1

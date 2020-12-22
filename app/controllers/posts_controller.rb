@@ -11,8 +11,15 @@ class PostsController < ApplicationController
       param :user_id, String
       param :location, String
       param :location_desc, String
-      param :comments, array_of: :comment
+      property :comments, array_of: :comment, only_in: :response
     #end
+  end
+
+  def_param_group :comment do
+    param :id, String
+    param :body, String
+    param :user_id, String
+    property :children, array_of: :comment, only_in: :response
   end
 
   resource_description do
