@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     param :id, String
     param :body, String
     param :user_id, String
-    property :children, array_of: :comment, only_in: :response
+    #property :children, array_of: :comment, only_in: :response
   end
 
   # GET /comments/1
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @parent = Comment.find(params[:parent])
-    @comment = @parent.children.new if @parent
+    @comment = @parent.children.new(post: @parent.post) if @parent
   end
 
   # GET /comments/1/edit

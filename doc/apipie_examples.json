@@ -1,0 +1,1424 @@
+{
+  "apipies#index": [
+    {
+      "verb": "GET",
+      "path": "/apipie",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": "<!DOCTYPE html>\n<html>\n<head>\n  <title>API documentation</title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap.min.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/prettify.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap-responsive.min.css'/>\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/application.css'/>\n  <!-- IE6-8 support of HTML5 elements -->\n  <!--[if lt IE 9]>\n    <script src=\"//html5shim.googlecode.com/svn/trunk/html5.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div class=\"container-fluid\">\n    <div class=\"row-fluid\">\n      <div id='container'>\n        <ul class='breadcrumb'>\n  <li class='active'><a href='/apipie/1.0.en.html'>Localnews 1.0</a></li>\n  \n</ul>\n\n<div>\n<p>Another API description</p>\n</div>\n\n<h1 class='page-header'>Resources</h1>\n\n  <h2>\n    <a href='/apipie/1.0/comments.en.html'>\n      Comments\n    </a>\n    <br>\n    <small></small>\n  </h2>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Resource</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/comments/show.en.html'>GET /comments/:id</a>\n            </td>\n            <td width='60%'>Show a comment</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/comments/create.en.html'>POST /posts/:post_id/comments</a>\n            </td>\n            <td width='60%'>Create a comment</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/comments/update.en.html'>PATCH /comments/:id</a>\n            </td>\n            <td width='60%'>Update a comment</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/comments/update.en.html'>PUT /comments/:id</a>\n            </td>\n            <td width='60%'>Update a comment</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/comments/destroy.en.html'>DELETE /comments/:id</a>\n            </td>\n            <td width='60%'>Destroy a comment</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/comments/vote.en.html'>POST /comments/:id/vote</a>\n            </td>\n            <td width='60%'>vote on comments</td>\n          </tr>\n    </tbody>\n  </table>\n  <h2>\n    <a href='/apipie/1.0/posts.en.html'>\n      Posts\n    </a>\n    <br>\n    <small>Location-tagged articles</small>\n  </h2>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Resource</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/index.en.html'>GET /posts</a>\n            </td>\n            <td width='60%'>List posts</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/show.en.html'>GET /posts/:id</a>\n            </td>\n            <td width='60%'>Show a post</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/create.en.html'>POST /posts</a>\n            </td>\n            <td width='60%'>Create a post</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/update.en.html'>PATCH /posts/:id</a>\n            </td>\n            <td width='60%'>Update a post</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/update.en.html'>PUT /posts/:id</a>\n            </td>\n            <td width='60%'>Update a post</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/destroy.en.html'>DELETE /posts/:id</a>\n            </td>\n            <td width='60%'>Destroy a post</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/vote.en.html'>POST /posts/:id/vote</a>\n            </td>\n            <td width='60%'>vote on posts</td>\n          </tr>\n    </tbody>\n  </table>\n  <h2>\n    <a href='/apipie/1.0/users.en.html'>\n      Users\n    </a>\n    <br>\n    <small></small>\n  </h2>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Resource</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/users/show.en.html'>GET /users/:id</a>\n            </td>\n            <td width='60%'>Show an user</td>\n          </tr>\n    </tbody>\n  </table>\n\n\n        \n      </div>\n    </div>\n    <hr>\n    <footer></footer>\n  </div>\n  <script type='text/javascript' src='/apipie/javascripts/bundled/jquery.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/bootstrap-collapse.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/prettify.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/apipie.js'></script>\n</body>\n</html>\n",
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/apipie/1.0/comments.en.html",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": "<!DOCTYPE html>\n<html>\n<head>\n  <title>API documentation</title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap.min.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/prettify.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap-responsive.min.css'/>\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/application.css'/>\n  <!-- IE6-8 support of HTML5 elements -->\n  <!--[if lt IE 9]>\n    <script src=\"//html5shim.googlecode.com/svn/trunk/html5.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div class=\"container-fluid\">\n    <div class=\"row-fluid\">\n      <div id='container'>\n        <ul class='breadcrumb'>\n  <li>\n    <a href='/apipie/1.0.en.html'>Localnews 1.0</a>\n    <span class='divider'>/</span>\n  </li>\n  <li class='active'>\n    Comments\n    \n  </li>\n  \n</ul>\n\n<div class='page-header'>\n  <h1>\n    Comments\n    <br>\n    <small></small>\n  </h1>\n</div>\n\n\n\n\n\n\n<div class='accordion' id='accordion'>\n\n    <hr>\n    <div class='pull-right small'>\n      <a href='/apipie/1.0/comments/show.en.html'> >>> </a>\n    </div>\n    <div>\n        <h2>\n          <a href='#description-show'\n           class='accordion-toggle'\n           data-toggle='collapse'\n           data-parent='#accordion'>\n            GET /comments/:id\n          </a>\n          <br>\n          <small>Show a comment</small>\n        </h2>\n    </div>\n\n\n    <div id='description-show' class='collapse accordion-body'>\n      \n\n\n\n\n\n  <h3><span class=\"translation_missing\" title=\"translation missing: en.apipie.returns\">Returns</span></h3>\n    <h4>Code: 200</h4>\n      <h5>Description:</h5>\n      <p>OK</p>\n    <table class='table'>\n      <thead>\n        <tr>\n          <th>Param name</th>\n          <th>Description</th>\n        </tr>\n      </thead>\n      <tbody>\n          <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>id </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>body </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>user_id </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n\n      </tbody>\n    </table>\n\n\n\n    </div>\n    <hr>\n    <div class='pull-right small'>\n      <a href='/apipie/1.0/comments/create.en.html'> >>> </a>\n    </div>\n    <div>\n        <h2>\n          <a href='#description-create'\n           class='accordion-toggle'\n           data-toggle='collapse'\n           data-parent='#accordion'>\n            POST /posts/:post_id/comments\n          </a>\n          <br>\n          <small>Create a comment</small>\n        </h2>\n    </div>\n\n\n    <div id='description-create' class='collapse accordion-body'>\n      \n\n\n\n\n\n  <h3>Params</h3>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Param name</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>id </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>body </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>user_id </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n\n    </tbody>\n  </table>\n  <h3><span class=\"translation_missing\" title=\"translation missing: en.apipie.returns\">Returns</span></h3>\n    <h4>Code: 200</h4>\n      <h5>Description:</h5>\n      <p>OK</p>\n    <table class='table'>\n      <thead>\n        <tr>\n          <th>Param name</th>\n          <th>Description</th>\n        </tr>\n      </thead>\n      <tbody>\n          <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>id </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>body </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>user_id </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n\n      </tbody>\n    </table>\n\n\n\n    </div>\n    <hr>\n    <div class='pull-right small'>\n      <a href='/apipie/1.0/comments/update.en.html'> >>> </a>\n    </div>\n    <div>\n        <h2>\n          <a href='#description-update'\n           class='accordion-toggle'\n           data-toggle='collapse'\n           data-parent='#accordion'>\n            PATCH /comments/:id\n          </a>\n          <br>\n          <small>Update a comment</small>\n        </h2>\n        <h2>\n          <a href='#description-update'\n           class='accordion-toggle'\n           data-toggle='collapse'\n           data-parent='#accordion'>\n            PUT /comments/:id\n          </a>\n          <br>\n          <small>Update a comment</small>\n        </h2>\n    </div>\n\n\n    <div id='description-update' class='collapse accordion-body'>\n      \n\n\n\n\n\n  <h3>Params</h3>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Param name</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>id </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>body </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>user_id </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n\n    </tbody>\n  </table>\n  <h3><span class=\"translation_missing\" title=\"translation missing: en.apipie.returns\">Returns</span></h3>\n    <h4>Code: 200</h4>\n      <h5>Description:</h5>\n      <p>OK</p>\n    <table class='table'>\n      <thead>\n        <tr>\n          <th>Param name</th>\n          <th>Description</th>\n        </tr>\n      </thead>\n      <tbody>\n          <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>id </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>body </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>user_id </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n\n      </tbody>\n    </table>\n\n\n\n    </div>\n    <hr>\n    <div class='pull-right small'>\n      <a href='/apipie/1.0/comments/destroy.en.html'> >>> </a>\n    </div>\n    <div>\n        <h2>\n          <a href='#description-destroy'\n           class='accordion-toggle'\n           data-toggle='collapse'\n           data-parent='#accordion'>\n            DELETE /comments/:id\n          </a>\n          <br>\n          <small>Destroy a comment</small>\n        </h2>\n    </div>\n\n\n    <div id='description-destroy' class='collapse accordion-body'>\n      \n\n\n\n\n\n\n\n\n    </div>\n    <hr>\n    <div class='pull-right small'>\n      <a href='/apipie/1.0/comments/vote.en.html'> >>> </a>\n    </div>\n    <div>\n        <h2>\n          <a href='#description-vote'\n           class='accordion-toggle'\n           data-toggle='collapse'\n           data-parent='#accordion'>\n            POST /comments/:id/vote\n          </a>\n          <br>\n          <small>vote on comments</small>\n        </h2>\n    </div>\n\n\n    <div id='description-vote' class='collapse accordion-body'>\n      \n\n\n\n\n\n  <h3>Params</h3>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Param name</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>direction </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be one of: <code>up</code>, <code>down</code>, <code>none</code>, <code>1</code>, <code>-1</code>, <code>0</code>.</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n\n    </tbody>\n  </table>\n\n\n\n    </div>\n</div>\n\n\n        \n      </div>\n    </div>\n    <hr>\n    <footer></footer>\n  </div>\n  <script type='text/javascript' src='/apipie/javascripts/bundled/jquery.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/bootstrap-collapse.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/prettify.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/apipie.js'></script>\n</body>\n</html>\n",
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/apipie/1.0.en.html",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": "<!DOCTYPE html>\n<html>\n<head>\n  <title>API documentation</title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap.min.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/prettify.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap-responsive.min.css'/>\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/application.css'/>\n  <!-- IE6-8 support of HTML5 elements -->\n  <!--[if lt IE 9]>\n    <script src=\"//html5shim.googlecode.com/svn/trunk/html5.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div class=\"container-fluid\">\n    <div class=\"row-fluid\">\n      <div id='container'>\n        <ul class='breadcrumb'>\n  <li class='active'><a href='/apipie/1.0.en.html'>Localnews 1.0</a></li>\n  \n</ul>\n\n<div>\n<p>Another API description</p>\n</div>\n\n<h1 class='page-header'>Resources</h1>\n\n  <h2>\n    <a href='/apipie/1.0/comments.en.html'>\n      Comments\n    </a>\n    <br>\n    <small></small>\n  </h2>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Resource</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/comments/show.en.html'>GET /comments/:id</a>\n            </td>\n            <td width='60%'>Show a comment</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/comments/create.en.html'>POST /posts/:post_id/comments</a>\n            </td>\n            <td width='60%'>Create a comment</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/comments/update.en.html'>PATCH /comments/:id</a>\n            </td>\n            <td width='60%'>Update a comment</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/comments/update.en.html'>PUT /comments/:id</a>\n            </td>\n            <td width='60%'>Update a comment</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/comments/destroy.en.html'>DELETE /comments/:id</a>\n            </td>\n            <td width='60%'>Destroy a comment</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/comments/vote.en.html'>POST /comments/:id/vote</a>\n            </td>\n            <td width='60%'>vote on comments</td>\n          </tr>\n    </tbody>\n  </table>\n  <h2>\n    <a href='/apipie/1.0/posts.en.html'>\n      Posts\n    </a>\n    <br>\n    <small>Location-tagged articles</small>\n  </h2>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Resource</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/index.en.html'>GET /posts</a>\n            </td>\n            <td width='60%'>List posts</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/show.en.html'>GET /posts/:id</a>\n            </td>\n            <td width='60%'>Show a post</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/create.en.html'>POST /posts</a>\n            </td>\n            <td width='60%'>Create a post</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/update.en.html'>PATCH /posts/:id</a>\n            </td>\n            <td width='60%'>Update a post</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/update.en.html'>PUT /posts/:id</a>\n            </td>\n            <td width='60%'>Update a post</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/destroy.en.html'>DELETE /posts/:id</a>\n            </td>\n            <td width='60%'>Destroy a post</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/posts/vote.en.html'>POST /posts/:id/vote</a>\n            </td>\n            <td width='60%'>vote on posts</td>\n          </tr>\n    </tbody>\n  </table>\n  <h2>\n    <a href='/apipie/1.0/users.en.html'>\n      Users\n    </a>\n    <br>\n    <small></small>\n  </h2>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Resource</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/users/show.en.html'>GET /users/:id</a>\n            </td>\n            <td width='60%'>Show an user</td>\n          </tr>\n    </tbody>\n  </table>\n\n\n        \n      </div>\n    </div>\n    <hr>\n    <footer></footer>\n  </div>\n  <script type='text/javascript' src='/apipie/javascripts/bundled/jquery.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/bootstrap-collapse.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/prettify.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/apipie.js'></script>\n</body>\n</html>\n",
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "comments#create": [
+    {
+      "verb": "POST",
+      "path": "/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca/comments",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "authenticity_token=QA%2FpbQ%2BSwd4K1z45Vc8HyU6Y9eeEOgO139t8X%2FyChoilDgybIwDeYvZEkc5gyWowImmCxtcCvzgtaeH4y%2BGq3g%3D%3D&comment%5Bparent_id%5D=600fc1c6-4299-43fb-9bb2-5c908dfd2ffa&comment%5Bbody%5D=My+comment&commit=Create+Comment",
+      "response_data": "<html><body>You are being <a href=\"http://localhost:3000/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca\">redirected</a>.</body></html>",
+      "code": 302,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "comments#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/comments/063dab15-0a3a-4370-9e52-4683da4dfd19",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "_method=delete&authenticity_token=YHDO5E6d%2FOx5Wk%2BQKrP6Mcbu3lE48s2VsTd2BwxR4PZPTcpDzEOX%2FnhDlEfHpmmqwH6C4u2%2Fyp33ELW7%2Fauhig%3D%3D&commit=Remove",
+      "response_data": "<html><body>You are being <a href=\"http://localhost:3000/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca\">redirected</a>.</body></html>",
+      "code": 302,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "comments#edit": [
+    {
+      "verb": "GET",
+      "path": "/comments/2900d85c-dc74-4e54-b0b1-a8e8275b92df/edit",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": "<!DOCTYPE html>\n<html>\n  <head>\n\n    <title>Localnews</title>\n<meta property=\"fb:app_id\" content=\"473851313601205\">\n\n    <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\" content=\"IHH+1KQpw6W4Bal/uNzzhjMv1UHlrcNfDUy5XrU6AbZTpyNQb0dtrGlxBGhC6JeGE2RxtDvxCe1BaWr6u978Gg==\" />\n    \n\n    <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/assets/favicon-ba34a21d61f46b24e3b9e5236adf1f7e60da5922dbac9e84d06912d8490f6109.ico\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n    <link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\">\n    <link rel=\"stylesheet\" media=\"all\" href=\"/assets/application.debug-7bca9e162567719220d1f7065641c072e118293b1d08a3a41f9cec8f2749f9de.css\" data-turbolinks-track=\"reload\" />\n    <script src=\"/packs/js/application-eedb12ec493c9f14996f.js\" data-turbolinks-track=\"reload\"></script>\n\n    \n  </head>\n\n  <body data-controller=\"redirect\" data-action=\"redirect@document->redirect#redirect\">\n    <nav class=\"menu\">\n      <div class=\"nav-content\">\n\n      <input type=\"checkbox\" id=\"menuToggle\" class=\"visually-hidden\">\n      <label for=\"menuToggle\" class=\"menu-icon\"><i class=\"fa fa-bars\"></i></label>\n\n\n\n      <div class=\"nav-links\">\n        <ul>\n          <div class= \"search\">\n            <form action=\"/posts\" accept-charset=\"UTF-8\" method=\"get\">\n            <input type=\"search\" name=\"q\" id=\"q\" data-reflex=\"input-&gt;Posts#filter\" />\n            <input type=\"submit\" name=\"commit\" value=\"Search\" disable_with=\"Searching...\" data-disable-with=\"Search\" />\n</form>          </div>\n          <li>\n            <a <a href=\"/posts\">Home</a> </a>\n          </li>\n        <li>\n          <a href=\"/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9\">Profile</a> <br/>\n        </li>\n        <li>\n          <form class=\"button_to\" method=\"post\" action=\"/users/sign_out\"><input type=\"hidden\" name=\"_method\" value=\"delete\" /><input type=\"submit\" value=\"Log out\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"eDqTLM4JorjHqI528BC+JCiqiU6Iqug1VkTyvurmkVJscUC1eRK+go3YTaVXXUmYEtj0jJK17qteY3rRDbf8FA==\" /></form>\n        </li>\n\n        </ul>\n\n      </div>\n\n      <div class=\"logo\">\n        <a href=\"/posts\">\n          <h1>Localnews</h1>\n</a>      </div>\n    </div>\n    </nav>\n\n    <div class=\"page-content\">\n      <h1>Editing Comment</h1>\n\n\n<form action=\"/comments/2900d85c-dc74-4e54-b0b1-a8e8275b92df\" accept-charset=\"UTF-8\" data-remote=\"true\" method=\"post\"><input type=\"hidden\" name=\"_method\" value=\"patch\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"9YZbKR3dobuPAfOAvHs547d6KvihSjkOxL4qSwSXX4T7KwxRYjSUFbaivQFZN8JNvYFuKVw3GB4MivchhOPNWw==\" />\n\n  <div class=\"field\" id=\"comment_body_container\">\n    <label for=\"comment_body\">Your comment:</label>\n    <textarea name=\"comment[body]\" id=\"comment_body\">\nfaskdl;</textarea>\n    <span content=\"\" id=\"comment_body_error\"></span>\n</div>\n  <div class=\"actions\">\n    <input type=\"submit\" name=\"commit\" value=\"Update Comment\" data-disable-with=\"Update Comment\" />\n  </div>\n</form>\n\n<a href=\"/comments/2900d85c-dc74-4e54-b0b1-a8e8275b92df\">Show</a> |\n<a href=\"/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca\">Back</a>\n\n    </div>\n    <footer>\n      <p>Localnews inc &copy; 2020 No rights reserved </p>\n    </footer>\n\n  </body>\n</html>\n",
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "comments#new": [
+    {
+      "verb": "GET",
+      "path": "/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca/comments/new",
+      "versions": [
+
+      ],
+      "query": "parent=600fc1c6-4299-43fb-9bb2-5c908dfd2ffa",
+      "request_data": null,
+      "response_data": "<!DOCTYPE html>\n<html>\n  <head>\n\n    <title>Localnews</title>\n<meta property=\"fb:app_id\" content=\"473851313601205\">\n\n    <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\" content=\"s+Eb3BJIxbc1bfTTThvylBCnuOERIxyQClF4tx69W1vAN8ZY2SZrvuQZWcS0L5aUMOwcFM9/1iJGdKsTEFmm9w==\" />\n    \n\n    <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/assets/favicon-ba34a21d61f46b24e3b9e5236adf1f7e60da5922dbac9e84d06912d8490f6109.ico\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n    <link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\">\n    <link rel=\"stylesheet\" media=\"all\" href=\"/assets/application.debug-7bca9e162567719220d1f7065641c072e118293b1d08a3a41f9cec8f2749f9de.css\" data-turbolinks-track=\"reload\" />\n    <script src=\"/packs/js/application-eedb12ec493c9f14996f.js\" data-turbolinks-track=\"reload\"></script>\n\n    \n  </head>\n\n  <body data-controller=\"redirect\" data-action=\"redirect@document->redirect#redirect\">\n    <nav class=\"menu\">\n      <div class=\"nav-content\">\n\n      <input type=\"checkbox\" id=\"menuToggle\" class=\"visually-hidden\">\n      <label for=\"menuToggle\" class=\"menu-icon\"><i class=\"fa fa-bars\"></i></label>\n\n\n\n      <div class=\"nav-links\">\n        <ul>\n          <div class= \"search\">\n            <form action=\"/posts\" accept-charset=\"UTF-8\" method=\"get\">\n            <input type=\"search\" name=\"q\" id=\"q\" data-reflex=\"input-&gt;Posts#filter\" />\n            <input type=\"submit\" name=\"commit\" value=\"Search\" disable_with=\"Searching...\" data-disable-with=\"Search\" />\n</form>          </div>\n          <li>\n            <a <a href=\"/posts\">Home</a> </a>\n          </li>\n        <li>\n          <a href=\"/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9\">Profile</a> <br/>\n        </li>\n        <li>\n          <form class=\"button_to\" method=\"post\" action=\"/users/sign_out\"><input type=\"hidden\" name=\"_method\" value=\"delete\" /><input type=\"submit\" value=\"Log out\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"8GxrnfiLYFqqZiYyW/Z7RU3q+luy6WNf2y+bikHMbKnkJ7gET5B8YOAW5eH8u4z5d5iHmaj2ZcHTCBPlpp0B7w==\" /></form>\n        </li>\n\n        </ul>\n\n      </div>\n\n      <div class=\"logo\">\n        <a href=\"/posts\">\n          <h1>Localnews</h1>\n</a>      </div>\n    </div>\n    </nav>\n\n    <div class=\"page-content\">\n      <h1>New Comment</h1>\n\n\n<h2>Reply to</h2>\n\n    <div id=\"comment_600fc1c6-4299-43fb-9bb2-5c908dfd2ffa\" class=\"comment\" data-controller=\"comment\" data-key=\"0c794e7ce2ca4eba484b6f4b76c899952e21e5e0a38f0cb196c5385da565d066600fc1c6-4299-43fb-9bb2-5c908dfd2ffa\">\n\n    <form id=\"vote_comment_600fc1c6-4299-43fb-9bb2-5c908dfd2ffa\" class=\"voter\" data-controller=\"prevent-default\" data-action=\"prevent-default#preventDefault\" action=\"/comments/600fc1c6-4299-43fb-9bb2-5c908dfd2ffa/vote\" accept-charset=\"UTF-8\" method=\"post\"><input type=\"hidden\" name=\"authenticity_token\" value=\"s+Wz3XnjlPT5X4L5pC3MQEhS52jdrzFEyWvgU8LKqvLTe6FiVaaabzOsuI4P1y0SsAkp7kCrO918yKgS/yi/bg==\" />\n\n<button class=\"\" name=\"direction\" value=\"up\" data-voteable=\"gid://localnews/Comment/600fc1c6-4299-43fb-9bb2-5c908dfd2ffa\" data-reflex=\"click-&gt;Vote#vote\">👍</button>\n\n <span>0</span>\n\n <button class=\"\" name=\"direction\" value=\"down\" data-voteable=\"gid://localnews/Comment/600fc1c6-4299-43fb-9bb2-5c908dfd2ffa\" data-reflex=\"click-&gt;Vote#vote\">👎</button>\n\n</form>\n    <div class=\"comment-content\">\n        <strong>Alice:</strong>\n        <p>Nother</p>\n        <div class=\"actions\">\n                <a href=\"/comments/600fc1c6-4299-43fb-9bb2-5c908dfd2ffa/edit\">Edit</a>\n            <a target=\"_blank\" href=\"/comments/600fc1c6-4299-43fb-9bb2-5c908dfd2ffa\">Open in new page</a>\n                <form data-reflex=\"submit-&gt;CommentComponent#remove_comment\" data-key=\"0c794e7ce2ca4eba484b6f4b76c899952e21e5e0a38f0cb196c5385da565d066600fc1c6-4299-43fb-9bb2-5c908dfd2ffa\" action=\"/comments/600fc1c6-4299-43fb-9bb2-5c908dfd2ffa\" accept-charset=\"UTF-8\" data-remote=\"true\" method=\"post\"><input type=\"hidden\" name=\"_method\" value=\"delete\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"+g8JNcfe0WevpOPVmFrptF92HpM48PisDlXU4V38tHQo4mULcUuMpKgScd4ZIvj89RbBktXtAdNeJbZAW+UZ7w==\" />\n                    <input type=\"submit\" name=\"commit\" value=\"Remove\" data-confirm=\"Are you sure you want to delete this comment? All reactions will be gone too!\" data-disable-with=\"Remove\" class=\"link\" />\n</form>        </div>\n\n\n            <details open>\n                <summary>Replies</summary>\n                \n            </details>\n    </div>\n\n</div>\n\n\n<form action=\"/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca/comments\" accept-charset=\"UTF-8\" data-remote=\"true\" method=\"post\"><input type=\"hidden\" name=\"authenticity_token\" value=\"QA/pbQ+Swd4K1z45Vc8HyU6Y9eeEOgO139t8X/yChoilDgybIwDeYvZEkc5gyWowImmCxtcCvzgtaeH4y+Gq3g==\" />\n    <input value=\"600fc1c6-4299-43fb-9bb2-5c908dfd2ffa\" hidden=\"hidden\" type=\"text\" name=\"comment[parent_id]\" id=\"comment_parent_id\" />\n\n  <div class=\"field\" id=\"comment_body_container\">\n    <label for=\"comment_body\">Your comment:</label>\n    <textarea name=\"comment[body]\" id=\"comment_body\">\n</textarea>\n    <span content=\"\" id=\"comment_body_error\"></span>\n</div>\n  <div class=\"actions\">\n    <input type=\"submit\" name=\"commit\" value=\"Create Comment\" data-disable-with=\"Create Comment\" />\n  </div>\n</form>\n\n\n    </div>\n    <footer>\n      <p>Localnews inc &copy; 2020 No rights reserved </p>\n    </footer>\n\n  </body>\n</html>\n",
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "comments#show": [
+    {
+      "verb": "GET",
+      "path": "/comments/b5d6a75a-8697-43fc-9f27-3af3731519c5.json",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "id": "b5d6a75a-8697-43fc-9f27-3af3731519c5",
+        "post_id": "bac9d889-fa78-4f71-9204-2ba3be4fe02c",
+        "body": "Yeet",
+        "edited": false,
+        "parent_id": null,
+        "created_at": "2020-12-22T01:36:31.604Z",
+        "updated_at": "2020-12-22T01:36:31.604Z",
+        "url": "http://localhost:3000/comments/b5d6a75a-8697-43fc-9f27-3af3731519c5.json",
+        "children": [
+
+        ],
+        "user": {
+          "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+          "name": "Alice",
+          "created_at": "2020-12-19T23:20:20.190Z",
+          "updated_at": "2020-12-21T17:48:16.407Z",
+          "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+          "avatar": {
+            "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+            "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+            "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+          }
+        },
+        "votes_sum": 0,
+        "voted": null
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "comments#update": [
+    {
+      "verb": "PATCH",
+      "path": "/comments/2900d85c-dc74-4e54-b0b1-a8e8275b92df",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "_method=patch&authenticity_token=9YZbKR3dobuPAfOAvHs547d6KvihSjkOxL4qSwSXX4T7KwxRYjSUFbaivQFZN8JNvYFuKVw3GB4MivchhOPNWw%3D%3D&comment%5Bbody%5D=Edited+comment&commit=Update+Comment",
+      "response_data": "<html><body>You are being <a href=\"http://localhost:3000/comments/2900d85c-dc74-4e54-b0b1-a8e8275b92df\">redirected</a>.</body></html>",
+      "code": 302,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "posts#edit": [
+    {
+      "verb": "GET",
+      "path": "/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca/edit",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": "<!DOCTYPE html>\n<html>\n  <head>\n\n    <title>Localnews</title>\n<meta property=\"fb:app_id\" content=\"473851313601205\">\n\n    <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\" content=\"cCpZzrmJ7UCD3e0jDdeDcNwlbqabj6sFa7zUH2bUEnkD/IRKcudDSVKpQDT34+dw/G7KU0XTYbcnmQe7aDDv1Q==\" />\n    \n\n    <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/assets/favicon-ba34a21d61f46b24e3b9e5236adf1f7e60da5922dbac9e84d06912d8490f6109.ico\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n    <link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\">\n    <link rel=\"stylesheet\" media=\"all\" href=\"/assets/application.debug-7bca9e162567719220d1f7065641c072e118293b1d08a3a41f9cec8f2749f9de.css\" data-turbolinks-track=\"reload\" />\n    <script src=\"/packs/js/application-eedb12ec493c9f14996f.js\" data-turbolinks-track=\"reload\"></script>\n\n      <script src=\"/packs/js/actiontext-a16d0a81d1fff4a184a4.js\" data-turbolinks-track=\"reload\"></script>\n\n  </head>\n\n  <body data-controller=\"redirect\" data-action=\"redirect@document->redirect#redirect\">\n    <nav class=\"menu\">\n      <div class=\"nav-content\">\n\n      <input type=\"checkbox\" id=\"menuToggle\" class=\"visually-hidden\">\n      <label for=\"menuToggle\" class=\"menu-icon\"><i class=\"fa fa-bars\"></i></label>\n\n\n\n      <div class=\"nav-links\">\n        <ul>\n          <div class= \"search\">\n            <form action=\"/posts\" accept-charset=\"UTF-8\" method=\"get\">\n            <input type=\"search\" name=\"q\" id=\"q\" data-reflex=\"input-&gt;Posts#filter\" />\n            <input type=\"submit\" name=\"commit\" value=\"Search\" disable_with=\"Searching...\" data-disable-with=\"Search\" />\n</form>          </div>\n          <li>\n            <a <a href=\"/posts\">Home</a> </a>\n          </li>\n        <li>\n          <a href=\"/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9\">Profile</a> <br/>\n        </li>\n        <li>\n          <form class=\"button_to\" method=\"post\" action=\"/users/sign_out\"><input type=\"hidden\" name=\"_method\" value=\"delete\" /><input type=\"submit\" value=\"Log out\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"db365p/X8PAiAkYyILoafaMrfgi4lRorX7ogkFxceExh9il/KMzsymhyheGH9+3BmVkDyqKKHLVXnaj/uw0VCg==\" /></form>\n        </li>\n\n        </ul>\n\n      </div>\n\n      <div class=\"logo\">\n        <a href=\"/posts\">\n          <h1>Localnews</h1>\n</a>      </div>\n    </div>\n    </nav>\n\n    <div class=\"page-content\">\n      \n<h1>Editing Post</h1>\n\n<form action=\"/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca\" accept-charset=\"UTF-8\" data-remote=\"true\" method=\"post\"><input type=\"hidden\" name=\"_method\" value=\"patch\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"V6rGtAJDcPtN5VNeqd7yXGvKK/CG/UgDZMV3A/KBNMmXj0xVcqiv7oBpBQgN2QVSX3MAsxUEO7RdKlF615G1iA==\" />\n  <div class=\"field\" id=\"post_location_container\">\n    <div id=\"map\" class=\"map\" data-controller=\"map\" data-action=\"markeradd-&gt;map#addMarker turbolinks:render-&gt;map#updateMap \" data-map-center=\"{&quot;lon&quot;:5.340439081192017,&quot;lat&quot;:50.91762283894972}\">        <div\n          data-target=\"map.container\"\n          data-reflex-permanent\n          data-turbolinks-permanent\n          id=\"map-container\">\n        </div>\n\n    <div id=\"\" class=\"marker\" data-target=\"map.marker\" data-lat=\"50.91762283894972\" data-lon=\"5.340439081192017\" data-popup=\"true\" data-editable=\"true\" data-controller=\"marker\"></div>\n\n  \n      <div class=\"field\" data-controller=\"hide\" data-target=\"hide.whenJS\">\n        <label for=\"post_location\">WKT representation of location:</label>\n        <input data-target=\"map.locationInput\" type=\"text\" value=\"POINT (5.340439081192017 50.91762283894972)\" name=\"post[location]\" id=\"post_location\" />\n      </div>\n\n</div>    <span content=\"\" id=\"post_location_error\"></span>\n</div>\n  <div class=\"field\" id=\"post_title_container\">\n    <label for=\"post_title\">Title</label>\n    <input type=\"text\" value=\"Yeet\" name=\"post[title]\" id=\"post_title\" />\n    <span content=\"\" id=\"post_title_error\"></span>\n</div>\n  <div class=\"field\" id=\"post_source_container\">\n    <label for=\"post_source\">Source</label>\n    <input type=\"text\" value=\"\" name=\"post[source]\" id=\"post_source\" />\n    <span content=\"\" id=\"post_source_error\"></span>\n</div>\n  <div class=\"field\" id=\"post_body_container\">\n    <label for=\"post_body\">Post content</label>\n    <input type=\"hidden\" name=\"post[body]\" id=\"post_body_trix_input_post_09385a5a-f965-45eb-8b87-a840dfedc4ca\" value=\"&lt;div&gt;My good content&lt;/div&gt;\" /><trix-editor id=\"post_body\" input=\"post_body_trix_input_post_09385a5a-f965-45eb-8b87-a840dfedc4ca\" class=\"trix-content\" data-direct-upload-url=\"http://localhost:3000/rails/active_storage/direct_uploads\" data-blob-url-template=\"http://localhost:3000/rails/active_storage/blobs/redirect/:signed_id/:filename\"></trix-editor>\n    <span content=\"\" id=\"post_body_error\"></span>\n</div>\n  <div class=\"actions\">\n    <input type=\"submit\" name=\"commit\" value=\"Update Post\" data-disable-with=\"Update Post\" />\n  </div>\n</form>\n\n<a href=\"/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca\">Show</a> |\n<a href=\"/posts\">Back</a>\n\n    </div>\n    <footer>\n      <p>Localnews inc &copy; 2020 No rights reserved </p>\n    </footer>\n\n  </body>\n</html>\n",
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "posts#index": [
+    {
+      "verb": "GET",
+      "path": "/posts.json",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "posts": [
+          {
+            "url": "http://localhost:3000/posts/bac9d889-fa78-4f71-9204-2ba3be4fe02c.json",
+            "title": "Hasselt (België) - Wikipedia",
+            "id": "bac9d889-fa78-4f71-9204-2ba3be4fe02c",
+            "created_at": "2020-12-20T19:01:34.539Z",
+            "votes_sum": 1,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca.json",
+            "title": "Yeety yeet",
+            "id": "09385a5a-f965-45eb-8b87-a840dfedc4ca",
+            "created_at": "2020-12-19T23:41:39.444Z",
+            "votes_sum": 0,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/9deeaf35-98a6-4c04-88ee-d6128c379efd.json",
+            "title": "My post #41",
+            "id": "9deeaf35-98a6-4c04-88ee-d6128c379efd",
+            "created_at": "2020-12-19T20:28:20.798Z",
+            "votes_sum": 6,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/9d02bf01-2924-47ff-be47-b5e59e56bece.json",
+              "id": "9d02bf01-2924-47ff-be47-b5e59e56bece",
+              "name": "User 19",
+              "created_at": "2020-12-19T23:20:20.006Z",
+              "updated_at": "2020-12-19T23:20:20.006Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/3a7bd4fe-b8bd-400d-9e73-fa6a573b9c14.json",
+            "title": "My post #53",
+            "id": "3a7bd4fe-b8bd-400d-9e73-fa6a573b9c14",
+            "created_at": "2020-12-19T22:13:20.902Z",
+            "votes_sum": 12,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/79ce0e12-bc38-4626-bdb9-eece3a5391f3.json",
+              "id": "79ce0e12-bc38-4626-bdb9-eece3a5391f3",
+              "name": "User 17",
+              "created_at": "2020-12-19T23:20:19.634Z",
+              "updated_at": "2020-12-19T23:20:19.634Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/633737a2-91b4-4e14-93bb-4ea036ed4358.json",
+            "title": "My post #65",
+            "id": "633737a2-91b4-4e14-93bb-4ea036ed4358",
+            "created_at": "2020-12-19T17:20:21.005Z",
+            "votes_sum": 2,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/1a92d3da-0423-4282-9f3b-fccd0b14741e.json",
+              "id": "1a92d3da-0423-4282-9f3b-fccd0b14741e",
+              "name": "User 12",
+              "created_at": "2020-12-19T23:20:18.698Z",
+              "updated_at": "2020-12-19T23:20:18.698Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/001b07a8-32b3-4f04-8f0e-07a78b6a8c2e.json",
+            "title": "My post #78",
+            "id": "001b07a8-32b3-4f04-8f0e-07a78b6a8c2e",
+            "created_at": "2020-12-19T18:39:21.118Z",
+            "votes_sum": 4,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/79ce0e12-bc38-4626-bdb9-eece3a5391f3.json",
+              "id": "79ce0e12-bc38-4626-bdb9-eece3a5391f3",
+              "name": "User 17",
+              "created_at": "2020-12-19T23:20:19.634Z",
+              "updated_at": "2020-12-19T23:20:19.634Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/aae78027-4800-45c0-b4bc-47881cf01be7.json",
+            "title": "My post #28",
+            "id": "aae78027-4800-45c0-b4bc-47881cf01be7",
+            "created_at": "2020-12-19T19:34:20.684Z",
+            "votes_sum": 5,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/22a1d0f2-f27c-4522-8f9d-f3d8a6e0b24e.json",
+              "id": "22a1d0f2-f27c-4522-8f9d-f3d8a6e0b24e",
+              "name": "User 16",
+              "created_at": "2020-12-19T23:20:19.448Z",
+              "updated_at": "2020-12-19T23:20:19.448Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/bc3ac7c0-e117-40d9-a98a-cfcdba792eb1.json",
+            "title": "My post #3",
+            "id": "bc3ac7c0-e117-40d9-a98a-cfcdba792eb1",
+            "created_at": "2020-12-19T17:28:20.461Z",
+            "votes_sum": 11,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/22a1d0f2-f27c-4522-8f9d-f3d8a6e0b24e.json",
+              "id": "22a1d0f2-f27c-4522-8f9d-f3d8a6e0b24e",
+              "name": "User 16",
+              "created_at": "2020-12-19T23:20:19.448Z",
+              "updated_at": "2020-12-19T23:20:19.448Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/4ec049d1-8fbb-4153-9d91-263185a00bce.json",
+            "title": "My post #5",
+            "id": "4ec049d1-8fbb-4153-9d91-263185a00bce",
+            "created_at": "2020-12-19T17:07:20.477Z",
+            "votes_sum": 8,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/9fcb8525-9715-4fcb-8bcd-054ee325c808.json",
+              "id": "9fcb8525-9715-4fcb-8bcd-054ee325c808",
+              "name": "Bob",
+              "created_at": "2020-12-19T23:20:20.373Z",
+              "updated_at": "2020-12-19T23:20:20.373Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/6ea84b22-6ef3-42e3-925b-f1e685c2118e.json",
+            "title": "My post #18",
+            "id": "6ea84b22-6ef3-42e3-925b-f1e685c2118e",
+            "created_at": "2020-12-19T18:18:20.597Z",
+            "votes_sum": 10,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/079d4000-7175-45d8-a2bb-ffc2f27dca4f.json",
+            "title": "My post #89",
+            "id": "079d4000-7175-45d8-a2bb-ffc2f27dca4f",
+            "created_at": "2020-12-19T15:59:21.214Z",
+            "votes_sum": 12,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/173fd1dd-1eae-4333-9c2d-d306ba308df5.json",
+              "id": "173fd1dd-1eae-4333-9c2d-d306ba308df5",
+              "name": "User 6",
+              "created_at": "2020-12-19T23:20:17.578Z",
+              "updated_at": "2020-12-19T23:20:17.578Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/34a1f7b2-98d0-42ac-b73a-b3575976c1f2.json",
+            "title": "My post #6",
+            "id": "34a1f7b2-98d0-42ac-b73a-b3575976c1f2",
+            "created_at": "2020-12-19T20:39:20.486Z",
+            "votes_sum": 9,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/a1e5d086-2431-40bf-a1d1-386c9f12f49e.json",
+              "id": "a1e5d086-2431-40bf-a1d1-386c9f12f49e",
+              "name": "User 13",
+              "created_at": "2020-12-19T23:20:18.886Z",
+              "updated_at": "2020-12-19T23:20:18.886Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/b0381ab0-7688-4271-b85b-69895f4cd220.json",
+            "title": "My post #35",
+            "id": "b0381ab0-7688-4271-b85b-69895f4cd220",
+            "created_at": "2020-12-19T16:08:20.746Z",
+            "votes_sum": 8,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/242d9218-42d2-4074-8060-340bbb8cce1e.json",
+              "id": "242d9218-42d2-4074-8060-340bbb8cce1e",
+              "name": "User 0",
+              "created_at": "2020-12-19T23:20:16.431Z",
+              "updated_at": "2020-12-19T23:20:16.431Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/654114d0-c541-4503-8ede-332d0fcd1442.json",
+            "title": "My post #37",
+            "id": "654114d0-c541-4503-8ede-332d0fcd1442",
+            "created_at": "2020-12-19T17:15:20.763Z",
+            "votes_sum": 8,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/9d02bf01-2924-47ff-be47-b5e59e56bece.json",
+              "id": "9d02bf01-2924-47ff-be47-b5e59e56bece",
+              "name": "User 19",
+              "created_at": "2020-12-19T23:20:20.006Z",
+              "updated_at": "2020-12-19T23:20:20.006Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/2455198b-1f74-4834-84d8-9938517bc9e4.json",
+            "title": "My post #81",
+            "id": "2455198b-1f74-4834-84d8-9938517bc9e4",
+            "created_at": "2020-12-19T16:58:21.146Z",
+            "votes_sum": 2,
+            "voted": "down",
+            "user": {
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/bdee4f90-e56b-4b60-94c4-a6d3b722c789.json",
+            "title": "My post #0",
+            "id": "bdee4f90-e56b-4b60-94c4-a6d3b722c789",
+            "created_at": "2020-12-19T17:27:20.377Z",
+            "votes_sum": 13,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/173fd1dd-1eae-4333-9c2d-d306ba308df5.json",
+              "id": "173fd1dd-1eae-4333-9c2d-d306ba308df5",
+              "name": "User 6",
+              "created_at": "2020-12-19T23:20:17.578Z",
+              "updated_at": "2020-12-19T23:20:17.578Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/c0800495-00ba-4387-9bbc-4e1a0f7046ec.json",
+            "title": "My post #86",
+            "id": "c0800495-00ba-4387-9bbc-4e1a0f7046ec",
+            "created_at": "2020-12-19T19:13:21.188Z",
+            "votes_sum": 5,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/1a92d3da-0423-4282-9f3b-fccd0b14741e.json",
+              "id": "1a92d3da-0423-4282-9f3b-fccd0b14741e",
+              "name": "User 12",
+              "created_at": "2020-12-19T23:20:18.698Z",
+              "updated_at": "2020-12-19T23:20:18.698Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/da6d9962-b975-4b83-a505-6db007b4dbe1.json",
+            "title": "My post #83",
+            "id": "da6d9962-b975-4b83-a505-6db007b4dbe1",
+            "created_at": "2020-12-19T21:29:21.163Z",
+            "votes_sum": 10,
+            "voted": "down",
+            "user": {
+              "url": "http://localhost:3000/users/56092b36-4b9e-40cc-a4ee-6d1d5c91d8d1.json",
+              "id": "56092b36-4b9e-40cc-a4ee-6d1d5c91d8d1",
+              "name": "User 10",
+              "created_at": "2020-12-19T23:20:18.324Z",
+              "updated_at": "2020-12-19T23:20:18.324Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/7fa96287-8afa-4976-8f1e-120346f11df8.json",
+            "title": "My post #32",
+            "id": "7fa96287-8afa-4976-8f1e-120346f11df8",
+            "created_at": "2020-12-19T18:46:20.718Z",
+            "votes_sum": 4,
+            "voted": "down",
+            "user": {
+              "url": "http://localhost:3000/users/16da37e4-c1a0-4854-a701-edc1f2432f93.json",
+              "id": "16da37e4-c1a0-4854-a701-edc1f2432f93",
+              "name": "User 4",
+              "created_at": "2020-12-19T23:20:17.201Z",
+              "updated_at": "2020-12-19T23:20:17.201Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/a3fc40d6-2de5-4d99-a553-04d3288cbd23.json",
+            "title": "My post #85",
+            "id": "a3fc40d6-2de5-4d99-a553-04d3288cbd23",
+            "created_at": "2020-12-19T20:08:21.179Z",
+            "votes_sum": 5,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/27a55661-c18b-4df2-a9aa-f77a9a43fb0d.json",
+              "id": "27a55661-c18b-4df2-a9aa-f77a9a43fb0d",
+              "name": "User 15",
+              "created_at": "2020-12-19T23:20:19.261Z",
+              "updated_at": "2020-12-19T23:20:19.261Z",
+              "avatar": null
+            }
+          }
+        ],
+        "pagination": {
+          "scaffold_url": "http://localhost:3000/posts.json?page=__pagy_page__",
+          "count": 102,
+          "page": 1,
+          "last_url": "http://localhost:3000/posts.json?page=6",
+          "first_url": "http://localhost:3000/posts.json?page=1",
+          "prev_url": "http://localhost:3000/posts.json?page=",
+          "page_url": "http://localhost:3000/posts.json?page=1",
+          "next_url": "http://localhost:3000/posts.json?page=2"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/posts.json",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "posts": [
+          {
+            "url": "http://localhost:3000/posts/bac9d889-fa78-4f71-9204-2ba3be4fe02c.json",
+            "title": "Hasselt (België) - Wikipedia",
+            "id": "bac9d889-fa78-4f71-9204-2ba3be4fe02c",
+            "created_at": "2020-12-20T19:01:34.539Z",
+            "votes_sum": 1,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca.json",
+            "title": "Yeety yeet",
+            "id": "09385a5a-f965-45eb-8b87-a840dfedc4ca",
+            "created_at": "2020-12-19T23:41:39.444Z",
+            "votes_sum": 0,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/9deeaf35-98a6-4c04-88ee-d6128c379efd.json",
+            "title": "My post #41",
+            "id": "9deeaf35-98a6-4c04-88ee-d6128c379efd",
+            "created_at": "2020-12-19T20:28:20.798Z",
+            "votes_sum": 6,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/9d02bf01-2924-47ff-be47-b5e59e56bece.json",
+              "id": "9d02bf01-2924-47ff-be47-b5e59e56bece",
+              "name": "User 19",
+              "created_at": "2020-12-19T23:20:20.006Z",
+              "updated_at": "2020-12-19T23:20:20.006Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/3a7bd4fe-b8bd-400d-9e73-fa6a573b9c14.json",
+            "title": "My post #53",
+            "id": "3a7bd4fe-b8bd-400d-9e73-fa6a573b9c14",
+            "created_at": "2020-12-19T22:13:20.902Z",
+            "votes_sum": 12,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/79ce0e12-bc38-4626-bdb9-eece3a5391f3.json",
+              "id": "79ce0e12-bc38-4626-bdb9-eece3a5391f3",
+              "name": "User 17",
+              "created_at": "2020-12-19T23:20:19.634Z",
+              "updated_at": "2020-12-19T23:20:19.634Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/633737a2-91b4-4e14-93bb-4ea036ed4358.json",
+            "title": "My post #65",
+            "id": "633737a2-91b4-4e14-93bb-4ea036ed4358",
+            "created_at": "2020-12-19T17:20:21.005Z",
+            "votes_sum": 2,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/1a92d3da-0423-4282-9f3b-fccd0b14741e.json",
+              "id": "1a92d3da-0423-4282-9f3b-fccd0b14741e",
+              "name": "User 12",
+              "created_at": "2020-12-19T23:20:18.698Z",
+              "updated_at": "2020-12-19T23:20:18.698Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/001b07a8-32b3-4f04-8f0e-07a78b6a8c2e.json",
+            "title": "My post #78",
+            "id": "001b07a8-32b3-4f04-8f0e-07a78b6a8c2e",
+            "created_at": "2020-12-19T18:39:21.118Z",
+            "votes_sum": 4,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/79ce0e12-bc38-4626-bdb9-eece3a5391f3.json",
+              "id": "79ce0e12-bc38-4626-bdb9-eece3a5391f3",
+              "name": "User 17",
+              "created_at": "2020-12-19T23:20:19.634Z",
+              "updated_at": "2020-12-19T23:20:19.634Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/aae78027-4800-45c0-b4bc-47881cf01be7.json",
+            "title": "My post #28",
+            "id": "aae78027-4800-45c0-b4bc-47881cf01be7",
+            "created_at": "2020-12-19T19:34:20.684Z",
+            "votes_sum": 5,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/22a1d0f2-f27c-4522-8f9d-f3d8a6e0b24e.json",
+              "id": "22a1d0f2-f27c-4522-8f9d-f3d8a6e0b24e",
+              "name": "User 16",
+              "created_at": "2020-12-19T23:20:19.448Z",
+              "updated_at": "2020-12-19T23:20:19.448Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/bc3ac7c0-e117-40d9-a98a-cfcdba792eb1.json",
+            "title": "My post #3",
+            "id": "bc3ac7c0-e117-40d9-a98a-cfcdba792eb1",
+            "created_at": "2020-12-19T17:28:20.461Z",
+            "votes_sum": 11,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/22a1d0f2-f27c-4522-8f9d-f3d8a6e0b24e.json",
+              "id": "22a1d0f2-f27c-4522-8f9d-f3d8a6e0b24e",
+              "name": "User 16",
+              "created_at": "2020-12-19T23:20:19.448Z",
+              "updated_at": "2020-12-19T23:20:19.448Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/4ec049d1-8fbb-4153-9d91-263185a00bce.json",
+            "title": "My post #5",
+            "id": "4ec049d1-8fbb-4153-9d91-263185a00bce",
+            "created_at": "2020-12-19T17:07:20.477Z",
+            "votes_sum": 8,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/9fcb8525-9715-4fcb-8bcd-054ee325c808.json",
+              "id": "9fcb8525-9715-4fcb-8bcd-054ee325c808",
+              "name": "Bob",
+              "created_at": "2020-12-19T23:20:20.373Z",
+              "updated_at": "2020-12-19T23:20:20.373Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/6ea84b22-6ef3-42e3-925b-f1e685c2118e.json",
+            "title": "My post #18",
+            "id": "6ea84b22-6ef3-42e3-925b-f1e685c2118e",
+            "created_at": "2020-12-19T18:18:20.597Z",
+            "votes_sum": 10,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/079d4000-7175-45d8-a2bb-ffc2f27dca4f.json",
+            "title": "My post #89",
+            "id": "079d4000-7175-45d8-a2bb-ffc2f27dca4f",
+            "created_at": "2020-12-19T15:59:21.214Z",
+            "votes_sum": 12,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/173fd1dd-1eae-4333-9c2d-d306ba308df5.json",
+              "id": "173fd1dd-1eae-4333-9c2d-d306ba308df5",
+              "name": "User 6",
+              "created_at": "2020-12-19T23:20:17.578Z",
+              "updated_at": "2020-12-19T23:20:17.578Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/34a1f7b2-98d0-42ac-b73a-b3575976c1f2.json",
+            "title": "My post #6",
+            "id": "34a1f7b2-98d0-42ac-b73a-b3575976c1f2",
+            "created_at": "2020-12-19T20:39:20.486Z",
+            "votes_sum": 9,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/a1e5d086-2431-40bf-a1d1-386c9f12f49e.json",
+              "id": "a1e5d086-2431-40bf-a1d1-386c9f12f49e",
+              "name": "User 13",
+              "created_at": "2020-12-19T23:20:18.886Z",
+              "updated_at": "2020-12-19T23:20:18.886Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/b0381ab0-7688-4271-b85b-69895f4cd220.json",
+            "title": "My post #35",
+            "id": "b0381ab0-7688-4271-b85b-69895f4cd220",
+            "created_at": "2020-12-19T16:08:20.746Z",
+            "votes_sum": 8,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/242d9218-42d2-4074-8060-340bbb8cce1e.json",
+              "id": "242d9218-42d2-4074-8060-340bbb8cce1e",
+              "name": "User 0",
+              "created_at": "2020-12-19T23:20:16.431Z",
+              "updated_at": "2020-12-19T23:20:16.431Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/654114d0-c541-4503-8ede-332d0fcd1442.json",
+            "title": "My post #37",
+            "id": "654114d0-c541-4503-8ede-332d0fcd1442",
+            "created_at": "2020-12-19T17:15:20.763Z",
+            "votes_sum": 8,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/9d02bf01-2924-47ff-be47-b5e59e56bece.json",
+              "id": "9d02bf01-2924-47ff-be47-b5e59e56bece",
+              "name": "User 19",
+              "created_at": "2020-12-19T23:20:20.006Z",
+              "updated_at": "2020-12-19T23:20:20.006Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/2455198b-1f74-4834-84d8-9938517bc9e4.json",
+            "title": "My post #81",
+            "id": "2455198b-1f74-4834-84d8-9938517bc9e4",
+            "created_at": "2020-12-19T16:58:21.146Z",
+            "votes_sum": 2,
+            "voted": "down",
+            "user": {
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/bdee4f90-e56b-4b60-94c4-a6d3b722c789.json",
+            "title": "My post #0",
+            "id": "bdee4f90-e56b-4b60-94c4-a6d3b722c789",
+            "created_at": "2020-12-19T17:27:20.377Z",
+            "votes_sum": 13,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/173fd1dd-1eae-4333-9c2d-d306ba308df5.json",
+              "id": "173fd1dd-1eae-4333-9c2d-d306ba308df5",
+              "name": "User 6",
+              "created_at": "2020-12-19T23:20:17.578Z",
+              "updated_at": "2020-12-19T23:20:17.578Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/c0800495-00ba-4387-9bbc-4e1a0f7046ec.json",
+            "title": "My post #86",
+            "id": "c0800495-00ba-4387-9bbc-4e1a0f7046ec",
+            "created_at": "2020-12-19T19:13:21.188Z",
+            "votes_sum": 5,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/1a92d3da-0423-4282-9f3b-fccd0b14741e.json",
+              "id": "1a92d3da-0423-4282-9f3b-fccd0b14741e",
+              "name": "User 12",
+              "created_at": "2020-12-19T23:20:18.698Z",
+              "updated_at": "2020-12-19T23:20:18.698Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/da6d9962-b975-4b83-a505-6db007b4dbe1.json",
+            "title": "My post #83",
+            "id": "da6d9962-b975-4b83-a505-6db007b4dbe1",
+            "created_at": "2020-12-19T21:29:21.163Z",
+            "votes_sum": 10,
+            "voted": "down",
+            "user": {
+              "url": "http://localhost:3000/users/56092b36-4b9e-40cc-a4ee-6d1d5c91d8d1.json",
+              "id": "56092b36-4b9e-40cc-a4ee-6d1d5c91d8d1",
+              "name": "User 10",
+              "created_at": "2020-12-19T23:20:18.324Z",
+              "updated_at": "2020-12-19T23:20:18.324Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/7fa96287-8afa-4976-8f1e-120346f11df8.json",
+            "title": "My post #32",
+            "id": "7fa96287-8afa-4976-8f1e-120346f11df8",
+            "created_at": "2020-12-19T18:46:20.718Z",
+            "votes_sum": 4,
+            "voted": "down",
+            "user": {
+              "url": "http://localhost:3000/users/16da37e4-c1a0-4854-a701-edc1f2432f93.json",
+              "id": "16da37e4-c1a0-4854-a701-edc1f2432f93",
+              "name": "User 4",
+              "created_at": "2020-12-19T23:20:17.201Z",
+              "updated_at": "2020-12-19T23:20:17.201Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/a3fc40d6-2de5-4d99-a553-04d3288cbd23.json",
+            "title": "My post #85",
+            "id": "a3fc40d6-2de5-4d99-a553-04d3288cbd23",
+            "created_at": "2020-12-19T20:08:21.179Z",
+            "votes_sum": 5,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/27a55661-c18b-4df2-a9aa-f77a9a43fb0d.json",
+              "id": "27a55661-c18b-4df2-a9aa-f77a9a43fb0d",
+              "name": "User 15",
+              "created_at": "2020-12-19T23:20:19.261Z",
+              "updated_at": "2020-12-19T23:20:19.261Z",
+              "avatar": null
+            }
+          }
+        ],
+        "pagination": {
+          "scaffold_url": "http://localhost:3000/posts.json?page=__pagy_page__",
+          "count": 102,
+          "page": 1,
+          "last_url": "http://localhost:3000/posts.json?page=6",
+          "first_url": "http://localhost:3000/posts.json?page=1",
+          "prev_url": "http://localhost:3000/posts.json?page=",
+          "page_url": "http://localhost:3000/posts.json?page=1",
+          "next_url": "http://localhost:3000/posts.json?page=2"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/posts.json",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "posts": [
+          {
+            "url": "http://localhost:3000/posts/bac9d889-fa78-4f71-9204-2ba3be4fe02c.json",
+            "title": "Hasselt (België) - Wikipedia",
+            "id": "bac9d889-fa78-4f71-9204-2ba3be4fe02c",
+            "created_at": "2020-12-20T19:01:34.539Z",
+            "votes_sum": 1,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca.json",
+            "title": "Yeety yeet",
+            "id": "09385a5a-f965-45eb-8b87-a840dfedc4ca",
+            "created_at": "2020-12-19T23:41:39.444Z",
+            "votes_sum": 0,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/9deeaf35-98a6-4c04-88ee-d6128c379efd.json",
+            "title": "My post #41",
+            "id": "9deeaf35-98a6-4c04-88ee-d6128c379efd",
+            "created_at": "2020-12-19T20:28:20.798Z",
+            "votes_sum": 6,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/9d02bf01-2924-47ff-be47-b5e59e56bece.json",
+              "id": "9d02bf01-2924-47ff-be47-b5e59e56bece",
+              "name": "User 19",
+              "created_at": "2020-12-19T23:20:20.006Z",
+              "updated_at": "2020-12-19T23:20:20.006Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/3a7bd4fe-b8bd-400d-9e73-fa6a573b9c14.json",
+            "title": "My post #53",
+            "id": "3a7bd4fe-b8bd-400d-9e73-fa6a573b9c14",
+            "created_at": "2020-12-19T22:13:20.902Z",
+            "votes_sum": 12,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/79ce0e12-bc38-4626-bdb9-eece3a5391f3.json",
+              "id": "79ce0e12-bc38-4626-bdb9-eece3a5391f3",
+              "name": "User 17",
+              "created_at": "2020-12-19T23:20:19.634Z",
+              "updated_at": "2020-12-19T23:20:19.634Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/633737a2-91b4-4e14-93bb-4ea036ed4358.json",
+            "title": "My post #65",
+            "id": "633737a2-91b4-4e14-93bb-4ea036ed4358",
+            "created_at": "2020-12-19T17:20:21.005Z",
+            "votes_sum": 2,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/1a92d3da-0423-4282-9f3b-fccd0b14741e.json",
+              "id": "1a92d3da-0423-4282-9f3b-fccd0b14741e",
+              "name": "User 12",
+              "created_at": "2020-12-19T23:20:18.698Z",
+              "updated_at": "2020-12-19T23:20:18.698Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/001b07a8-32b3-4f04-8f0e-07a78b6a8c2e.json",
+            "title": "My post #78",
+            "id": "001b07a8-32b3-4f04-8f0e-07a78b6a8c2e",
+            "created_at": "2020-12-19T18:39:21.118Z",
+            "votes_sum": 4,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/79ce0e12-bc38-4626-bdb9-eece3a5391f3.json",
+              "id": "79ce0e12-bc38-4626-bdb9-eece3a5391f3",
+              "name": "User 17",
+              "created_at": "2020-12-19T23:20:19.634Z",
+              "updated_at": "2020-12-19T23:20:19.634Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/aae78027-4800-45c0-b4bc-47881cf01be7.json",
+            "title": "My post #28",
+            "id": "aae78027-4800-45c0-b4bc-47881cf01be7",
+            "created_at": "2020-12-19T19:34:20.684Z",
+            "votes_sum": 5,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/22a1d0f2-f27c-4522-8f9d-f3d8a6e0b24e.json",
+              "id": "22a1d0f2-f27c-4522-8f9d-f3d8a6e0b24e",
+              "name": "User 16",
+              "created_at": "2020-12-19T23:20:19.448Z",
+              "updated_at": "2020-12-19T23:20:19.448Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/bc3ac7c0-e117-40d9-a98a-cfcdba792eb1.json",
+            "title": "My post #3",
+            "id": "bc3ac7c0-e117-40d9-a98a-cfcdba792eb1",
+            "created_at": "2020-12-19T17:28:20.461Z",
+            "votes_sum": 11,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/22a1d0f2-f27c-4522-8f9d-f3d8a6e0b24e.json",
+              "id": "22a1d0f2-f27c-4522-8f9d-f3d8a6e0b24e",
+              "name": "User 16",
+              "created_at": "2020-12-19T23:20:19.448Z",
+              "updated_at": "2020-12-19T23:20:19.448Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/4ec049d1-8fbb-4153-9d91-263185a00bce.json",
+            "title": "My post #5",
+            "id": "4ec049d1-8fbb-4153-9d91-263185a00bce",
+            "created_at": "2020-12-19T17:07:20.477Z",
+            "votes_sum": 8,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/9fcb8525-9715-4fcb-8bcd-054ee325c808.json",
+              "id": "9fcb8525-9715-4fcb-8bcd-054ee325c808",
+              "name": "Bob",
+              "created_at": "2020-12-19T23:20:20.373Z",
+              "updated_at": "2020-12-19T23:20:20.373Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/6ea84b22-6ef3-42e3-925b-f1e685c2118e.json",
+            "title": "My post #18",
+            "id": "6ea84b22-6ef3-42e3-925b-f1e685c2118e",
+            "created_at": "2020-12-19T18:18:20.597Z",
+            "votes_sum": 10,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/079d4000-7175-45d8-a2bb-ffc2f27dca4f.json",
+            "title": "My post #89",
+            "id": "079d4000-7175-45d8-a2bb-ffc2f27dca4f",
+            "created_at": "2020-12-19T15:59:21.214Z",
+            "votes_sum": 12,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/173fd1dd-1eae-4333-9c2d-d306ba308df5.json",
+              "id": "173fd1dd-1eae-4333-9c2d-d306ba308df5",
+              "name": "User 6",
+              "created_at": "2020-12-19T23:20:17.578Z",
+              "updated_at": "2020-12-19T23:20:17.578Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/34a1f7b2-98d0-42ac-b73a-b3575976c1f2.json",
+            "title": "My post #6",
+            "id": "34a1f7b2-98d0-42ac-b73a-b3575976c1f2",
+            "created_at": "2020-12-19T20:39:20.486Z",
+            "votes_sum": 9,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/a1e5d086-2431-40bf-a1d1-386c9f12f49e.json",
+              "id": "a1e5d086-2431-40bf-a1d1-386c9f12f49e",
+              "name": "User 13",
+              "created_at": "2020-12-19T23:20:18.886Z",
+              "updated_at": "2020-12-19T23:20:18.886Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/b0381ab0-7688-4271-b85b-69895f4cd220.json",
+            "title": "My post #35",
+            "id": "b0381ab0-7688-4271-b85b-69895f4cd220",
+            "created_at": "2020-12-19T16:08:20.746Z",
+            "votes_sum": 8,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/242d9218-42d2-4074-8060-340bbb8cce1e.json",
+              "id": "242d9218-42d2-4074-8060-340bbb8cce1e",
+              "name": "User 0",
+              "created_at": "2020-12-19T23:20:16.431Z",
+              "updated_at": "2020-12-19T23:20:16.431Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/654114d0-c541-4503-8ede-332d0fcd1442.json",
+            "title": "My post #37",
+            "id": "654114d0-c541-4503-8ede-332d0fcd1442",
+            "created_at": "2020-12-19T17:15:20.763Z",
+            "votes_sum": 8,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/9d02bf01-2924-47ff-be47-b5e59e56bece.json",
+              "id": "9d02bf01-2924-47ff-be47-b5e59e56bece",
+              "name": "User 19",
+              "created_at": "2020-12-19T23:20:20.006Z",
+              "updated_at": "2020-12-19T23:20:20.006Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/2455198b-1f74-4834-84d8-9938517bc9e4.json",
+            "title": "My post #81",
+            "id": "2455198b-1f74-4834-84d8-9938517bc9e4",
+            "created_at": "2020-12-19T16:58:21.146Z",
+            "votes_sum": 2,
+            "voted": "down",
+            "user": {
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/bdee4f90-e56b-4b60-94c4-a6d3b722c789.json",
+            "title": "My post #0",
+            "id": "bdee4f90-e56b-4b60-94c4-a6d3b722c789",
+            "created_at": "2020-12-19T17:27:20.377Z",
+            "votes_sum": 13,
+            "voted": "up",
+            "user": {
+              "url": "http://localhost:3000/users/173fd1dd-1eae-4333-9c2d-d306ba308df5.json",
+              "id": "173fd1dd-1eae-4333-9c2d-d306ba308df5",
+              "name": "User 6",
+              "created_at": "2020-12-19T23:20:17.578Z",
+              "updated_at": "2020-12-19T23:20:17.578Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/c0800495-00ba-4387-9bbc-4e1a0f7046ec.json",
+            "title": "My post #86",
+            "id": "c0800495-00ba-4387-9bbc-4e1a0f7046ec",
+            "created_at": "2020-12-19T19:13:21.188Z",
+            "votes_sum": 5,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/1a92d3da-0423-4282-9f3b-fccd0b14741e.json",
+              "id": "1a92d3da-0423-4282-9f3b-fccd0b14741e",
+              "name": "User 12",
+              "created_at": "2020-12-19T23:20:18.698Z",
+              "updated_at": "2020-12-19T23:20:18.698Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/da6d9962-b975-4b83-a505-6db007b4dbe1.json",
+            "title": "My post #83",
+            "id": "da6d9962-b975-4b83-a505-6db007b4dbe1",
+            "created_at": "2020-12-19T21:29:21.163Z",
+            "votes_sum": 10,
+            "voted": "down",
+            "user": {
+              "url": "http://localhost:3000/users/56092b36-4b9e-40cc-a4ee-6d1d5c91d8d1.json",
+              "id": "56092b36-4b9e-40cc-a4ee-6d1d5c91d8d1",
+              "name": "User 10",
+              "created_at": "2020-12-19T23:20:18.324Z",
+              "updated_at": "2020-12-19T23:20:18.324Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/7fa96287-8afa-4976-8f1e-120346f11df8.json",
+            "title": "My post #32",
+            "id": "7fa96287-8afa-4976-8f1e-120346f11df8",
+            "created_at": "2020-12-19T18:46:20.718Z",
+            "votes_sum": 4,
+            "voted": "down",
+            "user": {
+              "url": "http://localhost:3000/users/16da37e4-c1a0-4854-a701-edc1f2432f93.json",
+              "id": "16da37e4-c1a0-4854-a701-edc1f2432f93",
+              "name": "User 4",
+              "created_at": "2020-12-19T23:20:17.201Z",
+              "updated_at": "2020-12-19T23:20:17.201Z",
+              "avatar": null
+            }
+          },
+          {
+            "url": "http://localhost:3000/posts/a3fc40d6-2de5-4d99-a553-04d3288cbd23.json",
+            "title": "My post #85",
+            "id": "a3fc40d6-2de5-4d99-a553-04d3288cbd23",
+            "created_at": "2020-12-19T20:08:21.179Z",
+            "votes_sum": 5,
+            "voted": null,
+            "user": {
+              "url": "http://localhost:3000/users/27a55661-c18b-4df2-a9aa-f77a9a43fb0d.json",
+              "id": "27a55661-c18b-4df2-a9aa-f77a9a43fb0d",
+              "name": "User 15",
+              "created_at": "2020-12-19T23:20:19.261Z",
+              "updated_at": "2020-12-19T23:20:19.261Z",
+              "avatar": null
+            }
+          }
+        ],
+        "pagination": {
+          "scaffold_url": "http://localhost:3000/posts.json?page=__pagy_page__",
+          "count": 102,
+          "page": 1,
+          "last_url": "http://localhost:3000/posts.json?page=6",
+          "first_url": "http://localhost:3000/posts.json?page=1",
+          "prev_url": "http://localhost:3000/posts.json?page=",
+          "page_url": "http://localhost:3000/posts.json?page=1",
+          "next_url": "http://localhost:3000/posts.json?page=2"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "posts#show": [
+    {
+      "verb": "GET",
+      "path": "/posts/bac9d889-fa78-4f71-9204-2ba3be4fe02c.json",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "id": "bac9d889-fa78-4f71-9204-2ba3be4fe02c",
+        "title": "Hasselt (België) - Wikipedia",
+        "content": "Hasselt is de hoofdstad van de Belgische provincie Limburg en telt ruim 78.000 inwoners, die Hasselaars[1] worden genoemd. Hierdoor is het qua inwonersaantal de kleinste provinciehoofdstad van Vlaanderen. De stad is de zetel van het bisdom Hasselt en ook de hoofdplaats van het kieskanton en de twee gerechtelijk kantons Hasselt. Hasselt is gelegen aan het Albertkanaal en de Demer, aan de rand van de Kempen, midden in de Grensregio Vlaanderen-Nederland.",
+        "created_at": "2020-12-20T19:01:34.539Z",
+        "url": "http://localhost:3000/posts/bac9d889-fa78-4f71-9204-2ba3be4fe02c.json",
+        "user": {
+          "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+          "name": "Alice",
+          "created_at": "2020-12-19T23:20:20.190Z",
+          "updated_at": "2020-12-21T17:48:16.407Z",
+          "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+          "avatar": {
+            "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+            "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+            "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+          }
+        },
+        "comments": [
+          {
+            "id": "b5d6a75a-8697-43fc-9f27-3af3731519c5",
+            "post_id": "bac9d889-fa78-4f71-9204-2ba3be4fe02c",
+            "body": "Yeet",
+            "edited": false,
+            "parent_id": null,
+            "created_at": "2020-12-22T01:36:31.604Z",
+            "updated_at": "2020-12-22T01:36:31.604Z",
+            "url": "http://localhost:3000/comments/b5d6a75a-8697-43fc-9f27-3af3731519c5.json",
+            "children": [
+
+            ],
+            "user": {
+              "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+              "name": "Alice",
+              "created_at": "2020-12-19T23:20:20.190Z",
+              "updated_at": "2020-12-21T17:48:16.407Z",
+              "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+              "avatar": {
+                "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+                "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+                "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+              }
+            },
+            "votes_sum": 0,
+            "voted": null
+          }
+        ],
+        "votes_sum": 1,
+        "voted": "up",
+        "body": "<div class=\"trix-content\">\n  <div>Hasselt is de hoofdstad van de Belgische provincie Limburg en telt ruim 78.000 inwoners, die Hasselaars[1] worden genoemd. Hierdoor is het qua inwonersaantal de kleinste provinciehoofdstad van Vlaanderen. De stad is de zetel van het bisdom Hasselt en ook de hoofdplaats van het kieskanton en de twee gerechtelijk kantons Hasselt. Hasselt is gelegen aan het Albertkanaal en de Demer, aan de rand van de Kempen, midden in de Grensregio Vlaanderen-Nederland.</div>\n</div>\n"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "posts#update": [
+    {
+      "verb": "PATCH",
+      "path": "/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "_method=patch&authenticity_token=V6rGtAJDcPtN5VNeqd7yXGvKK%2FCG%2FUgDZMV3A%2FKBNMmXj0xVcqiv7oBpBQgN2QVSX3MAsxUEO7RdKlF615G1iA%3D%3D&post%5Blocation%5D=POINT+%285.340439081192017+50.91762283894972%29&post%5Btitle%5D=Yeety+yeet&post%5Bsource%5D=&post%5Bbody%5D=%3Cdiv%3EMy+good+content%3C%2Fdiv%3E&commit=Update+Post",
+      "response_data": "<html><body>You are being <a href=\"http://localhost:3000/posts/09385a5a-f965-45eb-8b87-a840dfedc4ca\">redirected</a>.</body></html>",
+      "code": 302,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "posts#vote": [
+    {
+      "verb": "POST",
+      "path": "/posts/ebf695a1-f2cb-42b8-87cc-cdafb8624379/vote",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "authenticity_token=S30aL0l9d%2Fmdy4pSRlsJYZJdLVEZYIqZwUmwZnIfA6IW0nOL%2FyIqNJzt08pP9fwHawmrFEvcuD53tNV268juMA%3D%3D&direction=up",
+      "response_data": "<html><body>You are being <a href=\"http://localhost:3000/posts/ebf695a1-f2cb-42b8-87cc-cdafb8624379\">redirected</a>.</body></html>",
+      "code": 302,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/posts/ebf695a1-f2cb-42b8-87cc-cdafb8624379/vote",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "authenticity_token=XCS0aq4XA%2F3AGaSBYLQBBPN9HEHg%2Byg%2BEDUnY9nzl3gBi93OGEheMME%2F%2FRlpGvRiCimaBLJHGpmmyEJzQCR66g%3D%3D&direction=down",
+      "response_data": "<html><body>You are being <a href=\"http://localhost:3000/posts/ebf695a1-f2cb-42b8-87cc-cdafb8624379\">redirected</a>.</body></html>",
+      "code": 302,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/posts/ebf695a1-f2cb-42b8-87cc-cdafb8624379/vote",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "authenticity_token=x7zFb4%2FSdnKTPGi6U3iy%2BtDbv67izb%2FkIqFQCmU2KiGaE6zLOY0rv5IaMSJa1kecKY8567BxjUOUXDUa%2FOHHsw%3D%3D&direction=up",
+      "response_data": "<html><body>You are being <a href=\"http://localhost:3000/posts/ebf695a1-f2cb-42b8-87cc-cdafb8624379\">redirected</a>.</body></html>",
+      "code": 302,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "redirect#show": [
+    {
+      "verb": "GET",
+      "path": "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": "<html><body>You are being <a href=\"http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZOREZ1WXpjeGN6aGplakYxY3pScE5HVnlkelo1WkdoMGRIUnFNaTh5WW1Rd05UVm1OV1JoT0dJNU16UmxZalF4TW1JNU1qWmpNVGt4WldJeFpqWXdPR1F5WlRkaE1tRTNNR1V5T1RBeE1qUXhOVFV5TTJVNU9UQXlZVGRtQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKUmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVEyOWxia1JsVEdGdVpGSnZkbVZ5TG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25RMjlsYmtSbFRHRnVaRkp2ZG1WeUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaU0lPYVcxaFoyVXZjRzVuT2hGelpYSjJhV05sWDI1aGJXVTZDbXh2WTJGcyIsImV4cCI6IjIwMjAtMTItMjJUMDE6NDM6NDMuNTY4WiIsInB1ciI6ImJsb2Jfa2V5In19--f9212075ae674e9ce5807ca928c752229b73c4df/CoenDeLandRover.png\">redirected</a>.</body></html>",
+      "code": 302,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "users#show": [
+    {
+      "verb": "GET",
+      "path": "/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "id": "9b9feef5-626c-455a-9d6e-e6c16fe7d1d9",
+        "name": "Alice",
+        "created_at": "2020-12-19T23:20:20.190Z",
+        "updated_at": "2020-12-21T17:48:16.407Z",
+        "url": "http://localhost:3000/users/9b9feef5-626c-455a-9d6e-e6c16fe7d1d9.json",
+        "avatar": {
+          "full": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/CoenDeLandRover.png",
+          "large": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHQWFRR0EiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--8a82f920e0ee6f9ddbf0b4b16d5c24103845b047/CoenDeLandRover.png",
+          "small": "http://localhost:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsyTXprM1pEVXdZaTB6T0dNNExUUmpPV010T0RobE1DMDBOekprWm1NM056WmhZV1FHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--ad55841e8d94024553b575903d1691d6a09bd99a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--3f55eb8c2c539a622839b4d23c99c4f3bb31ced5/CoenDeLandRover.png"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ]
+}
